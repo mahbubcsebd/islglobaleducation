@@ -25,16 +25,10 @@ export function proxy(request) {
 
   // Check cookie preference first (set when user toggles language)
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
-  let targetLocale = defaultLocale;
+  let targetLocale = defaultLocale; // 'en' by default for all first-time visitors
 
   if (cookieLocale && locales.includes(cookieLocale)) {
     targetLocale = cookieLocale;
-  } else {
-    // Detect preferred locale from accept-language header
-    const acceptLanguage = request.headers.get('accept-language') || '';
-    if (acceptLanguage.includes('bn')) {
-      targetLocale = 'bn';
-    }
   }
 
   // Redirect to localized path
