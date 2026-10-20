@@ -10,8 +10,8 @@ const ThemeContext = React.createContext({
 
 export function ThemeProvider({
   children,
-  defaultTheme = "dark",
-  storageKey = "isl-theme",
+  defaultTheme = "light",
+  storageKey = "isl-theme-v2",
 }) {
   const [theme, setThemeState] = React.useState(defaultTheme);
   const [resolvedTheme, setResolvedTheme] = React.useState(defaultTheme);
