@@ -50,7 +50,9 @@ export function ServicesSection({ dict }) {
   ];
 
   return (
-    <section id="services" className="py-20 relative bg-transparent">
+    <section id="services" className="py-20 relative bg-transparent overflow-hidden">
+      {/* Subtle Services Radial Atmosphere */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[950px] h-[400px] sm:h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(79,70,229,0.12)_0%,rgba(247,223,30,0.12)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.22)_0%,rgba(247,223,30,0.08)_50%,transparent_75%)] blur-3xl -z-10" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
@@ -73,7 +75,7 @@ export function ServicesSection({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-xl border border-border bg-surface p-7 transition-colors hover:border-primary shadow-2xs"
+                className="group relative rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-7 transition-all duration-300 hover:border-primary hover:bg-surface hover:shadow-xl shadow-2xs"
               >
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-2xs transition-transform duration-200 group-hover:scale-105">

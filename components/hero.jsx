@@ -89,7 +89,7 @@ export function Hero({ lang, dict }) {
         {/* Quick Search / Destination Omnibar with real-time bilingual matching */}
         <div ref={searchContainerRef} className="relative mx-auto max-w-xl mb-8 text-left">
           <form onSubmit={handleSearchSubmit}>
-            <div className="relative flex items-center rounded-xl border border-border bg-surface p-1.5 shadow-2xs focus-within:border-primary transition-all">
+            <div className="relative flex items-center rounded-xl border border-border/80 bg-surface/90 dark:bg-surface/90 backdrop-blur-xl p-1.5 shadow-md focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
               <div className="pl-3.5 pr-2 text-foreground-muted">
                 <Search className="size-4 text-primary" />
               </div>
@@ -177,25 +177,25 @@ export function Hero({ lang, dict }) {
 
         {/* 4 Trust Highlights Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 text-xs font-medium text-foreground">
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
             <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
               <FileCheck2 className="size-3.5" />
             </span>
             <span className="font-semibold">{dict.hero.pill1}</span>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
             <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
               <GraduationCap className="size-3.5" />
             </span>
             <span className="font-semibold">{dict.hero.pill2}</span>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
             <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
               <Sparkles className="size-3.5" />
             </span>
             <span className="font-semibold">{dict.hero.pill3}</span>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
             <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
               <TrendingUp className="size-3.5" />
             </span>

@@ -7,9 +7,12 @@ export function CtaSection({ dict }) {
   return (
     <section className="py-20 relative bg-transparent">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-xl border border-border bg-surface p-8 sm:p-14 text-center shadow-2xs overflow-hidden">
-          {/* Subtle Ambient Glow for CTA */}
-          <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(247,223,30,0.12)_0%,rgba(44,58,136,0.3)_50%,transparent_75%)] opacity-30 dark:opacity-80 blur-2xl select-none" aria-hidden="true" />
+        <div className="relative rounded-2xl border border-border/80 dark:border-white/10 bg-surface/85 dark:bg-[#121428]/90 backdrop-blur-xl p-8 sm:p-14 text-center shadow-xl overflow-hidden">
+          {/* Subtle Top 1.5px Horizon Radiant Beam */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-xl h-[1.5px] bg-gradient-to-r from-transparent via-primary dark:via-[#F7DF1E]/50 to-transparent z-20 pointer-events-none" />
+
+          {/* Luminous Ambient Glow for CTA */}
+          <div className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-[radial-gradient(ellipse_at_top,rgba(247,223,30,0.30)_0%,rgba(79,70,229,0.22)_45%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(247,223,30,0.14)_0%,rgba(44,58,136,0.40)_50%,transparent_75%)] opacity-85 dark:opacity-90 blur-2xl select-none" aria-hidden="true" />
 
           <div className="relative z-10">
             <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-6">

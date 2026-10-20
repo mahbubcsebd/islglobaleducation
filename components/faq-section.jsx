@@ -19,7 +19,9 @@ export function FaqSection({ dict }) {
   ];
 
   return (
-    <section id="faq" className="py-20 relative bg-transparent">
+    <section id="faq" className="py-20 relative bg-transparent overflow-hidden">
+      {/* Subtle FAQ Radial Atmosphere */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[850px] h-[380px] sm:h-[480px] bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.12)_0%,rgba(247,223,30,0.10)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.22)_0%,rgba(247,223,30,0.08)_50%,transparent_75%)] blur-3xl -z-10" />
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-14">

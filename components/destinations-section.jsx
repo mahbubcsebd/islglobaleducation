@@ -96,7 +96,9 @@ export function DestinationsSection({ lang, dict }) {
   };
 
   return (
-    <section id="destinations" className="py-20 relative bg-transparent">
+    <section id="destinations" className="py-20 relative bg-transparent overflow-hidden">
+      {/* Subtle Destinations Radial Atmosphere */}
+      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[950px] h-[400px] sm:h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.14)_0%,rgba(247,223,30,0.12)_45%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.25)_0%,rgba(247,223,30,0.08)_45%,transparent_75%)] blur-3xl -z-10" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-12">
@@ -183,10 +185,10 @@ export function DestinationsSection({ lang, dict }) {
           /* Destination Cards Grid */
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((item) => (
-            <div
-              key={item.id}
-              className="group relative flex flex-col justify-between rounded-xl border border-border bg-surface p-6 transition-all duration-200 hover:border-primary shadow-2xs"
-            >
+              <div
+                key={item.id}
+                className="group relative flex flex-col justify-between rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-6 transition-all duration-300 hover:border-primary hover:bg-surface hover:shadow-xl shadow-2xs"
+              >
               {/* Highlight badge for Malaysia with Primary */}
               {item.popular && (
                 <div className="absolute -top-3 right-5 rounded-md bg-primary px-2.5 py-0.5 text-[10px] font-bold text-primary-foreground tracking-wide uppercase shadow-2xs">

@@ -116,22 +116,22 @@ export function Footer({ lang, dict }) {
 
   return (
     <footer className="relative border-t border-border/60 bg-background overflow-hidden transition-colors">
-      {/* 1px Horizon Top Edge Accent Beam */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* 1.5px Horizon Top Edge Accent Beam */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1.5px] bg-gradient-to-r from-transparent via-[#2C3A88]/35 dark:via-[#F7DF1E]/40 to-transparent" />
 
       {/* Atmospheric Ambient Lighting & Animated Glow */}
       <div className="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
         {/* Soft Center Top Spotlight Beam */}
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] sm:w-[950px] md:w-[1200px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(44,58,136,0.35)_0%,rgba(247,223,30,0.08)_45%,transparent_75%)] opacity-80 dark:opacity-95 blur-2xl" />
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] sm:w-[950px] md:w-[1200px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(79,70,229,0.20)_0%,rgba(247,223,30,0.22)_45%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(44,58,136,0.35)_0%,rgba(247,223,30,0.08)_45%,transparent_75%)] opacity-90 dark:opacity-95 blur-2xl" />
 
         {/* Ambient Floating Lighting Orb 1 (Royal Navy Sapphire) */}
-        <div className="absolute -bottom-16 -left-20 sm:left-[3%] md:left-[6%] w-72 sm:w-96 md:w-[420px] h-72 sm:h-96 md:h-[420px] rounded-full bg-primary/25 dark:bg-[#2C3A88]/35 blur-[90px] sm:blur-[120px] animate-ambient-float" />
+        <div className="absolute -bottom-16 -left-20 sm:left-[3%] md:left-[6%] w-72 sm:w-96 md:w-[420px] h-72 sm:h-96 md:h-[420px] rounded-full bg-gradient-to-br from-[#2C3A88]/25 via-blue-600/22 to-indigo-500/20 dark:bg-[#2C3A88]/35 blur-[90px] sm:blur-[120px] animate-ambient-float" />
 
         {/* Ambient Floating Lighting Orb 2 (Warm Golden Shimmer) */}
-        <div className="absolute -top-10 -right-20 sm:right-[3%] md:right-[8%] w-64 sm:w-80 md:w-[360px] h-64 sm:h-80 md:h-[360px] rounded-full bg-accent/20 dark:bg-[#F7DF1E]/14 blur-[80px] sm:blur-[110px] animate-ambient-pulse" />
+        <div className="absolute -top-10 -right-20 sm:right-[3%] md:right-[8%] w-64 sm:w-80 md:w-[360px] h-64 sm:h-80 md:h-[360px] rounded-full bg-gradient-to-br from-amber-400/35 via-yellow-400/28 to-amber-200/22 dark:bg-[#F7DF1E]/14 blur-[80px] sm:blur-[110px] animate-ambient-pulse" />
 
         {/* Architectural Dot Matrix Grid with Subtle Radial Fade */}
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.035)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_85%_75%_at_50%_40%,#000_40%,transparent_100%)] opacity-65" />
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(44,58,136,0.065)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_85%_75%_at_50%_40%,#000_40%,transparent_100%)] opacity-75" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-9 md:pt-12 pb-3.5 sm:pb-4">

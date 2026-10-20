@@ -81,11 +81,13 @@ export function ContactSection({ dict }) {
   };
 
   return (
-    <section id="contact" className="py-20 relative bg-transparent">
+    <section id="contact" className="py-20 relative bg-transparent overflow-hidden">
+      {/* Subtle Contact Radial Atmosphere */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[950px] h-[400px] sm:h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.14)_0%,rgba(247,223,30,0.12)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.25)_0%,rgba(247,223,30,0.08)_50%,transparent_75%)] blur-3xl -z-10" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
             <MapPin className="size-3.5" />
             <span>{dict.contact.badge}</span>
           </div>
@@ -102,7 +104,7 @@ export function ContactSection({ dict }) {
           {/* Left Column: Office Details with fixed gap that never expands */}
           <div ref={leftColRef} className="flex flex-col gap-4">
             {/* Address Card with Brand Logo */}
-            <div className="rounded-xl border border-border bg-surface p-6 shadow-2xs space-y-4">
+            <div className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-6 shadow-2xs space-y-4 hover:bg-surface transition-colors">
               <div className="flex items-center justify-between pb-4 border-b border-border">
                 <BrandLogo
                   width={160}
@@ -125,7 +127,7 @@ export function ContactSection({ dict }) {
                   <p className="text-xs text-foreground-secondary mt-1 leading-relaxed">
                     {dict.contact.addressDesc}
                   </p>
-                  <div className="mt-2 text-xs text-primary font-medium">
+                  <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-foreground-secondary font-medium">
                     {dict.contact.appointmentBadge}
                   </div>
                 </div>
@@ -133,7 +135,7 @@ export function ContactSection({ dict }) {
             </div>
 
             {/* Hotline Numbers & Premium WhatsApp Card */}
-            <div className="rounded-xl border border-border bg-surface p-6 flex items-start gap-4 shadow-2xs">
+            <div className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-6 flex items-start gap-4 shadow-2xs hover:bg-surface transition-colors">
               <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shrink-0 shadow-2xs">
                 <Phone className="size-5" />
               </div>
@@ -144,14 +146,14 @@ export function ContactSection({ dict }) {
                 <div className="flex flex-wrap items-center gap-3 mt-1.5">
                   <a
                     href="tel:+8801910030040"
-                    className="text-xs font-semibold text-primary hover:underline"
+                    className="text-xs font-semibold text-foreground hover:text-primary transition-colors hover:underline"
                   >
                     +880 1910-030040
                   </a>
                   <span className="text-border">|</span>
                   <a
                     href="tel:+8801910030093"
-                    className="text-xs font-semibold text-primary hover:underline"
+                    className="text-xs font-semibold text-foreground hover:text-primary transition-colors hover:underline"
                   >
                     +880 1910-030093
                   </a>
@@ -173,7 +175,7 @@ export function ContactSection({ dict }) {
 
             {/* Email & Hours Card */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="rounded-xl border border-border bg-surface p-5 shadow-2xs">
+              <div className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-5 shadow-2xs hover:bg-surface transition-colors">
                 <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground mb-3 shadow-2xs">
                   <Mail className="size-4" />
                 </div>
@@ -188,7 +190,7 @@ export function ContactSection({ dict }) {
                 </a>
               </div>
 
-              <div className="rounded-xl border border-border bg-surface p-5 shadow-2xs">
+              <div className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-5 shadow-2xs hover:bg-surface transition-colors">
                 <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground mb-3 shadow-2xs">
                   <Clock className="size-4" />
                 </div>
@@ -205,8 +207,10 @@ export function ContactSection({ dict }) {
           {/* Right Column: Form Card matching initial left height, freely expanding on error */}
           <div
             style={{ minHeight: minFormHeight ? `${minFormHeight}px` : undefined }}
-            className="rounded-xl border border-border bg-surface p-7 shadow-2xs flex flex-col justify-between"
+            className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-7 shadow-2xs flex flex-col justify-between relative overflow-hidden"
           >
+            {/* Subtle Top 1.5px Horizon Radiant Beam */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-sm h-[1.5px] bg-gradient-to-r from-transparent via-primary/50 dark:via-[#F7DF1E]/40 to-transparent pointer-events-none" />
             <div>
               <h3 className="text-lg font-bold text-foreground mb-1">
                 {dict.contact.messageBoxTitle}

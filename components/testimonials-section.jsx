@@ -106,6 +106,8 @@ export function TestimonialsSection({ dict }) {
 
   return (
     <section className="py-20 relative bg-transparent overflow-hidden">
+      {/* Subtle Testimonials Radial Atmosphere */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[950px] h-[380px] sm:h-[480px] bg-[radial-gradient(ellipse_at_center,rgba(247,223,30,0.15)_0%,rgba(79,70,229,0.12)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(247,223,30,0.08)_0%,rgba(44,58,136,0.22)_50%,transparent_75%)] blur-3xl -z-10" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
@@ -126,14 +128,14 @@ export function TestimonialsSection({ dict }) {
           <div className="flex items-center gap-2 mt-6 md:mt-0">
             <button
               type="button"
-              className="testimonials-prev-btn flex size-10 items-center justify-center rounded-lg border border-border bg-surface text-foreground hover:bg-surface-alt hover:border-primary transition-colors cursor-pointer shadow-2xs"
+              className="testimonials-prev-btn flex size-10 items-center justify-center rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md text-foreground hover:bg-surface hover:border-primary transition-all cursor-pointer shadow-2xs"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="size-5" />
             </button>
             <button
               type="button"
-              className="testimonials-next-btn flex size-10 items-center justify-center rounded-lg border border-border bg-surface text-foreground hover:bg-surface-alt hover:border-primary transition-colors cursor-pointer shadow-2xs"
+              className="testimonials-next-btn flex size-10 items-center justify-center rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md text-foreground hover:bg-surface hover:border-primary transition-all cursor-pointer shadow-2xs"
               aria-label="Next testimonial"
             >
               <ChevronRight className="size-5" />
@@ -172,7 +174,7 @@ export function TestimonialsSection({ dict }) {
             >
               {stories.map((story) => (
                 <SwiperSlide key={story.id}>
-                  <div className="group relative rounded-xl border border-border bg-surface p-6 sm:p-7 transition-colors hover:border-primary flex flex-col justify-between w-full h-full shadow-2xs">
+                  <div className="group relative rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-6 sm:p-7 transition-all duration-300 hover:border-primary hover:bg-surface hover:shadow-xl flex flex-col justify-between w-full h-full shadow-2xs">
                     {/* Top Content: Rating, Flag and Quote */}
                     <div>
                       <div className="flex items-center justify-between mb-4">

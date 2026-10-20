@@ -36,7 +36,7 @@ export function MetricsRibbon({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-xl border border-border bg-surface p-4 sm:p-5 transition-colors hover:border-primary shadow-2xs"
+                className="group relative rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-4 sm:p-5 transition-all duration-300 hover:border-primary hover:bg-surface hover:shadow-md shadow-2xs"
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-2xs">

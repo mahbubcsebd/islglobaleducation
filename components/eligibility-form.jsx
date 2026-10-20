@@ -93,10 +93,10 @@ export function EligibilityForm({ lang, dict }) {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-xl border border-border/80 dark:border-white/10 bg-surface/90 dark:bg-[#121426]/90 backdrop-blur-xl p-6 sm:p-9 md:p-10 shadow-xl relative overflow-hidden">
           {/* Subtle Top Horizon Radiant Accent Line */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-md h-[1.5px] bg-gradient-to-r from-transparent via-primary/50 dark:via-[#F7DF1E]/40 to-transparent" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-md h-[1.5px] bg-gradient-to-r from-transparent via-primary dark:via-[#F7DF1E]/50 to-transparent z-10" />
 
-          {/* Subtle Ambient Glow */}
-          <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[radial-gradient(ellipse_at_top,rgba(44,58,136,0.18)_0%,transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(247,223,30,0.08)_0%,transparent_70%)] blur-2xl" />
+          {/* Radiant Ambient Glow */}
+          <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[260px] bg-[radial-gradient(ellipse_at_top,rgba(247,223,30,0.25)_0%,rgba(79,70,229,0.18)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(247,223,30,0.12)_0%,rgba(44,58,136,0.25)_50%,transparent_75%)] opacity-85 dark:opacity-85 blur-2xl" />
 
           {/* Form Header */}
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-9 relative z-10">
