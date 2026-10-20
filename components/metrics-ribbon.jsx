@@ -39,16 +39,16 @@ export function MetricsRibbon({ dict }) {
                 className="group relative rounded-xl border border-border bg-surface p-4 sm:p-5 transition-colors hover:border-primary shadow-2xs"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <div className={`flex size-8 items-center justify-center rounded-lg ${stat.highlight ? "bg-accent/15 text-accent" : "bg-primary-soft text-primary"}`}>
+                  <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-2xs">
                     <IconComponent className="size-4" />
                   </div>
                   {stat.highlight && (
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded-md">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-primary text-primary-foreground px-2 py-0.5 rounded-md shadow-2xs">
                       {dict.metrics.featured || "Featured"}
                     </span>
                   )}
                 </div>
-                <div className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${stat.highlight ? "text-accent" : "text-foreground"}`}>
+                <div className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${stat.highlight ? "text-primary" : "text-foreground"}`}>
                   {stat.value}
                 </div>
                 <div className="text-xs text-foreground-secondary mt-1 font-medium leading-snug">

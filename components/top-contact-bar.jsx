@@ -2,7 +2,7 @@ import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 
 export function TopContactBar({ dict }) {
   return (
-    <div className="w-full bg-background border-b border-border text-[11px] text-foreground-secondary hidden sm:block">
+    <div className="w-full bg-background/75 dark:bg-[#0A0C1B]/85 backdrop-blur-md border-b border-border/70 text-[11px] text-foreground-secondary hidden sm:block transition-colors relative z-20">
       <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left items: Phone and Email */}
         <div className="flex items-center gap-5">

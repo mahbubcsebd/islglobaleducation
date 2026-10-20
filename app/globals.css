@@ -48,7 +48,7 @@
 }
 
 /* ==========================================================================
-   LIGHT THEME (BRAND DEEP INDIGO #2E3192 + ACCENT GOLD #C9A24B)
+   LIGHT THEME (PRIMARY YELLOW #F7DF1E)
    ========================================================================== */
 :root {
   --background: #FAF9FD;
@@ -65,30 +65,30 @@
   --foreground-secondary: #55577A;
   --foreground-muted: #8A8CA8;
 
-  /* Primary Logo Color: Deep Indigo */
-  --primary: #2E3192;
-  --primary-hover: #25277A;
-  --primary-soft: #ECECF8;
-  --primary-foreground: #FFFFFF;
-  --on-primary: #FFFFFF;
+  /* Primary Yellow: #F7DF1E (exact same as dark mode) */
+  --primary: #F7DF1E;
+  --primary-hover: #E5CE16;
+  --primary-soft: #FEF9C3;
+  --primary-foreground: #0F1020;
+  --on-primary: #0F1020;
 
   /* Secondary & Muted */
   --secondary: #F2F2FA;
-  --secondary-foreground: #2E3192;
+  --secondary-foreground: #0F1020;
   --muted: #F2F2FA;
   --muted-foreground: #55577A;
 
-  /* Gold Accent */
-  --accent: #C9A24B;
-  --accent-foreground: #FFFFFF;
+  /* Accent: #F7DF1E */
+  --accent: #F7DF1E;
+  --accent-foreground: #0F1020;
 
   --destructive: #E5242A;
-  --ring: #2E3192;
+  --ring: #F7DF1E;
   --radius: 0.75rem;
 }
 
 /* ==========================================================================
-   DARK THEME (TINTED INDIGO #8B90EE + MUTED DARK #0F1020 + ACCENT GOLD #D8B661)
+   DARK THEME
    ========================================================================== */
 .dark {
   --background: #0F1020;
@@ -105,10 +105,10 @@
   --foreground-secondary: #B3B5D1;
   --foreground-muted: #7F82A3;
 
-  /* Primary in dark mode: Lighter tint for readability */
-  --primary: #8B90EE;
-  --primary-hover: #A1A5F4;
-  --primary-soft: #22254A;
+  /* Primary in dark mode: JS Yellow #F7DF1E */
+  --primary: #F7DF1E;
+  --primary-hover: #E5CE16;
+  --primary-soft: #262412;
   --primary-foreground: #0F1020;
   --on-primary: #0F1020;
 
@@ -123,7 +123,7 @@
   --accent-foreground: #0F1020;
 
   --destructive: #F35369;
-  --ring: #8B90EE;
+  --ring: #F7DF1E;
   --radius: 0.75rem;
 }
 
@@ -164,6 +164,54 @@
 
 .animate-accordion-up {
   animation: accordion-up 0.2s ease-out;
+}
+
+/* Ambient Lighting & Mesh Animations */
+@keyframes ambient-float {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(30px, -25px) scale(1.1);
+  }
+}
+
+@keyframes ambient-pulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1) translate(0px, 0px);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.15) translate(-25px, 20px);
+  }
+}
+
+.animate-ambient-float {
+  animation: ambient-float 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-ambient-pulse {
+  animation: ambient-pulse 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes ambient-drift {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(35px, -20px) scale(1.08);
+  }
+  66% {
+    transform: translate(-25px, 30px) scale(0.95);
+  }
+}
+
+.animate-ambient-drift {
+  animation: ambient-drift 18s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Testimonials Swiper Equal Height & Clean Overflow */

@@ -35,11 +35,11 @@ export function WhyChooseUs({ dict }) {
   ];
 
   return (
-    <section id="why-us" className="py-20 relative bg-background">
+    <section id="why-us" className="py-20 relative bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
             <CheckCircle className="size-3.5" />
             <span>{dict.whyUs.badge}</span>
           </div>
@@ -62,10 +62,10 @@ export function WhyChooseUs({ dict }) {
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="flex size-11 items-center justify-center rounded-lg bg-primary-soft text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
+                    <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-2xs transition-transform duration-200 group-hover:scale-105">
                       <IconComponent className="size-5" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent bg-accent/10 px-2.5 py-1 rounded-md">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-primary text-primary-foreground px-2.5 py-1 rounded-md shadow-2xs">
                       {item.highlight}
                     </span>
                   </div>

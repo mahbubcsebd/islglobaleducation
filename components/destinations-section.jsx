@@ -96,11 +96,11 @@ export function DestinationsSection({ lang, dict }) {
   };
 
   return (
-    <section id="destinations" className="py-20 relative bg-background">
+    <section id="destinations" className="py-20 relative bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
             <Globe2 className="size-3.5" />
             <span>{dict.destinations.badge}</span>
           </div>
@@ -159,7 +159,7 @@ export function DestinationsSection({ lang, dict }) {
         {/* If no destinations matched the search */}
         {filtered.length === 0 ? (
           <div className="mx-auto max-w-md text-center py-12 px-6 rounded-xl border border-border bg-surface shadow-2xs space-y-4 animate-in fade-in-50 duration-200">
-            <div className="flex size-14 items-center justify-center rounded-full bg-accent/15 text-accent mx-auto">
+            <div className="flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground mx-auto shadow-2xs">
               <Search className="size-6" />
             </div>
             <h3 className="text-base font-bold text-foreground">
@@ -187,9 +187,9 @@ export function DestinationsSection({ lang, dict }) {
               key={item.id}
               className="group relative flex flex-col justify-between rounded-xl border border-border bg-surface p-6 transition-all duration-200 hover:border-primary shadow-2xs"
             >
-              {/* Highlight badge for Malaysia with Gold Accent */}
+              {/* Highlight badge for Malaysia with Primary */}
               {item.popular && (
-                <div className="absolute -top-3 right-5 rounded-md bg-accent px-2.5 py-0.5 text-[10px] font-bold text-accent-foreground tracking-wide uppercase shadow-2xs">
+                <div className="absolute -top-3 right-5 rounded-md bg-primary px-2.5 py-0.5 text-[10px] font-bold text-primary-foreground tracking-wide uppercase shadow-2xs">
                   {dict.destinations.topChoice || "Top Choice"}
                 </div>
               )}
@@ -202,7 +202,7 @@ export function DestinationsSection({ lang, dict }) {
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                       {item.name}
                     </h3>
-                    <span className="text-[11px] font-medium text-accent">
+                    <span className="text-[11px] font-semibold text-primary">
                       {item.tag}
                     </span>
                   </div>

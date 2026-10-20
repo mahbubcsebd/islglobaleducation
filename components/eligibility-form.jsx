@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
+import { BrandLogo } from "@/components/brand-logo";
 import {
   Sparkles,
   Send,
@@ -88,30 +89,34 @@ export function EligibilityForm({ lang, dict }) {
   };
 
   return (
-    <section id="eligibility" className="py-20 relative bg-background">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-xl border border-border bg-surface p-6 sm:p-10 shadow-2xs relative overflow-hidden">
+    <section id="eligibility" className="py-16 sm:py-20 relative bg-transparent">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-xl border border-border/80 dark:border-white/10 bg-surface/90 dark:bg-[#121426]/90 backdrop-blur-xl p-6 sm:p-9 md:p-10 shadow-xl relative overflow-hidden">
+          {/* Subtle Top Horizon Radiant Accent Line */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-md h-[1.5px] bg-gradient-to-r from-transparent via-primary/50 dark:via-[#F7DF1E]/40 to-transparent" />
+
+          {/* Subtle Ambient Glow */}
+          <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[radial-gradient(ellipse_at_top,rgba(44,58,136,0.18)_0%,transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(247,223,30,0.08)_0%,transparent_70%)] blur-2xl" />
+
           {/* Form Header */}
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-9 relative z-10">
             {/* Brand Logo without any background or border */}
-            <div className="flex justify-center mb-5">
-              <Image
-                src="/logo.png"
-                alt="ISL Global Education"
-                width={180}
-                height={50}
-                className="h-10 sm:h-12 w-auto object-contain"
+            <div className="flex justify-center mb-4">
+              <BrandLogo
+                width={160}
+                height={44}
+                className="h-8 sm:h-9 w-auto object-contain opacity-95"
               />
             </div>
 
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-xs font-semibold text-accent mb-3">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
               <Sparkles className="size-3.5" />
               <span>{dict.eligibility.badge}</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-3">
+            <h2 className="text-xl sm:text-3xl font-extrabold tracking-tight text-foreground mb-2.5">
               {dict.eligibility.title}
             </h2>
-            <p className="text-xs sm:text-sm text-foreground-secondary leading-relaxed">
+            <p className="text-xs sm:text-sm text-foreground-secondary leading-relaxed max-w-xl mx-auto">
               {dict.eligibility.subtitle}
             </p>
           </div>
@@ -316,26 +321,26 @@ export function EligibilityForm({ lang, dict }) {
               </div>
 
               {/* Submit Buttons & Trust badges */}
-              <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <Button
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto h-11 px-7 font-semibold rounded-md shadow-md hover:shadow-lg transition-all"
                 >
                   <Send className="size-4 mr-2" />
                   {isSubmitting ? dict.eligibility.submitting : dict.eligibility.submitBtn}
                 </Button>
 
-                <div className="flex items-center gap-4 text-xs text-foreground-secondary">
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="size-3.5 text-primary" />
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-foreground-secondary">
+                  <div className="flex items-center gap-1.5 rounded-md border border-border/70 bg-background/50 px-2.5 py-1 shadow-2xs">
+                    <Clock className="size-3.5 text-primary shrink-0" />
                     <span>{dict.eligibility.response2Hours || "Response in 2 Hours"}</span>
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="size-3.5 text-emerald-500" />
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-md border border-border/70 bg-background/50 px-2.5 py-1 shadow-2xs">
+                    <CheckCircle2 className="size-3.5 text-emerald-500 shrink-0" />
                     <span>{dict.eligibility.freeConsultation || "100% Free Consultation"}</span>
-                  </span>
+                  </div>
                 </div>
               </div>
             </form>

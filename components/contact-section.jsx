@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
+import { BrandLogo } from "@/components/brand-logo";
 import {
   MapPin,
   Phone,
@@ -80,7 +81,7 @@ export function ContactSection({ dict }) {
   };
 
   return (
-    <section id="contact" className="py-20 relative bg-background">
+    <section id="contact" className="py-20 relative bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
@@ -103,20 +104,18 @@ export function ContactSection({ dict }) {
             {/* Address Card with Brand Logo */}
             <div className="rounded-xl border border-border bg-surface p-6 shadow-2xs space-y-4">
               <div className="flex items-center justify-between pb-4 border-b border-border">
-                <Image
-                  src="/logo.png"
-                  alt="ISL Global Education"
+                <BrandLogo
                   width={160}
                   height={44}
                   className="h-9 sm:h-10 w-auto object-contain"
                 />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-soft px-2.5 py-1 rounded-md">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-primary text-primary-foreground px-2.5 py-1 rounded-md shadow-2xs">
                   {dict.contact.headOffice || "Head Office"}
                 </span>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex size-11 items-center justify-center rounded-lg bg-primary-soft text-primary shrink-0 mt-0.5">
+                <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shrink-0 mt-0.5 shadow-2xs">
                   <MapPin className="size-5" />
                 </div>
                 <div>
@@ -135,7 +134,7 @@ export function ContactSection({ dict }) {
 
             {/* Hotline Numbers & Premium WhatsApp Card */}
             <div className="rounded-xl border border-border bg-surface p-6 flex items-start gap-4 shadow-2xs">
-              <div className="flex size-11 items-center justify-center rounded-lg bg-primary-soft text-primary shrink-0">
+              <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shrink-0 shadow-2xs">
                 <Phone className="size-5" />
               </div>
               <div className="w-full">
@@ -175,7 +174,7 @@ export function ContactSection({ dict }) {
             {/* Email & Hours Card */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="rounded-xl border border-border bg-surface p-5 shadow-2xs">
-                <div className="flex size-9 items-center justify-center rounded-lg bg-primary-soft text-primary mb-3">
+                <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground mb-3 shadow-2xs">
                   <Mail className="size-4" />
                 </div>
                 <h4 className="text-xs font-bold text-foreground">
@@ -190,7 +189,7 @@ export function ContactSection({ dict }) {
               </div>
 
               <div className="rounded-xl border border-border bg-surface p-5 shadow-2xs">
-                <div className="flex size-9 items-center justify-center rounded-lg bg-primary-soft text-primary mb-3">
+                <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground mb-3 shadow-2xs">
                   <Clock className="size-4" />
                 </div>
                 <h4 className="text-xs font-bold text-foreground">

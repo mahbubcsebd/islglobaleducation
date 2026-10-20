@@ -36,11 +36,11 @@ export function ProcessRoadmap({ dict }) {
   ];
 
   return (
-    <section id="process" className="py-20 relative bg-background">
+    <section id="process" className="py-20 relative bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
             <Compass className="size-3.5" />
             <span>{dict.process.badge}</span>
           </div>
@@ -63,10 +63,10 @@ export function ProcessRoadmap({ dict }) {
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-2xl font-bold text-accent">
+                    <span className="font-mono text-2xl font-bold text-primary">
                       {item.step}
                     </span>
-                    <div className="flex size-10 items-center justify-center rounded-lg bg-primary-soft text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
+                    <div className="flex size-10 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-2xs transition-transform duration-200 group-hover:scale-105">
                       <IconComponent className="size-5" />
                     </div>
                   </div>

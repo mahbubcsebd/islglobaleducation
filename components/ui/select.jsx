@@ -17,9 +17,12 @@ const SelectTrigger = React.forwardRef(
       ref={ref}
       data-slot="select-trigger"
       className={cn(
-        "flex h-9 w-full items-center justify-between rounded-lg border border-border bg-surface px-3 py-2 text-xs text-foreground placeholder:text-foreground-muted outline-none transition-colors cursor-pointer",
-        "focus:border-primary focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
-        hasError && "border-destructive focus:border-destructive focus:ring-destructive/30",
+        "flex h-10 w-full items-center justify-between gap-2 rounded-md border border-border/80 dark:border-[#2C2F4D] bg-background/90 dark:bg-[#0C0E1F] px-3 py-2 text-xs sm:text-sm text-foreground text-left outline-none transition-all duration-150 cursor-pointer",
+        "data-[placeholder]:text-foreground-muted/70 dark:data-[placeholder]:text-[#8E92A8]",
+        "hover:border-border dark:hover:border-[#3D4268] hover:bg-background",
+        "focus:border-primary focus:ring-0 focus:outline-none focus:bg-background disabled:cursor-not-allowed disabled:opacity-50",
+        "[&>span]:flex-1 [&>span]:text-left [&>span]:truncate [&>span]:block",
+        hasError && "border-destructive focus:border-destructive",
         className
       )}
       {...props}
@@ -73,7 +76,7 @@ const SelectContent = React.forwardRef(
         ref={ref}
         data-slot="select-content"
         className={cn(
-          "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-lg border border-border bg-surface text-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border border-border/80 dark:border-white/10 bg-surface text-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className

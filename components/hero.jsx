@@ -65,18 +65,18 @@ export function Hero({ lang, dict }) {
   };
 
   return (
-    <section className="relative pt-10 pb-16 md:pt-16 md:pb-24 bg-background">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-        {/* Floating pill announcement badge with subtle gold accent */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-medium text-foreground mb-6 shadow-2xs">
-          <span className="size-2 rounded-full bg-accent animate-pulse" />
+    <section className="relative pt-8 pb-16 md:pt-14 md:pb-24 bg-transparent">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+        {/* Floating pill announcement badge with primary yellow */}
+        <div className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-1.5 text-xs font-bold mb-6 shadow-2xs">
+          <span className="size-2 rounded-full bg-primary-foreground animate-pulse" />
           <span>{dict.hero.badge}</span>
         </div>
 
         {/* Hero Headings: strictly 2 lines with balanced leading */}
         <h1 className="hero-heading mx-auto max-w-5xl text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight text-foreground leading-[1.2] md:leading-[1.24] mb-6">
           <span className="block">{dict.hero.titleLine1}</span>
-          <span className="block text-primary underline decoration-accent/60 underline-offset-8 mt-1.5 sm:mt-2.5">
+          <span className="block text-primary underline decoration-primary/60 underline-offset-8 mt-1.5 sm:mt-2.5">
             {dict.hero.titleLine2}
           </span>
         </h1>
@@ -177,21 +177,29 @@ export function Hero({ lang, dict }) {
 
         {/* 4 Trust Highlights Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 text-xs font-medium text-foreground">
-          <div className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
-            <FileCheck2 className="size-3.5 text-primary" />
-            <span>{dict.hero.pill1}</span>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
+            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+              <FileCheck2 className="size-3.5" />
+            </span>
+            <span className="font-semibold">{dict.hero.pill1}</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
-            <GraduationCap className="size-3.5 text-primary" />
-            <span>{dict.hero.pill2}</span>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
+            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+              <GraduationCap className="size-3.5" />
+            </span>
+            <span className="font-semibold">{dict.hero.pill2}</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
-            <Sparkles className="size-3.5 text-accent" />
-            <span>{dict.hero.pill3}</span>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
+            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+              <Sparkles className="size-3.5" />
+            </span>
+            <span className="font-semibold">{dict.hero.pill3}</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
-            <TrendingUp className="size-3.5 text-accent" />
-            <span>{dict.hero.pill4}</span>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 shadow-2xs">
+            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+              <TrendingUp className="size-3.5" />
+            </span>
+            <span className="font-semibold">{dict.hero.pill4}</span>
           </div>
         </div>
 

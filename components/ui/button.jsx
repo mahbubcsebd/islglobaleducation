@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "cn";
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding font-medium whitespace-nowrap transition-colors outline-none select-none cursor-pointer focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding font-medium whitespace-nowrap transition-colors outline-none select-none cursor-pointer focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
@@ -26,11 +26,11 @@ const buttonVariants = cva(
       size: {
         default: "h-10 px-5 text-sm gap-2",
         xs: "h-7 px-2.5 text-xs rounded-md gap-1 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-8 sm:h-9 px-3.5 text-xs rounded-lg gap-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "h-11 px-7 text-sm font-semibold rounded-lg gap-2",
-        xl: "h-12 px-8 text-base font-semibold rounded-lg gap-2.5",
-        icon: "size-10 rounded-lg",
-        "icon-sm": "size-8 rounded-lg",
+        sm: "h-8 sm:h-9 px-3.5 text-xs rounded-md gap-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-11 px-7 text-sm font-semibold rounded-md gap-2",
+        xl: "h-12 px-8 text-base font-semibold rounded-md gap-2.5",
+        icon: "size-10 rounded-md",
+        "icon-sm": "size-8 rounded-md",
         "icon-xs": "size-7 rounded-md [&_svg:not([class*='size-'])]:size-3",
       },
     },

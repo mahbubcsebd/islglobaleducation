@@ -7,9 +7,21 @@ import { Menu, X, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function Navbar({ lang, dict }) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { label: dict.nav.destinations, href: `#destinations` },
@@ -22,20 +34,22 @@ export function Navbar({ lang, dict }) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-md transition-colors">
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled || mobileMenuOpen
+          ? "border-b border-border bg-background/95 dark:bg-[#0F1020]/90 backdrop-blur-xl shadow-md"
+          : "border-b border-border/70 bg-background/80 dark:bg-[#0F1020]/80 backdrop-blur-xl shadow-2xs"
+      }`}
+    >
       <div className="mx-auto flex h-16 sm:h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo without any background or border */}
         <Link
           href={`/${lang}`}
           className="group flex items-center transition-transform hover:scale-[1.02]"
         >
-          <Image
-            src="/logo.png"
-            alt="ISL Global Education"
-            width={180}
-            height={48}
-            className="h-9 sm:h-10 md:h-11 w-auto object-contain"
+          <BrandLogo
             priority
+            className="h-9 sm:h-10 md:h-11 w-auto object-contain"
           />
         </Link>
 

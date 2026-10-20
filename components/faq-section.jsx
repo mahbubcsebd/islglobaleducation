@@ -19,11 +19,11 @@ export function FaqSection({ dict }) {
   ];
 
   return (
-    <section id="faq" className="py-20 relative bg-background">
+    <section id="faq" className="py-20 relative bg-transparent">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-14">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
             <HelpCircle className="size-3.5" />
             <span>{dict.faq.badge}</span>
           </div>
@@ -36,7 +36,7 @@ export function FaqSection({ dict }) {
         </div>
 
         {/* Shadcn Accordion */}
-        <Accordion type="single" collapsible defaultValue="faq-1" className="space-y-3">
+        <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq) => (
             <AccordionItem key={faq.id} value={faq.id}>
               <AccordionTrigger>{faq.q}</AccordionTrigger>

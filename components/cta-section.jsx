@@ -5,11 +5,14 @@ import { Button } from "@/components/ui/button";
 
 export function CtaSection({ dict }) {
   return (
-    <section className="py-20 relative bg-background">
+    <section className="py-20 relative bg-transparent">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-xl border border-border bg-surface p-8 sm:p-14 text-center shadow-2xs overflow-hidden">
+          {/* Subtle Ambient Glow for CTA */}
+          <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(247,223,30,0.12)_0%,rgba(44,58,136,0.3)_50%,transparent_75%)] opacity-30 dark:opacity-80 blur-2xl select-none" aria-hidden="true" />
+
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-xs font-semibold text-accent mb-6">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-6">
               <Sparkles className="size-3.5" />
               <span>{dict.cta.badge}</span>
             </div>

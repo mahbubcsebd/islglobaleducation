@@ -2,6 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function Footer({ lang, dict }) {
   const currentYear = 2026;
@@ -114,18 +115,34 @@ export function Footer({ lang, dict }) {
   ];
 
   return (
-    <footer className="border-t border-border bg-background transition-colors">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+    <footer className="relative border-t border-border/60 bg-background overflow-hidden transition-colors">
+      {/* 1px Horizon Top Edge Accent Beam */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+      {/* Atmospheric Ambient Lighting & Animated Glow */}
+      <div className="pointer-events-none absolute inset-0 select-none overflow-hidden" aria-hidden="true">
+        {/* Soft Center Top Spotlight Beam */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] sm:w-[950px] md:w-[1200px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(44,58,136,0.35)_0%,rgba(247,223,30,0.08)_45%,transparent_75%)] opacity-80 dark:opacity-95 blur-2xl" />
+
+        {/* Ambient Floating Lighting Orb 1 (Royal Navy Sapphire) */}
+        <div className="absolute -bottom-16 -left-20 sm:left-[3%] md:left-[6%] w-72 sm:w-96 md:w-[420px] h-72 sm:h-96 md:h-[420px] rounded-full bg-primary/25 dark:bg-[#2C3A88]/35 blur-[90px] sm:blur-[120px] animate-ambient-float" />
+
+        {/* Ambient Floating Lighting Orb 2 (Warm Golden Shimmer) */}
+        <div className="absolute -top-10 -right-20 sm:right-[3%] md:right-[8%] w-64 sm:w-80 md:w-[360px] h-64 sm:h-80 md:h-[360px] rounded-full bg-accent/20 dark:bg-[#F7DF1E]/14 blur-[80px] sm:blur-[110px] animate-ambient-pulse" />
+
+        {/* Architectural Dot Matrix Grid with Subtle Radial Fade */}
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.035)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_85%_75%_at_50%_40%,#000_40%,transparent_100%)] opacity-65" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-9 md:pt-12 pb-3.5 sm:pb-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6 md:mb-8">
           {/* Brand Info with Prominent Logo */}
           <div className="space-y-4 md:col-span-1">
             <Link
               href={`/${lang}`}
               className="inline-block transition-transform hover:scale-[1.02]"
             >
-              <Image
-                src="/logo.png"
-                alt="ISL Global Education"
+              <BrandLogo
                 width={180}
                 height={48}
                 className="h-10 sm:h-11 w-auto object-contain"
@@ -135,7 +152,7 @@ export function Footer({ lang, dict }) {
               {dict.footer.brandDesc}
             </p>
 
-            {/* Social Media Links with Official Brand Colors & Clean Rounded-lg */}
+            {/* Minimal & Luxury Monochromatic Social Media Links */}
             <div className="flex flex-wrap items-center gap-2 pt-2">
               {activeSocials.map((platform) => {
                 const Icon = platform.icon;
@@ -145,7 +162,7 @@ export function Footer({ lang, dict }) {
                     href={platform.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`size-8 rounded-lg ${platform.bgColor} ${platform.hoverBg} ${platform.textColor} flex items-center justify-center transition-all shadow-xs hover:scale-105`}
+                    className="size-8 rounded-lg border border-border/70 bg-surface/50 hover:bg-surface text-foreground-secondary hover:text-primary hover:border-primary/50 flex items-center justify-center transition-all shadow-2xs hover:scale-105"
                     aria-label={platform.name}
                     title={platform.name}
                   >
@@ -247,7 +264,7 @@ export function Footer({ lang, dict }) {
         </div>
 
         {/* Bottom Bar (Replaced developer placeholder with professional agency tagline & policy links) */}
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-foreground-secondary">
+        <div className="pt-4 sm:pt-4.5 border-t border-border/70 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-foreground-secondary">
           <p>© {currentYear} {dict.nav.brand}. {dict.footer.allRights}</p>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 font-medium">
             <span>{dict.footer.bottomTagline}</span>

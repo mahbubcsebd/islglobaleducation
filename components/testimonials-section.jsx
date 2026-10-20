@@ -105,12 +105,12 @@ export function TestimonialsSection({ dict }) {
   };
 
   return (
-    <section className="py-20 relative bg-background overflow-hidden">
+    <section className="py-20 relative bg-transparent overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div className="max-w-2xl text-left">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
               <Sparkles className="size-3.5" />
               <span>{dict.testimonials.badge}</span>
             </div>
@@ -176,7 +176,7 @@ export function TestimonialsSection({ dict }) {
                     {/* Top Content: Rating, Flag and Quote */}
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-1 text-accent">
+                        <div className="flex items-center gap-1 text-primary">
                           {[...Array(story.rating || 5)].map((_, s) => (
                             <Star key={s} className="size-3.5 fill-current" />
                           ))}
@@ -228,7 +228,7 @@ export function TestimonialsSection({ dict }) {
                 <div key={story.id} className="rounded-xl border border-border bg-surface p-6 sm:p-7 flex flex-col justify-between h-full shadow-2xs">
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-1 text-accent">
+                      <div className="flex items-center gap-1 text-primary">
                         {[...Array(5)].map((_, s) => (
                           <Star key={s} className="size-3.5 fill-current" />
                         ))}
