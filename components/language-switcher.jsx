@@ -3,7 +3,6 @@
 import * as React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function LanguageSwitcher({ currentLang = "en" }) {
   const router = useRouter();
@@ -32,17 +31,17 @@ export function LanguageSwitcher({ currentLang = "en" }) {
   };
 
   return (
-    <div className="inline-flex items-center gap-1 p-1 bg-muted/60 dark:bg-muted/40 border border-border/60 rounded-full backdrop-blur-sm">
-      <div className="flex items-center pl-2 pr-1 text-muted-foreground">
+    <div className="inline-flex items-center gap-1 p-1 bg-surface-alt border border-border rounded-lg shadow-2xs">
+      <div className="flex items-center pl-1.5 pr-1 text-primary">
         <Globe className="size-3.5" />
       </div>
       <button
         type="button"
         onClick={() => handleLanguageChange("en")}
-        className={`px-2.5 py-1 text-xs font-medium rounded-full transition-all duration-200 cursor-pointer ${
+        className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors cursor-pointer ${
           currentLang === "en"
-            ? "bg-primary text-primary-foreground shadow-xs font-semibold"
-            : "text-muted-foreground hover:text-foreground"
+            ? "bg-primary text-primary-foreground font-semibold shadow-2xs"
+            : "text-foreground-secondary hover:text-foreground"
         }`}
       >
         EN
@@ -50,10 +49,10 @@ export function LanguageSwitcher({ currentLang = "en" }) {
       <button
         type="button"
         onClick={() => handleLanguageChange("bn")}
-        className={`px-2.5 py-1 text-xs font-medium rounded-full transition-all duration-200 cursor-pointer ${
+        className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors cursor-pointer ${
           currentLang === "bn"
-            ? "bg-primary text-primary-foreground shadow-xs font-semibold"
-            : "text-muted-foreground hover:text-foreground"
+            ? "bg-primary text-primary-foreground font-semibold shadow-2xs"
+            : "text-foreground-secondary hover:text-foreground"
         }`}
       >
         বাং

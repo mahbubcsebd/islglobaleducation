@@ -1,133 +1,211 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { Button } from '@/components/ui/button';
 import {
-  Sparkles,
   ArrowRight,
-  ShieldCheck,
-  GraduationCap,
   FileCheck2,
-  TrendingUp,
-  Search,
   Globe2,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+  GraduationCap,
+  Search,
+  Sparkles,
+  TrendingUp,
+} from 'lucide-react';
+import Link from 'next/link';
+import * as React from 'react';
+import { searchDestinations } from '@/lib/destination-search';
 
 export function Hero({ lang, dict }) {
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [isFocused, setIsFocused] = React.useState(false);
+  const searchContainerRef = React.useRef(null);
+
+  // Real-time matches based on current query
+  const matches = React.useMemo(() => {
+    return searchDestinations(searchQuery);
+  }, [searchQuery]);
+
+  // Close dropdown on outside click
+  React.useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+        setIsFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const triggerSearch = (queryOrId) => {
+    const targetQuery = queryOrId !== undefined ? queryOrId : searchQuery.trim();
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("destination-search", {
+          detail: targetQuery,
+        })
+      );
+      const dest = document.getElementById("destinations");
+      dest?.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsFocused(false);
+  };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    const dest = document.getElementById("destinations");
-    dest?.scrollIntoView({ behavior: "smooth" });
+    triggerSearch();
+  };
+
+  const handleSelectDestination = (destItem) => {
+    setSearchQuery(lang === "bn" ? destItem.bnName : destItem.enName);
+    triggerSearch(destItem.id);
+  };
+
+  const handleClear = () => {
+    setSearchQuery("");
+    triggerSearch("");
   };
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24">
-      {/* Subtle Google-style purple ambient gradient glow */}
-      <div
-        className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-primary/35 to-purple-400/15 opacity-40 sm:left-[calc(50%-20rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
-
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-        {/* Official Brand Logo Badge */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center bg-white/95 dark:bg-white/95 px-4 py-2 rounded-2xl shadow-sm border border-white/20 hover:scale-105 transition-transform">
-            <Image
-              src="/logo.png"
-              alt="ISL Global Education"
-              width={180}
-              height={46}
-              className="h-10 sm:h-12 w-auto object-contain"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Floating pill announcement badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-medium text-foreground backdrop-blur-md mb-6 hover:border-primary/50 transition-colors shadow-xs">
-          <span className="size-2 rounded-full bg-primary animate-pulse" />
+    <section className="relative pt-8 pb-16 md:pt-14 md:pb-24 bg-transparent">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+        {/* Floating pill announcement badge with primary yellow */}
+        <div className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-1.5 text-xs font-bold mb-6 shadow-2xs">
+          <span className="size-2 rounded-full bg-primary-foreground animate-pulse" />
           <span>{dict.hero.badge}</span>
         </div>
 
-        {/* Hero Headings */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] mb-6">
-          <span>{dict.hero.titleLine1}</span>{" "}
-          <span className="bg-linear-to-r from-primary via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+        {/* Hero Headings: strictly 2 lines with balanced leading */}
+        <h1 className="hero-heading mx-auto max-w-5xl text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight text-foreground leading-[1.2] md:leading-[1.24] mb-6">
+          <span className="block">{dict.hero.titleLine1}</span>
+          <span className="block text-primary underline decoration-primary/60 underline-offset-8 mt-1.5 sm:mt-2.5">
             {dict.hero.titleLine2}
           </span>
         </h1>
 
         {/* Hero Subtitle */}
-        <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
+        <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-foreground-secondary leading-relaxed mb-8">
           {dict.hero.subtitle}
         </p>
 
-        {/* Quick Search / Destination Omnibar */}
-        <form
-          onSubmit={handleSearchSubmit}
-          className="mx-auto max-w-xl mb-8"
-        >
-          <div className="relative flex items-center rounded-full border border-border/70 bg-card/80 p-1.5 shadow-lg shadow-primary/5 backdrop-blur-xl focus-within:border-primary/70 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
-            <div className="pl-3.5 pr-2 text-muted-foreground">
-              <Search className="size-4 text-primary" />
+        {/* Quick Search / Destination Omnibar with real-time bilingual matching */}
+        <div ref={searchContainerRef} className="relative mx-auto max-w-xl mb-8 text-left">
+          <form onSubmit={handleSearchSubmit}>
+            <div className="relative flex items-center rounded-xl border border-border/80 bg-surface/90 dark:bg-surface/90 backdrop-blur-xl p-1.5 shadow-md focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+              <div className="pl-3.5 pr-2 text-foreground-muted">
+                <Search className="size-4 text-primary" />
+              </div>
+              <input
+                type="text"
+                value={searchQuery}
+                onFocus={() => setIsFocused(true)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setIsFocused(true);
+                }}
+                placeholder={
+                  dict.hero?.searchPlaceholder ||
+                  (lang === 'en'
+                    ? 'Search country (Malaysia, UK, Canada...) or subject...'
+                    : 'দেশ (মালয়েশিয়া, ইউকে, কানাডা...) বা পছন্দের বিষয় লিখুন...')
+                }
+                className="w-full bg-transparent text-xs sm:text-sm text-foreground placeholder:text-foreground-muted outline-none pr-2"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  className="px-2 text-foreground-muted hover:text-foreground text-xs"
+                  aria-label="Clear search"
+                >
+                  ✕
+                </button>
+              )}
+              <Button type="submit" size="sm" className="shrink-0">
+                <Globe2 className="size-3.5 mr-1" />
+                {dict.hero.ctaSecondary}
+              </Button>
             </div>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={lang === "en" ? "Search country (Malaysia, UK, Canada...) or subject..." : "দেশ (মালয়েশিয়া, ইউকে, কানাডা...) বা পছন্দের বিষয় লিখুন..."}
-              className="w-full bg-transparent text-xs sm:text-sm text-foreground placeholder:text-muted-foreground/60 outline-none"
-            />
-            <Button
-              type="submit"
-              size="sm"
-              className="rounded-full px-4 text-xs font-medium shrink-0 cursor-pointer shadow-xs"
-            >
-              <Globe2 className="size-3.5 mr-1" />
-              {dict.hero.ctaSecondary}
-            </Button>
-          </div>
-        </form>
+          </form>
+
+          {/* Real-time Bilingual Autocomplete Dropdown */}
+          {isFocused && searchQuery.trim().length > 0 && (
+            <div className="absolute top-full left-0 right-0 mt-2 z-50 rounded-xl border border-border bg-surface shadow-xl overflow-hidden animate-in fade-in-50 zoom-in-95 duration-150">
+              <div className="px-4 py-2 bg-surface-alt border-b border-border text-[11px] font-semibold text-foreground-secondary uppercase tracking-wider flex items-center justify-between">
+                <span>{dict.hero?.searchSuggestions || (lang === 'bn' ? 'পরামর্শকৃত দেশসমূহ' : 'Suggested Destinations')}</span>
+                <span>{matches.length} {lang === 'bn' ? 'টি দেশ' : 'matches'}</span>
+              </div>
+
+              {matches.length > 0 ? (
+                <div className="max-h-64 overflow-y-auto divide-y divide-border">
+                  {matches.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => handleSelectDestination(item)}
+                      className="w-full text-left px-4 py-3 flex items-center justify-between hover:bg-surface-alt transition-colors group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{item.flag}</span>
+                        <div>
+                          <div className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">
+                            {lang === "bn" ? item.bnName : item.enName}
+                            <span className="text-xs font-normal text-foreground-muted ml-2">
+                              ({lang === "bn" ? item.enName : item.bnName})
+                            </span>
+                          </div>
+                          <div className="text-xs text-foreground-secondary line-clamp-1">
+                            {lang === "bn" ? item.bnTag : item.enTag}
+                          </div>
+                        </div>
+                      </div>
+                      <ArrowRight className="size-4 text-foreground-muted group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className="p-4 text-center text-xs text-foreground-secondary">
+                  <p>{dict.hero?.searchNoResults || (lang === 'bn' ? 'কোনো দেশ খুঁজে পাওয়া যায়নি' : 'No destinations found')}</p>
+                  <p className="text-[11px] text-foreground-muted mt-1">
+                    {lang === 'bn'
+                      ? 'ইংরেজি বা বাংলায় দেশের নাম লিখুন (যেমন: মালয়েশিয়া, UK, Canada, IELTS)'
+                      : 'Type in English or Bangla (e.g. Malaysia, ইউকে, Canada, IELTS)'}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
         {/* 4 Trust Highlights Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 text-xs font-medium text-foreground">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/60 px-3.5 py-1.5 backdrop-blur-xs shadow-xs">
-            <FileCheck2 className="size-3.5 text-primary" />
-            <span>{dict.hero.pill1}</span>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
+            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+              <FileCheck2 className="size-3.5" />
+            </span>
+            <span className="font-semibold">{dict.hero.pill1}</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/60 px-3.5 py-1.5 backdrop-blur-xs shadow-xs">
-            <GraduationCap className="size-3.5 text-primary" />
-            <span>{dict.hero.pill2}</span>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
+            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+              <GraduationCap className="size-3.5" />
+            </span>
+            <span className="font-semibold">{dict.hero.pill2}</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/60 px-3.5 py-1.5 backdrop-blur-xs shadow-xs">
-            <Sparkles className="size-3.5 text-primary" />
-            <span>{dict.hero.pill3}</span>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
+            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+              <Sparkles className="size-3.5" />
+            </span>
+            <span className="font-semibold">{dict.hero.pill3}</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/60 px-3.5 py-1.5 backdrop-blur-xs shadow-xs">
-            <TrendingUp className="size-3.5 text-emerald-500" />
-            <span>{dict.hero.pill4}</span>
+          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
+            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+              <TrendingUp className="size-3.5" />
+            </span>
+            <span className="font-semibold">{dict.hero.pill4}</span>
           </div>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Button
-            size="lg"
-            className="w-full sm:w-auto rounded-full px-8 font-medium shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/35 transition-all cursor-pointer"
-            asChild
-          >
+          <Button size="lg" className="w-full sm:w-auto" asChild>
             <Link href="#eligibility">
               {dict.hero.ctaPrimary}
               <ArrowRight className="size-4 ml-1.5" />
@@ -136,12 +214,10 @@ export function Hero({ lang, dict }) {
           <Button
             size="lg"
             variant="outline"
-            className="w-full sm:w-auto rounded-full px-7 font-medium border-border/70 hover:bg-muted/70 transition-all cursor-pointer"
+            className="w-full sm:w-auto"
             asChild
           >
-            <Link href="#destinations">
-              {dict.hero.ctaSecondary}
-            </Link>
+            <Link href="#destinations">{dict.hero.ctaSecondary}</Link>
           </Button>
         </div>
       </div>

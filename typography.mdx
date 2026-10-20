@@ -1,0 +1,123 @@
+---
+title: Typography
+description: Bilingual (English + Bangla) font setup for the consultancy website (Next.js + Tailwind v4)
+fonts: ["Inter", "Noto Sans Bengali"]
+---
+
+# Typography
+
+Two font families only: one for English, one for Bangla. Both are sans-serif so mixed-language text looks consistent.
+
+## Font stack
+
+| Role | Font | Why |
+|---|---|---|
+| English (UI, headings, body) | Inter | Clean, neutral, excellent readability, variable font |
+| Bangla (UI, headings, body) | Noto Sans Bengali | Complete glyph coverage, matches Inter's proportions, variable font |
+
+## Principles
+
+- **Two families, not four.** Fewer fonts means faster load and a more consistent look.
+- **Variable fonts.** One file covers every weight, so do not list weights.
+- **English first, Bangla as fallback.** The browser uses Inter for Latin characters and Noto Sans Bengali for Bangla characters, so mixed text just works.
+- **Hierarchy through size and weight**, not through extra font families.
+- **Avoid** Poppins and Montserrat (no Bangla glyphs, random fallback), and legacy fonts like SutonnyMJ, Nikosh and Siyam Rupali.
+
+## Setup
+
+### 1. `app/layout.tsx` (full replacement)
+
+```tsx
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Inter, Noto_Sans_Bengali } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const notoSansBengali = Noto_Sans_Bengali({
+  subsets: ["bengali"],
+  variable: "--font-bengali",
+  display: "swap",
+});
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${notoSansBengali.variable}`}
+    >
+      <body className="font-sans antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+### 2. `app/globals.css`
+
+Add inside your existing `@theme inline` block:
+
+```css
+@theme inline {
+  /* ...existing colors... */
+  --font-sans: var(--font-inter), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
+}
+```
+
+Add at the bottom of the file:
+
+```css
+/* English */
+body {
+  line-height: 1.6;
+}
+
+/* Bangla needs more line height because of matra and juktakkhor */
+:lang(bn),
+:lang(bn) * {
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+```
+
+## Type scale
+
+| Element | Tailwind classes |
+|---|---|
+| Hero heading | `text-4xl md:text-6xl font-semibold tracking-tight` |
+| Section heading | `text-3xl md:text-4xl font-semibold tracking-tight` |
+| Subheading | `text-xl font-medium` |
+| Body | `text-base md:text-lg text-foreground-secondary` |
+| Caption / label | `text-sm text-foreground-muted` |
+| Button | `text-sm font-medium` |
+
+## Usage example
+
+```tsx
+<h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
+  Clarity for decisions that matter.
+</h1>
+<p className="mt-4 max-w-xl text-lg text-foreground-secondary">
+  Strategy and advisory for growing teams.
+</p>
+```
+
+## Bangla rules
+
+1. **Line height 1.7 to 1.8.** English-style 1.5 feels cramped in Bangla.
+2. **Go one size up for body text.** Bangla glyphs look smaller at the same font size, so prefer `text-lg`.
+3. **No `tracking-tight` on Bangla.** Negative letter spacing breaks juktakkhor. The `:lang(bn)` rule above resets it, so set `lang="bn"` on the `<html>` tag (or on the wrapper) when the Bangla version is active.
+4. **Limit weights** to 400, 500 and 600. Avoid very light or very black weights in Bangla.
+
+## Performance checklist
+
+- Use `next/font` (self-hosted, no external request to Google at runtime).
+- Keep `display: "swap"`.
+- Do not add extra families later without removing one.
+- Do not load italic styles unless you actually use them.

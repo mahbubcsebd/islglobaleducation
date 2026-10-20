@@ -36,20 +36,22 @@ export function MetricsRibbon({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-2xl border border-border/50 bg-card/60 p-4 sm:p-5 backdrop-blur-md transition-all duration-300 hover:border-primary/40 hover:bg-card hover:shadow-lg hover:shadow-primary/5"
+                className="group relative rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-4 sm:p-5 transition-all duration-300 hover:border-primary hover:bg-surface hover:shadow-md shadow-2xs"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:scale-105 transition-transform">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-2xs">
                     <IconComponent className="size-4" />
                   </div>
                   {stat.highlight && (
-                    <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-primary text-primary-foreground px-2 py-0.5 rounded-md shadow-2xs">
+                      {dict.metrics.featured || "Featured"}
+                    </span>
                   )}
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+                <div className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${stat.highlight ? "text-primary" : "text-foreground"}`}>
                   {stat.value}
                 </div>
-                <div className="text-xs text-muted-foreground mt-1 font-medium leading-snug">
+                <div className="text-xs text-foreground-secondary mt-1 font-medium leading-snug">
                   {stat.label}
                 </div>
               </div>

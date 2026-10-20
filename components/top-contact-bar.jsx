@@ -1,9 +1,8 @@
-import * as React from "react";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 
 export function TopContactBar({ dict }) {
   return (
-    <div className="w-full bg-muted/60 dark:bg-muted/30 border-b border-border/40 text-[11px] text-muted-foreground hidden sm:block">
+    <div className="w-full bg-background/75 dark:bg-[#0A0C1B]/85 backdrop-blur-md border-b border-border/70 text-[11px] text-foreground-secondary hidden sm:block transition-colors relative z-20">
       <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left items: Phone and Email */}
         <div className="flex items-center gap-5">
@@ -43,9 +42,8 @@ export function TopContactBar({ dict }) {
             href="https://wa.me/8801910030040?text=Hello%20ISL%20Global,%20I%20am%20interested%20in%20studying%20abroad."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-emerald-500 hover:text-emerald-400 font-medium transition-colors"
+            className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:underline font-medium transition-colors"
           >
-            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <MessageCircle className="size-3" />
             <span>{dict.topBar.whatsappText}</span>
           </a>
