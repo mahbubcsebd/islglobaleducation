@@ -2,6 +2,7 @@ import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import ChunkErrorHandler from "@/components/chunk-error-handler";
+import { ButterflyScrollTop } from "@/components/butterfly-scroll-top";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,12 +32,13 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans antialiased transition-colors duration-200">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange={false}
         >
           <ChunkErrorHandler />
           {children}
+          <ButterflyScrollTop />
         </ThemeProvider>
       </body>
     </html>

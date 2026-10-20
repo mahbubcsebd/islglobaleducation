@@ -21,7 +21,7 @@ export function ThemeToggle({ className }) {
         className={`rounded-lg border-border bg-surface text-muted-foreground ${className || ""}`}
         aria-label="Toggle theme"
       >
-        <Moon className="size-4" />
+        <Sun className="size-4 text-accent" />
       </Button>
     );
   }
