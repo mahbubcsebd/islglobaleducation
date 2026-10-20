@@ -5,14 +5,11 @@ import { Button } from "@/components/ui/button";
 
 export function CtaSection({ dict }) {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative bg-background">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl border border-primary/30 bg-linear-to-b from-card via-card to-primary/10 p-8 sm:p-12 md:p-16 text-center shadow-2xl shadow-primary/10 overflow-hidden">
-          {/* Subtle background glow */}
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 size-72 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
-
+        <div className="relative rounded-2xl border border-border bg-surface p-8 sm:p-14 text-center shadow-xs overflow-hidden">
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-xs font-semibold text-primary mb-6">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-xs font-semibold text-accent mb-6">
               <Sparkles className="size-3.5" />
               <span>{dict.cta.badge}</span>
             </div>
@@ -21,14 +18,14 @@ export function CtaSection({ dict }) {
               {dict.cta.title}
             </h2>
 
-            <p className="text-muted-foreground text-xs sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+            <p className="text-foreground-secondary text-xs sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
               {dict.cta.subtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
               <Button
                 size="lg"
-                className="w-full sm:w-auto rounded-full px-8 font-medium shadow-md shadow-primary/30 hover:shadow-lg hover:shadow-primary/45 transition-all cursor-pointer"
+                className="w-full sm:w-auto rounded-lg px-8 font-semibold text-on-primary transition-colors cursor-pointer"
                 asChild
               >
                 <Link href="#eligibility">

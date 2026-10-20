@@ -77,10 +77,10 @@ export function DestinationsSection({ lang, dict }) {
           <button
             type="button"
             onClick={() => setActiveFilter("all")}
-            className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
+            className={`px-4 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
               activeFilter === "all"
-                ? "bg-primary text-primary-foreground shadow-xs font-semibold"
-                : "bg-muted/60 text-muted-foreground hover:text-foreground hover:bg-muted"
+                ? "bg-primary text-primary-foreground font-semibold"
+                : "bg-surface-alt text-foreground-secondary hover:text-foreground hover:bg-surface border border-border"
             }`}
           >
             {dict.destinations.filterAll}
@@ -90,10 +90,10 @@ export function DestinationsSection({ lang, dict }) {
               key={d.id}
               type="button"
               onClick={() => setActiveFilter(d.id)}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer border ${
                 activeFilter === d.id
-                  ? "bg-primary text-primary-foreground shadow-xs font-semibold"
-                  : "bg-muted/60 text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "bg-primary text-primary-foreground border-primary font-semibold"
+                  : "bg-surface text-foreground-secondary hover:text-foreground border-border hover:bg-surface-alt"
               }`}
             >
               <span>{d.flag}</span>
@@ -107,11 +107,11 @@ export function DestinationsSection({ lang, dict }) {
           {filtered.map((item) => (
             <div
               key={item.id}
-              className="group relative flex flex-col justify-between rounded-3xl border border-border/60 bg-card/75 p-6 backdrop-blur-xs transition-all duration-300 hover:border-primary/50 hover:bg-card hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
+              className="group relative flex flex-col justify-between rounded-xl border border-border bg-surface p-6 transition-colors hover:border-primary"
             >
-              {/* Highlight badge for Malaysia */}
+              {/* Highlight badge for Malaysia with Gold Accent */}
               {item.popular && (
-                <div className="absolute -top-3 right-6 rounded-full bg-primary px-3 py-0.5 text-[10px] font-bold text-primary-foreground tracking-wide uppercase shadow-sm">
+                <div className="absolute -top-3 right-5 rounded-md bg-accent px-2.5 py-0.5 text-[10px] font-bold text-white dark:text-[#0F1020] tracking-wide uppercase shadow-2xs">
                   Top Choice
                 </div>
               )}
@@ -124,34 +124,34 @@ export function DestinationsSection({ lang, dict }) {
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                       {item.name}
                     </h3>
-                    <span className="text-[11px] font-medium text-primary">
+                    <span className="text-[11px] font-medium text-accent">
                       {item.tag}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-xs text-muted-foreground leading-relaxed mb-5">
+                <p className="text-xs text-foreground-secondary leading-relaxed mb-5">
                   {item.description}
                 </p>
 
                 {/* Info Badges (Tuition, Intake, IELTS) */}
-                <div className="space-y-2 mb-6 rounded-2xl bg-muted/40 p-3.5 border border-border/40 text-xs">
+                <div className="space-y-2 mb-6 rounded-lg bg-surface-alt p-3.5 border border-border text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">{dict.destinations.tuitionLabel}:</span>
+                    <span className="text-foreground-secondary">{dict.destinations.tuitionLabel}:</span>
                     <span className="font-semibold text-foreground">{item.tuition}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">{dict.destinations.intakeLabel}:</span>
+                    <span className="text-foreground-secondary">{dict.destinations.intakeLabel}:</span>
                     <span className="font-semibold text-foreground">{item.intake}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">{dict.destinations.ieltsLabel}:</span>
+                    <span className="text-foreground-secondary">{dict.destinations.ieltsLabel}:</span>
                     <span className="font-semibold text-primary">{item.ielts}</span>
                   </div>
                 </div>
 
                 {/* Features Bullet List */}
-                <ul className="space-y-2 mb-6 text-xs text-muted-foreground">
+                <ul className="space-y-2 mb-6 text-xs text-foreground-secondary">
                   {item.features.map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
@@ -164,7 +164,7 @@ export function DestinationsSection({ lang, dict }) {
               {/* Action Button */}
               <Button
                 variant="outline"
-                className="w-full rounded-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all text-xs font-semibold justify-between"
+                className="w-full rounded-lg group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors text-xs font-semibold justify-between"
                 asChild
               >
                 <Link href="#eligibility">

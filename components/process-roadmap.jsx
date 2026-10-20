@@ -59,14 +59,14 @@ export function ProcessRoadmap({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-3xl border border-border/60 bg-card/80 p-6 backdrop-blur-xs transition-all duration-300 hover:border-primary/50 hover:bg-card hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 flex flex-col justify-between"
+                className="group relative rounded-xl border border-border bg-surface p-6 transition-colors hover:border-primary flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-2xl font-black text-primary/40 group-hover:text-primary transition-colors">
+                    <span className="font-mono text-2xl font-bold text-accent">
                       {item.step}
                     </span>
-                    <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary border border-primary/20 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <div className="flex size-10 items-center justify-center rounded-lg bg-primary-soft text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
                       <IconComponent className="size-5" />
                     </div>
                   </div>
@@ -74,12 +74,12 @@ export function ProcessRoadmap({ dict }) {
                   <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-xs text-foreground-secondary leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-border/40 flex items-center justify-between text-[11px] font-medium text-primary">
+                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-[11px] font-semibold text-primary">
                   <span>Phase {i + 1}</span>
                   <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
                 </div>

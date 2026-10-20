@@ -73,13 +73,13 @@ export function ServicesSection({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-3xl border border-border/60 bg-card/80 p-7 backdrop-blur-xs transition-all duration-300 hover:border-primary/50 hover:bg-card hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
+                className="group relative rounded-xl border border-border bg-surface p-7 transition-colors hover:border-primary"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary border border-primary/20 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-xs">
+                  <div className="flex size-11 items-center justify-center rounded-lg bg-primary-soft text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
                     <IconComponent className="size-5" />
                   </div>
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80 bg-muted/60 px-3 py-1 rounded-full">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-soft px-2.5 py-1 rounded-md">
                     {service.category}
                   </span>
                 </div>
@@ -87,7 +87,7 @@ export function ServicesSection({ dict }) {
                 <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs sm:text-sm text-foreground-secondary leading-relaxed">
                   {service.desc}
                 </p>
               </div>

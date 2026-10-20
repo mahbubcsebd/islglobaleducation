@@ -38,7 +38,7 @@ export function FaqSection({ dict }) {
             return (
               <div
                 key={idx}
-                className="rounded-2xl border border-border/60 bg-card/75 backdrop-blur-xs transition-all overflow-hidden"
+                className="rounded-xl border border-border bg-surface transition-colors overflow-hidden"
               >
                 <button
                   type="button"
@@ -53,8 +53,8 @@ export function FaqSection({ dict }) {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-muted-foreground leading-relaxed animate-in fade-in-50 duration-200">
-                    <div className="pt-2 border-t border-border/30">
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-foreground-secondary leading-relaxed animate-in fade-in-50 duration-200">
+                    <div className="pt-2 border-t border-border">
                       {faq.a}
                     </div>
                   </div>

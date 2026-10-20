@@ -88,8 +88,8 @@ export function ContactSection({ dict }) {
             </div>
 
             {/* Hotline Numbers Card */}
-            <div className="rounded-3xl border border-border/60 bg-card/80 p-6 backdrop-blur-xs flex items-start gap-4 shadow-sm">
-              <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary shrink-0">
+            <div className="rounded-xl border border-border bg-surface p-6 flex items-start gap-4">
+              <div className="flex size-11 items-center justify-center rounded-lg bg-primary-soft text-primary shrink-0">
                 <Phone className="size-5" />
               </div>
               <div className="w-full">
@@ -116,7 +116,7 @@ export function ContactSection({ dict }) {
                     href="https://wa.me/8801910030040"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-500 border border-emerald-500/30 px-3.5 py-1 text-xs font-semibold transition-colors"
+                    className="inline-flex items-center gap-2 rounded-lg bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-500 border border-emerald-500/30 px-3.5 py-1 text-xs font-semibold transition-colors"
                   >
                     <MessageCircle className="size-3.5" />
                     <span>WhatsApp: 01910-030040</span>
@@ -127,8 +127,8 @@ export function ContactSection({ dict }) {
 
             {/* Email & Hours Card */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="rounded-3xl border border-border/60 bg-card/80 p-5 backdrop-blur-xs shadow-sm">
-                <div className="flex size-9 items-center justify-center rounded-xl bg-primary/10 text-primary mb-3">
+              <div className="rounded-xl border border-border bg-surface p-5">
+                <div className="flex size-9 items-center justify-center rounded-lg bg-primary-soft text-primary mb-3">
                   <Mail className="size-4" />
                 </div>
                 <h4 className="text-xs font-bold text-foreground">
@@ -136,20 +136,20 @@ export function ContactSection({ dict }) {
                 </h4>
                 <a
                   href="mailto:islglobaleducation@gmail.com"
-                  className="text-xs text-muted-foreground hover:text-primary transition-colors block mt-1 break-all"
+                  className="text-xs text-foreground-secondary hover:text-primary transition-colors block mt-1 break-all"
                 >
                   islglobaleducation@gmail.com
                 </a>
               </div>
 
-              <div className="rounded-3xl border border-border/60 bg-card/80 p-5 backdrop-blur-xs shadow-sm">
-                <div className="flex size-9 items-center justify-center rounded-xl bg-primary/10 text-primary mb-3">
+              <div className="rounded-xl border border-border bg-surface p-5">
+                <div className="flex size-9 items-center justify-center rounded-lg bg-primary-soft text-primary mb-3">
                   <Clock className="size-4" />
                 </div>
                 <h4 className="text-xs font-bold text-foreground">
                   {dict.contact.hoursTitle}
                 </h4>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-xs text-foreground-secondary mt-1">
                   {dict.contact.hoursDesc}
                 </p>
               </div>
@@ -157,16 +157,16 @@ export function ContactSection({ dict }) {
           </div>
 
           {/* Right Column: Quick Inquiry Form */}
-          <div className="rounded-3xl border border-border/60 bg-card/80 p-7 backdrop-blur-xs shadow-sm">
+          <div className="rounded-xl border border-border bg-surface p-7">
             <h3 className="text-lg font-bold text-foreground mb-1">
               {dict.contact.messageBoxTitle}
             </h3>
-            <p className="text-xs text-muted-foreground mb-6">
+            <p className="text-xs text-foreground-secondary mb-6">
               Have a quick question? Leave your phone number and we will call you back.
             </p>
 
             {sent ? (
-              <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-2">
+              <div className="p-6 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-center space-y-2">
                 <CheckCircle2 className="size-8 text-emerald-500 mx-auto" />
                 <h4 className="text-sm font-bold text-foreground">
                   {dict.contact.msgSent}
@@ -186,7 +186,7 @@ export function ContactSection({ dict }) {
                       setInquiry({ ...inquiry, name: e.target.value })
                     }
                     placeholder="Your Name"
-                    className="rounded-xl bg-background/80 border-border/70 text-xs"
+                    className="rounded-lg bg-surface-alt border-border text-xs"
                   />
                 </div>
                 <div>
@@ -201,7 +201,7 @@ export function ContactSection({ dict }) {
                       setInquiry({ ...inquiry, phone: e.target.value })
                     }
                     placeholder="Phone / WhatsApp"
-                    className="rounded-xl bg-background/80 border-border/70 text-xs"
+                    className="rounded-lg bg-surface-alt border-border text-xs"
                   />
                 </div>
                 <div>
@@ -215,12 +215,12 @@ export function ContactSection({ dict }) {
                       setInquiry({ ...inquiry, query: e.target.value })
                     }
                     placeholder="e.g., I want to study B.Sc. in Malaysia or UK with scholarship..."
-                    className="w-full rounded-xl bg-background/80 border border-border/70 p-3 text-xs text-foreground placeholder:text-muted-foreground/60 outline-none focus:ring-2 focus:ring-primary/20 resize-none"
+                    className="w-full rounded-lg bg-surface-alt border border-border p-3 text-xs text-foreground placeholder:text-foreground-muted outline-none focus:ring-1 focus:ring-primary focus:border-primary resize-none"
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="w-full rounded-full py-2.5 text-xs font-semibold shadow-sm shadow-primary/25 cursor-pointer"
+                  className="w-full rounded-lg py-2.5 text-xs font-semibold text-on-primary transition-colors cursor-pointer"
                 >
                   <Send className="size-3.5 mr-2" />
                   {dict.contact.msgSend}

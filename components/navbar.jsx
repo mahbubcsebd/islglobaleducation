@@ -60,7 +60,7 @@ export function Navbar({ lang, dict }) {
           <ThemeToggle />
           <Button
             size="sm"
-            className="rounded-full shadow-sm shadow-primary/25 hover:shadow-primary/40 font-medium text-xs px-4"
+            className="rounded-lg font-medium text-xs px-4 text-on-primary transition-colors cursor-pointer"
             asChild
           >
             <Link href="#eligibility">

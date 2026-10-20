@@ -60,14 +60,14 @@ export function WhyChooseUs({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-3xl border border-border/60 bg-card/70 p-6 backdrop-blur-xs transition-all duration-300 hover:border-primary/50 hover:bg-card hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 flex flex-col justify-between"
+                className="group relative rounded-xl border border-border bg-surface p-6 transition-colors hover:border-primary flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary border border-primary/20 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <div className="flex size-11 items-center justify-center rounded-lg bg-primary-soft text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
                       <IconComponent className="size-5" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent bg-accent/10 px-2.5 py-1 rounded-md">
                       {item.highlight}
                     </span>
                   </div>
@@ -75,7 +75,7 @@ export function WhyChooseUs({ dict }) {
                   <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-xs text-foreground-secondary leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

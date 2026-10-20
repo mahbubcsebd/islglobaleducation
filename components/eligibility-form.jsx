@@ -46,17 +46,14 @@ export function EligibilityForm({ lang, dict }) {
   };
 
   return (
-    <section id="eligibility" className="py-20 border-t border-border/40 relative">
+    <section id="eligibility" className="py-20 border-t border-border bg-surface-alt relative">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-primary/30 bg-card/90 backdrop-blur-xl p-8 sm:p-12 shadow-2xl shadow-primary/10 relative overflow-hidden">
-          {/* Subtle decorative purple glow */}
-          <div className="absolute -top-24 -right-24 size-64 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
-
+        <div className="rounded-2xl border border-border bg-surface p-8 sm:p-12 shadow-xs relative overflow-hidden">
           {/* Form Header */}
           <div className="text-center max-w-2xl mx-auto mb-10">
             {/* Official Brand Logo */}
             <div className="flex justify-center mb-5">
-              <div className="bg-white/95 dark:bg-white/95 px-3.5 py-1.5 rounded-xl shadow-xs border border-white/20">
+              <div className="bg-surface-alt px-3.5 py-1.5 rounded-xl border border-border shadow-2xs">
                 <Image
                   src="/logo.png"
                   alt="ISL Global Education"
@@ -67,14 +64,14 @@ export function EligibilityForm({ lang, dict }) {
               </div>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/10 px-3.5 py-1 text-xs font-semibold text-primary mb-3">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-xs font-semibold text-accent mb-3">
               <Sparkles className="size-3.5" />
               <span>{dict.eligibility.badge}</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-3">
               {dict.eligibility.title}
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <p className="text-xs sm:text-sm text-foreground-secondary leading-relaxed">
               {dict.eligibility.subtitle}
             </p>
           </div>
@@ -240,7 +237,7 @@ export function EligibilityForm({ lang, dict }) {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full sm:w-auto rounded-full px-8 py-2.5 text-xs font-semibold shadow-md shadow-primary/30 hover:shadow-primary/45 transition-all cursor-pointer"
+                  className="w-full sm:w-auto rounded-lg px-8 py-2.5 text-xs font-semibold text-on-primary transition-colors cursor-pointer"
                 >
                   <Send className="size-3.5 mr-2" />
                   {loading ? dict.eligibility.submitting : dict.eligibility.submitBtn}

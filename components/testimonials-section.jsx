@@ -43,11 +43,11 @@ export function TestimonialsSection({ dict }) {
           {stories.map((story, i) => (
             <div
               key={i}
-              className="group relative rounded-3xl border border-border/60 bg-card/80 p-7 backdrop-blur-xs transition-all duration-300 hover:border-primary/50 hover:bg-card hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 flex flex-col justify-between"
+              className="group relative rounded-xl border border-border bg-surface p-7 transition-colors hover:border-primary flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-1 text-amber-400">
+                  <div className="flex items-center gap-1 text-accent">
                     {[...Array(5)].map((_, s) => (
                       <Star key={s} className="size-3.5 fill-current" />
                     ))}
@@ -55,14 +55,14 @@ export function TestimonialsSection({ dict }) {
                   <span className="text-xl">{story.flag}</span>
                 </div>
 
-                <p className="text-xs sm:text-sm text-foreground/90 italic leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-foreground italic leading-relaxed mb-6">
                   "{story.quote}"
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-border/40 flex items-center gap-3">
-                <Avatar className="size-10 border border-primary/20">
-                  <AvatarFallback className="bg-primary/10 text-primary font-bold text-xs">
+              <div className="pt-4 border-t border-border flex items-center gap-3">
+                <Avatar className="size-10 border border-border">
+                  <AvatarFallback className="bg-primary-soft text-primary font-bold text-xs">
                     {story.initials}
                   </AvatarFallback>
                 </Avatar>
@@ -73,7 +73,7 @@ export function TestimonialsSection({ dict }) {
                   <div className="text-[11px] text-primary font-medium">
                     {story.university}
                   </div>
-                  <div className="text-[10px] text-muted-foreground">
+                  <div className="text-[10px] text-foreground-secondary">
                     {story.course}
                   </div>
                 </div>
