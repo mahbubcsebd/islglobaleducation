@@ -1,0 +1,342 @@
+{
+  "topBar": {
+    "phone": "+880 1910-030040",
+    "phone2": "+880 1910-030093",
+    "email": "islglobaleducation@gmail.com",
+    "location": "Panthapath, Dhaka, Bangladesh",
+    "officeHours": "Sat - Thu: 10:00 AM - 6:30 PM",
+    "whatsappText": "Chat on WhatsApp"
+  },
+  "nav": {
+    "brand": "ISL Global Education",
+    "brandShort": "ISL Global",
+    "destinations": "Destinations",
+    "services": "Services",
+    "process": "Process",
+    "eligibility": "Free Assessment",
+    "whyUs": "Why Us",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "bookConsultation": "Book Free Counseling"
+  },
+  "hero": {
+    "badge": "Admissions Open for 2026/2027 Intakes • Malaysia, UK, Canada & More",
+    "titleLine1": "Study Abroad with Confidence.",
+    "titleLine2": "From Application to Visa.",
+    "subtitle": "Trusted student consultancy in Bangladesh guiding you to world-class universities with affordable tuition, scholarships, study gap acceptance, and options without mandatory IELTS.",
+    "ctaPrimary": "Check Your Eligibility Free",
+    "ctaSecondary": "Explore Destinations",
+    "pill1": "0 BDT File Opening Fee",
+    "pill2": "Accepts Study Gap",
+    "pill3": "No IELTS Options",
+    "pill4": "99% Visa Success Rate"
+  },
+  "metrics": {
+    "stat1Value": "1,200+",
+    "stat1Label": "Students Successfully Placed",
+    "stat2Value": "99.2%",
+    "stat2Label": "Visa Approval Rate",
+    "stat3Value": "50+",
+    "stat3Label": "Global Partner Universities",
+    "stat4Value": "0 BDT",
+    "stat4Label": "File Opening Fee"
+  },
+  "destinations": {
+    "badge": "Top Countries",
+    "title": "Popular Study Destinations",
+    "subtitle": "Choose from budget-friendly and globally prestigious destinations tailored to your academic profile and career ambitions.",
+    "tuitionLabel": "Tuition from",
+    "intakeLabel": "Major Intakes",
+    "ieltsLabel": "English Req.",
+    "applyNow": "Apply for this Country",
+    "filterAll": "All Countries",
+    "malaysia": {
+      "name": "Malaysia",
+      "tag": "Most Popular & Budget Friendly",
+      "description": "High-quality international education at affordable costs with direct UK/Australian university branch campuses and twinning programs.",
+      "tuition": "$3,000 - $5,500 / year",
+      "intake": "Jan, May, Sep, Oct",
+      "ielts": "MOI Accepted / IELTS 5.0 - 5.5",
+      "features": [
+        "Study without IELTS (MOI accepted)",
+        "Low living & tuition expenses",
+        "UK & Australian degree options",
+        "High visa approval ratio"
+      ]
+    },
+    "uk": {
+      "name": "United Kingdom",
+      "tag": "2-Year Post-Study Work Visa",
+      "description": "Prestigious degrees recognized globally with 1-year master's programs and 2 years Graduate Route post-study work permit.",
+      "tuition": "£12,000 - £18,000 / year",
+      "intake": "Jan, May, Sep",
+      "ielts": "IELTS 6.0+ (MOI on select unis)",
+      "features": [
+        "1-year fast-track master's degree",
+        "20 hrs/week part-time work allowed",
+        "Generous merit scholarships",
+        "Spouse visa on eligible research tracks"
+      ]
+    },
+    "canada": {
+      "name": "Canada",
+      "tag": "Top PR & Work Permit Pathways",
+      "description": "World-class education with up to 3 years Post-Graduation Work Permit (PGWP) and smooth immigration opportunities.",
+      "tuition": "CAD $14,000 - $22,000 / year",
+      "intake": "Jan, May, Sep",
+      "ielts": "IELTS 6.0 - 6.5 (PTE accepted)",
+      "features": [
+        "Up to 3-year PGWP work permit",
+        "Spouse open work permit option",
+        "Globally ranked universities and colleges",
+        "Permanent residency pathways"
+      ]
+    },
+    "australia": {
+      "name": "Australia",
+      "tag": "High Living Standard & Jobs",
+      "description": "Internationally renowned education system with generous post-study work rights and exceptional student lifestyle.",
+      "tuition": "AUD $18,000 - $28,000 / year",
+      "intake": "Feb, Jul, Nov",
+      "ielts": "IELTS 6.0+ / PTE 50+",
+      "features": [
+        "Post-study work rights up to 4 years",
+        "High minimum wage & student jobs",
+        "Group of Eight & top tech universities",
+        "Tuition installment options"
+      ]
+    },
+    "europe": {
+      "name": "Europe / Schengen",
+      "tag": "Low Tuition & Schengen Mobility",
+      "description": "Study in countries like Germany, Poland, Hungary, and Malta with affordable or zero tuition fees and travel across 29 Schengen states.",
+      "tuition": "€2,500 - €6,000 / year",
+      "intake": "Feb, Sep, Oct",
+      "ielts": "MOI Accepted / IELTS 5.5+",
+      "features": [
+        "Low tuition fees & high quality of life",
+        "Free movement across 29 Schengen countries",
+        "Part-time work permitted during semester",
+        "Pathways to EU residence"
+      ]
+    },
+    "usa": {
+      "name": "United States",
+      "tag": "Global Innovation Hub & STEM OPT",
+      "description": "The world's leading destination for research, technological innovation, and up to 3 years of STEM OPT employment.",
+      "tuition": "$15,000 - $30,000 / year",
+      "intake": "Spring, Fall, Summer",
+      "ielts": "IELTS 6.0+ / Duolingo / TOEFL",
+      "features": [
+        "3-year STEM OPT work authorization",
+        "Abundant research and teaching assistantships",
+        "Flexibility in major & elective selection",
+        "Ivy League & top-ranked global institutions"
+      ]
+    }
+  },
+  "services": {
+    "badge": "Comprehensive Support",
+    "title": "Our Dedicated Student Services",
+    "subtitle": "From your initial counseling session to landing at your overseas campus, we guide you every step of the journey.",
+    "service1": {
+      "title": "University & Course Selection",
+      "desc": "Personalized academic evaluation to match your GPA, budget, and long-term career goals with the best-fit universities."
+    },
+    "service2": {
+      "title": "Scholarship Guidance",
+      "desc": "Assistance identifying and securing institutional merit scholarships, fee waivers, and early-bird bursaries."
+    },
+    "service3": {
+      "title": "SOP & Documentation Support",
+      "desc": "Professional review and guidance for Statements of Purpose (SOP), CVs, letters of recommendation, and academic transcripts."
+    },
+    "service4": {
+      "title": "Visa File Processing",
+      "desc": "Flawless visa document arrangement, fund sponsor guidance, embassy submission assistance, and mock interview drills."
+    },
+    "service5": {
+      "title": "Credit Transfer Assistance",
+      "desc": "Transfer credits from Bangladeshi universities or Malaysian campuses to UK, Australian, and Canadian universities."
+    },
+    "service6": {
+      "title": "Pre-Departure & Accommodation",
+      "desc": "Briefings on airport customs, student housing bookings, foreign currency guidelines, and local student community connections."
+    }
+  },
+  "whyUs": {
+    "badge": "Why ISL Global",
+    "title": "The ISL Global Difference",
+    "subtitle": "We believe student consultancy should be honest, transparent, and completely focused on student success.",
+    "reason1": {
+      "title": "Zero File Opening Charge",
+      "desc": "We do not charge any upfront file opening fees. Start your application evaluation completely risk-free."
+    },
+    "reason2": {
+      "title": "Acceptance for Long Study Gaps",
+      "desc": "Have a study gap of 3 to 10+ years? We know exactly which universities and visa categories accept genuine work experience."
+    },
+    "reason3": {
+      "title": "High Visa Approval Rate",
+      "desc": "Our 99%+ visa success rate stems from meticulous file checks and authentic document verification."
+    },
+    "reason4": {
+      "title": "Certified Education Counselors",
+      "desc": "Meet directly with knowledgeable advisors at our Panthapath, Dhaka office who understand current embassy policies."
+    }
+  },
+  "process": {
+    "badge": "Roadmap",
+    "title": "Your 4-Step Journey Abroad",
+    "subtitle": "A streamlined, transparent pathway that takes you from Bangladesh straight to your international classroom.",
+    "step1": {
+      "step": "01",
+      "title": "Free Profile Evaluation",
+      "desc": "Share your academic documents and preferences. Our counselors assess your eligibility and suggest suitable options."
+    },
+    "step2": {
+      "step": "02",
+      "title": "Offer Letter & Admission",
+      "desc": "We apply on your behalf to partner universities and secure your official offer letter and acceptance confirmation."
+    },
+    "step3": {
+      "step": "03",
+      "title": "Visa Application & Approval",
+      "desc": "Complete visa dossier preparation, embassy interview preparation, and student visa issuance."
+    },
+    "step4": {
+      "step": "04",
+      "title": "Pre-Departure & Fly",
+      "desc": "Book your student flights, arrange accommodation, receive foreign exchange advice, and fly to your dream campus!"
+    }
+  },
+  "eligibility": {
+    "badge": "Free Assessment",
+    "title": "Check Your Study Abroad Eligibility",
+    "subtitle": "Fill in your details below. Our certified education counselor will review your profile and reach out within 2 hours.",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "e.g., Mahbub Alam",
+    "phone": "Phone / WhatsApp Number",
+    "phonePlaceholder": "e.g., 01712-345678",
+    "email": "Email Address",
+    "emailPlaceholder": "e.g., name@example.com",
+    "destination": "Preferred Destination",
+    "destinationPlaceholder": "Select Country",
+    "education": "Last Completed Education",
+    "educationPlaceholder": "Select Qualification",
+    "passingYear": "Passing Year",
+    "passingYearPlaceholder": "e.g., 2023",
+    "gpa": "GPA / CGPA",
+    "gpaPlaceholder": "e.g., 4.50 or 3.20",
+    "ieltsStatus": "English Proficiency",
+    "ieltsPlaceholder": "Select Status",
+    "ieltsOptions": {
+      "completed": "IELTS Completed (Score available)",
+      "moi": "No IELTS / MOI (Medium of Instruction)",
+      "preparing": "Currently Preparing / Planning",
+      "duolingo": "Duolingo / PTE / Other"
+    },
+    "destOptions": {
+      "malaysia": "Malaysia (Most Recommended)",
+      "uk": "United Kingdom (UK)",
+      "canada": "Canada",
+      "australia": "Australia",
+      "europe": "Europe / Schengen",
+      "usa": "United States (USA)"
+    },
+    "eduOptions": {
+      "hsc": "HSC / Alim / A-Level",
+      "diploma": "Diploma Engineering",
+      "bachelor": "Bachelor's Degree",
+      "master": "Master's Degree"
+    },
+    "submitBtn": "Submit for Free Assessment",
+    "submitting": "Submitting...",
+    "successTitle": "Assessment Request Received!",
+    "successMsg": "Thank you! An ISL Global counselor has received your profile and will contact you via WhatsApp/Phone shortly.",
+    "whatsappDirect": "Directly chat on WhatsApp now",
+    "reset": "Submit another assessment"
+  },
+  "testimonials": {
+    "badge": "Success Stories",
+    "title": "Our Students, Their Global Journeys",
+    "subtitle": "Read genuine experiences from students who trusted ISL Global Education to achieve their study abroad goals.",
+    "story1": {
+      "name": "Tanvir Ahmed",
+      "destination": "Malaysia",
+      "university": "Asia Pacific University (APU)",
+      "course": "B.Sc. in Computer Science",
+      "quote": "I had a 4-year study gap after HSC and was rejected by other agencies. ISL Global handled my case with absolute professionalism. Got my Malaysia visa within 3 weeks without IELTS!"
+    },
+    "story2": {
+      "name": "Sadia Islam",
+      "destination": "United Kingdom",
+      "university": "University of Hertfordshire",
+      "course": "M.Sc. in International Business",
+      "quote": "The counseling at their Panthapath office was clear and transparent. No hidden charges, and they trained me for the credibility interview thoroughly. Highly recommend ISL Global!"
+    },
+    "story3": {
+      "name": "Rakibul Hasan",
+      "destination": "Canada",
+      "university": "Fanshawe College",
+      "course": "Post-Graduate Certificate in Project Management",
+      "quote": "From university selection to SOP writing and SDS visa filing, ISL Global guided me smoothly. Today I am studying in Canada with a full work permit opportunity."
+    }
+  },
+  "faq": {
+    "badge": "Got Questions?",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Quick answers to common questions about admissions, fees, study gaps, and visas.",
+    "q1": "Can I study abroad without IELTS?",
+    "a1": "Yes, absolutely! Countries like Malaysia accept Medium of Instruction (MOI) certificates from Bangladeshi universities and colleges. Several UK and European universities also offer internal English tests or accept Duolingo English Test (DET).",
+    "q2": "How many years of study gap are acceptable?",
+    "a2": "For Malaysia, study gaps of up to 5-10+ years are accepted with justifiable work or business experience. For the UK and Canada, gaps with continuous employment documents or skill certifications are readily accepted.",
+    "q3": "Does ISL Global charge any file opening fees?",
+    "a3": "No. ISL Global Education does not charge any upfront file opening fee. Initial profile evaluation, university matching, and guidance are completely free.",
+    "q4": "How long does the entire visa process usually take?",
+    "a4": "For Malaysia, admission and EMGS eVAL approval typically takes 3 to 6 weeks. For the UK, the process takes approximately 4 to 8 weeks depending on the intake and visa priority service chosen.",
+    "q5": "Can I work part-time while studying abroad?",
+    "a5": "Yes. Most major destinations allow international students to work 20 hours per week during term time and full-time during semester breaks, helping support living expenses."
+  },
+  "contact": {
+    "badge": "Visit Or Call Us",
+    "title": "Connect With An Expert Counselor",
+    "subtitle": "Visit our Panthapath office in Dhaka or message us directly on WhatsApp for an immediate response.",
+    "addressTitle": "Head Office",
+    "addressDesc": "Panthapath, Dhaka, Bangladesh",
+    "phoneTitle": "Direct Call / Hotline",
+    "emailTitle": "Official Email",
+    "hoursTitle": "Office Hours",
+    "hoursDesc": "Saturday – Thursday: 10:00 AM – 6:30 PM",
+    "messageBoxTitle": "Send a Quick Message",
+    "msgName": "Your Name",
+    "msgPhone": "Phone / WhatsApp",
+    "msgQuery": "Your Question or Destination",
+    "msgSend": "Send Inquiry",
+    "msgSent": "Message sent! We will call you back shortly."
+  },
+  "cta": {
+    "badge": "Start Your Journey Today",
+    "title": "Your Dream of Studying Abroad Starts Right Here",
+    "subtitle": "Speak to our experienced counselors and discover the best international universities matching your budget and academic background.",
+    "button": "Book Free Counseling Session",
+    "whatsappBtn": "Instant WhatsApp Chat",
+    "note": "Zero File Opening Charge • 100% Genuine Guidance"
+  },
+  "footer": {
+    "brandDesc": "ISL Global Education is a premier educational consultancy based in Panthapath, Dhaka, empowering students across Bangladesh to achieve their international higher education dreams.",
+    "quickLinks": "Quick Links",
+    "topDestinations": "Top Destinations",
+    "servicesTitle": "Services",
+    "contactInfo": "Contact Information",
+    "allRights": "All rights reserved.",
+    "builtWith": "Engineered with Next.js 16 & shadcn/ui"
+  },
+  "common": {
+    "langEn": "English",
+    "langBn": "বাংলা",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System"
+  }
+}

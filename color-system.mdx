@@ -1,0 +1,191 @@
+---
+title: Color System
+description: Light and dark theme palette for the consultancy website (Next.js + Tailwind v4)
+primary: "#2E3192"
+---
+
+# Color System
+
+Primary color is the brand logo color `#2E3192` (deep indigo). The palette is flat and low-glow: no gradients, no pure black or pure white, so the site feels designed by a human, not generated.
+
+## Principles
+
+- **Primary stays the logo color** in light mode: `#2E3192`.
+- **Dark mode uses a lighter tint** of the same hue (`#8B90EE`) because `#2E3192` is too dim on dark backgrounds.
+- **Backgrounds are tinted**, never `#000` or `#fff`.
+- **Solid colors only.** No gradients, glows or blur blobs.
+- **Gold accent** is used sparingly: underline, badge, small number.
+
+## Light theme
+
+| Role | Hex | Usage |
+|---|---|---|
+| Background | `#FAF9FD` | Page background |
+| Surface | `#FFFFFF` | Cards, navbar |
+| Surface alt | `#F2F2FA` | Alternate sections |
+| Border | `#E1E2F0` | Dividers, card borders |
+| Text primary | `#15162B` | Headings, body |
+| Text secondary | `#55577A` | Subtext |
+| Text muted | `#8A8CA8` | Captions, placeholders |
+| Primary | `#2E3192` | Buttons, links, key UI |
+| Primary hover | `#25277A` | Hover state |
+| Primary soft | `#ECECF8` | Badges, subtle fills |
+| On primary | `#FFFFFF` | Text on primary button |
+| Accent | `#C9A24B` | Small highlights only |
+
+## Dark theme
+
+| Role | Hex | Usage |
+|---|---|---|
+| Background | `#0F1020` | Page background |
+| Surface | `#181A30` | Cards, navbar |
+| Surface alt | `#131428` | Alternate sections |
+| Border | `#2A2D4A` | Dividers, card borders |
+| Text primary | `#EEEFF8` | Headings, body |
+| Text secondary | `#B3B5D1` | Subtext |
+| Text muted | `#7F82A3` | Captions, placeholders |
+| Primary | `#8B90EE` | Buttons, links, key UI |
+| Primary hover | `#A1A5F4` | Hover state |
+| Primary soft | `#22254A` | Badges, subtle fills |
+| On primary | `#0F1020` | Text on primary button |
+| Accent | `#D8B661` | Small highlights only |
+
+## Setup (Tailwind v4 + next-themes)
+
+### 1. `app/globals.css`
+
+```css
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #FAF9FD;
+  --surface: #FFFFFF;
+  --surface-alt: #F2F2FA;
+  --border: #E1E2F0;
+  --foreground: #15162B;
+  --foreground-secondary: #55577A;
+  --foreground-muted: #8A8CA8;
+  --primary: #2E3192;
+  --primary-hover: #25277A;
+  --primary-soft: #ECECF8;
+  --on-primary: #FFFFFF;
+  --accent: #C9A24B;
+}
+
+.dark {
+  --background: #0F1020;
+  --surface: #181A30;
+  --surface-alt: #131428;
+  --border: #2A2D4A;
+  --foreground: #EEEFF8;
+  --foreground-secondary: #B3B5D1;
+  --foreground-muted: #7F82A3;
+  --primary: #8B90EE;
+  --primary-hover: #A1A5F4;
+  --primary-soft: #22254A;
+  --on-primary: #0F1020;
+  --accent: #D8B661;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+```
+
+### 2. Theme provider
+
+```bash
+npm install next-themes
+```
+
+`components/theme-provider.tsx`:
+
+```tsx
+"use client";
+
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+      {children}
+    </NextThemesProvider>
+  );
+}
+```
+
+`app/layout.tsx`:
+
+```tsx
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+### 3. Usage example
+
+```tsx
+<section className="bg-background">
+  <div className="mx-auto max-w-5xl px-6 py-24">
+    <h1 className="text-4xl font-semibold tracking-tight text-foreground">
+      Clarity for decisions that matter.
+    </h1>
+    <p className="mt-4 max-w-xl text-foreground-secondary">
+      Strategy and advisory for growing teams.
+    </p>
+    <button className="mt-8 rounded-lg bg-primary px-6 py-3 text-on-primary transition-colors hover:bg-primary-hover">
+      Book a consultation
+    </button>
+  </div>
+</section>
+
+<section className="border-y border-border bg-surface-alt">
+  <div className="rounded-xl border border-border bg-surface p-6">Card</div>
+</section>
+```
+
+## Design rules
+
+1. **No gradients, glow or blur blobs.** Flat color with a thin border.
+2. **Accent gold** only for small details (underline, badge, number).
+3. **Radius**: stick to `rounded-lg` / `rounded-xl`.
+4. **Fonts**: `Fraunces` or `Instrument Serif` for headings, `Inter` or `DM Sans` for body.
+5. **Spacing**: generous (`py-24`, `py-32`).
+6. **Depth**: prefer borders over shadows.
+
+## Contrast check
+
+| Pair | Ratio | Result |
+|---|---|---|
+| `#2E3192` on `#FAF9FD` | ~9:1 | AAA |
+| `#FFFFFF` on `#2E3192` | ~10:1 | AAA |
+| `#8B90EE` on `#0F1020` | ~6.5:1 | AA |
+| `#15162B` on `#FAF9FD` | ~16:1 | AAA |
+| `#EEEFF8` on `#0F1020` | ~16:1 | AAA |
