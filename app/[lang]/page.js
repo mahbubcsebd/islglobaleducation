@@ -50,7 +50,10 @@ export default async function LocalizedPage({ params }) {
   const dict = await getDictionary(lang);
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground transition-colors selection:bg-primary/25 selection:text-primary">
+    <div
+      lang={lang}
+      className="flex min-h-screen flex-col bg-background text-foreground transition-colors selection:bg-primary/25 selection:text-primary"
+    >
       <TopContactBar dict={dict} />
       <Navbar lang={lang} dict={dict} />
       <main className="flex-1">

@@ -22,14 +22,17 @@
   "hero": {
     "badge": "Admissions Open for 2026/2027 Intakes • Malaysia, UK, Canada & More",
     "titleLine1": "Study Abroad with Confidence.",
-    "titleLine2": "From Application to Visa.",
+    "titleLine2": "From Admission to Visa, ISL is with You.",
     "subtitle": "Trusted student consultancy in Bangladesh guiding you to world-class universities with affordable tuition, scholarships, study gap acceptance, and options without mandatory IELTS.",
     "ctaPrimary": "Check Your Eligibility Free",
     "ctaSecondary": "Explore Destinations",
     "pill1": "0 BDT File Opening Fee",
     "pill2": "Accepts Study Gap",
     "pill3": "No IELTS Options",
-    "pill4": "99% Visa Success Rate"
+    "pill4": "99% Visa Success Rate",
+    "searchPlaceholder": "Search country (Malaysia, UK, Canada...) or subject...",
+    "searchSuggestions": "Suggested Destinations",
+    "searchNoResults": "No destinations found"
   },
   "metrics": {
     "stat1Value": "1,200+",
@@ -39,12 +42,19 @@
     "stat3Value": "50+",
     "stat3Label": "Global Partner Universities",
     "stat4Value": "0 BDT",
-    "stat4Label": "File Opening Fee"
+    "stat4Label": "File Opening Fee",
+    "featured": "Featured"
   },
   "destinations": {
     "badge": "Top Countries",
     "title": "Popular Study Destinations",
     "subtitle": "Choose from budget-friendly and globally prestigious destinations tailored to your academic profile and career ambitions.",
+    "topChoice": "Top Choice",
+    "searchResultsFor": "Search results for:",
+    "clearSearch": "Reset",
+    "noMatchTitle": "No destinations matched your search",
+    "noMatchDesc": "Try searching with a different country name or keyword, or reset to see all destinations.",
+    "resetFilter": "Show All Destinations",
     "tuitionLabel": "Tuition from",
     "intakeLabel": "Major Intakes",
     "ieltsLabel": "English Req.",
@@ -162,6 +172,14 @@
     "service6": {
       "title": "Pre-Departure & Accommodation",
       "desc": "Briefings on airport customs, student housing bookings, foreign currency guidelines, and local student community connections."
+    },
+    "categories": {
+      "cat1": "Admissions",
+      "cat2": "Scholarships",
+      "cat3": "Documentation",
+      "cat4": "Visa & Embassy",
+      "cat5": "Credit Transfer",
+      "cat6": "Settlement"
     }
   },
   "whyUs": {
@@ -183,12 +201,20 @@
     "reason4": {
       "title": "Certified Education Counselors",
       "desc": "Meet directly with knowledgeable advisors at our Panthapath, Dhaka office who understand current embassy policies."
+    },
+    "highlights": {
+      "pill1": "100% Risk Free",
+      "pill2": "3 - 10+ Yrs Accepted",
+      "pill3": "99.2% Success",
+      "pill4": "Panthapath, Dhaka"
     }
   },
   "process": {
     "badge": "Roadmap",
     "title": "Your 4-Step Journey Abroad",
     "subtitle": "A streamlined, transparent pathway that takes you from Bangladesh straight to your international classroom.",
+    "phase": "Phase",
+    "phases": ["1", "2", "3", "4"],
     "step1": {
       "step": "01",
       "title": "Free Profile Evaluation",
@@ -215,7 +241,7 @@
     "title": "Check Your Study Abroad Eligibility",
     "subtitle": "Fill in your details below. Our certified education counselor will review your profile and reach out within 2 hours.",
     "fullName": "Full Name",
-    "fullNamePlaceholder": "e.g., Mahbub Alam",
+    "fullNamePlaceholder": "e.g., Lubna Rahman",
     "phone": "Phone / WhatsApp Number",
     "phonePlaceholder": "e.g., 01712-345678",
     "email": "Email Address",
@@ -255,7 +281,9 @@
     "successTitle": "Assessment Request Received!",
     "successMsg": "Thank you! An ISL Global counselor has received your profile and will contact you via WhatsApp/Phone shortly.",
     "whatsappDirect": "Directly chat on WhatsApp now",
-    "reset": "Submit another assessment"
+    "reset": "Submit another assessment",
+    "response2Hours": "Response in 2 Hours",
+    "freeConsultation": "100% Free Consultation"
   },
   "testimonials": {
     "badge": "Success Stories",
@@ -281,7 +309,43 @@
       "university": "Fanshawe College",
       "course": "Post-Graduate Certificate in Project Management",
       "quote": "From university selection to SOP writing and SDS visa filing, ISL Global guided me smoothly. Today I am studying in Canada with a full work permit opportunity."
+    },
+    "story4": {
+      "name": "Nusrat Jahan",
+      "destination": "Australia",
+      "university": "Deakin University",
+      "course": "Master of Information Technology",
+      "quote": "ISL Global processed my Australia admission and visa with utmost care. Their advice on financial documentation and genuine student requirements made all the difference."
+    },
+    "story5": {
+      "name": "Farhan Kabir",
+      "destination": "Europe / Germany",
+      "university": "IU International University",
+      "course": "B.A. in International Management",
+      "quote": "Affordable European study was my dream. With ISL Global's assistance, I secured an English-taught program with a 40% scholarship. Outstanding support from beginning to end!"
+    },
+    "story6": {
+      "name": "Mehnaz Chowdhury",
+      "destination": "United States",
+      "university": "University of North Texas",
+      "course": "M.Sc. in Data Science",
+      "quote": "The visa mock interview sessions gave me total confidence before facing the US embassy consular officer. Thanks to ISL Global, I got my F-1 visa approved on the first attempt!"
     }
+  },
+  "validation": {
+    "nameRequired": "Full name is required",
+    "nameMin": "Name must be at least 2 characters",
+    "phoneRequired": "Phone / WhatsApp number is required",
+    "phoneInvalid": "Please enter a valid phone number (min 8 digits)",
+    "emailInvalid": "Please enter a valid email address",
+    "queryRequired": "Please describe your inquiry or question",
+    "queryMin": "Message must be at least 5 characters",
+    "destinationRequired": "Please select a destination",
+    "educationRequired": "Please select your qualification",
+    "ieltsRequired": "Please select English proficiency status",
+    "passingYearRequired": "Please enter your passing year",
+    "passingYearInvalid": "Please enter a valid 4-digit year (e.g., 2023)",
+    "gpaRequired": "Please enter your GPA / CGPA"
   },
   "faq": {
     "badge": "Got Questions?",
@@ -302,18 +366,27 @@
     "badge": "Visit Or Call Us",
     "title": "Connect With An Expert Counselor",
     "subtitle": "Visit our Panthapath office in Dhaka or message us directly on WhatsApp for an immediate response.",
+    "headOffice": "Head Office",
     "addressTitle": "Head Office",
     "addressDesc": "Panthapath, Dhaka, Bangladesh",
+    "appointmentBadge": "Direct appointment available daily (Sat – Thu)",
     "phoneTitle": "Direct Call / Hotline",
     "emailTitle": "Official Email",
     "hoursTitle": "Office Hours",
     "hoursDesc": "Saturday – Thursday: 10:00 AM – 6:30 PM",
     "messageBoxTitle": "Send a Quick Message",
+    "inquirySubtitle": "Have a quick question? Leave your phone number and inquiry, and an ISL Global advisor will get back to you shortly.",
     "msgName": "Your Name",
+    "msgNamePlaceholder": "e.g., Lubna Rahman",
     "msgPhone": "Phone / WhatsApp",
+    "phonePlaceholder": "e.g., 01710-000000",
     "msgQuery": "Your Question or Destination",
+    "queryPlaceholder": "e.g., I want to study B.Sc. in Computer Science in Malaysia or the UK...",
     "msgSend": "Send Inquiry",
-    "msgSent": "Message sent! We will call you back shortly."
+    "msgSent": "Message sent! We will call you back shortly.",
+    "msgSentDetail": "We have received your message. You can also connect instantly on WhatsApp.",
+    "openWhatsApp": "Open in WhatsApp",
+    "sendAnother": "Send Another"
   },
   "cta": {
     "badge": "Start Your Journey Today",
@@ -329,8 +402,19 @@
     "topDestinations": "Top Destinations",
     "servicesTitle": "Services",
     "contactInfo": "Contact Information",
+    "address": "Panthapath, Dhaka, Bangladesh",
     "allRights": "All rights reserved.",
-    "builtWith": "Engineered with Next.js 16 & shadcn/ui"
+    "bottomTagline": "Certified Education Consultancy • Dhaka, Bangladesh",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "destList": {
+      "malaysia": "🇲🇾 Malaysia (No IELTS Option)",
+      "uk": "🇬🇧 United Kingdom (2-Yr PSW)",
+      "canada": "🇨🇦 Canada (PGWP & PR)",
+      "australia": "🇦🇺 Australia (High Minimum Wage)",
+      "europe": "🇪🇺 Europe / Schengen (Low Tuition)",
+      "usa": "🇺🇸 United States (STEM OPT)"
+    }
   },
   "common": {
     "langEn": "English",

@@ -1,21 +1,23 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const notoSansBengali = Noto_Sans_Bengali({
+  subsets: ["bengali"],
+  variable: "--font-bengali",
+  display: "swap",
 });
 
 export const metadata = {
-  title: "ISL Global | Next.js 16 • shadcn/ui • i18n",
+  title: "ISL Global Education | Study Abroad with Confidence",
   description:
-    "Modern, minimalist enterprise web application template with Next.js 16, shadcn/ui, native bilingual i18n (English & Bangla), and dark-first purple design tokens.",
+    "Leading higher education consultancy in Panthapath, Dhaka. Transparent visa processing for Malaysia, UK, Canada, Australia, Europe & USA.",
 };
 
 export default function RootLayout({ children }) {
@@ -23,17 +25,9 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${notoSansBengali.variable}`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-200">
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans antialiased transition-colors duration-200">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

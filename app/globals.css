@@ -8,7 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-surface: var(--card);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-surface: var(--surface);
   --color-surface-alt: var(--surface-alt);
   --color-border: var(--border);
   --color-input: var(--input);
@@ -18,6 +20,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-hover: var(--primary-hover);
   --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
 
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -34,8 +37,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-destructive: var(--destructive);
 
-  --font-sans: var(--font-geist-sans), 'Hind Siliguri', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sans);
 
   --radius-sm: calc(var(--radius) * 0.6);
@@ -50,20 +52,25 @@
    ========================================================================== */
 :root {
   --background: #FAF9FD;
-  --foreground: #15162B;
+  --surface: #FFFFFF;
+  --surface-alt: #F2F2FA;
   --card: #FFFFFF;
   --card-foreground: #15162B;
   --popover: #FFFFFF;
   --popover-foreground: #15162B;
-  --surface-alt: #F2F2FA;
   --border: #E1E2F0;
   --input: #E1E2F0;
+
+  --foreground: #15162B;
+  --foreground-secondary: #55577A;
+  --foreground-muted: #8A8CA8;
 
   /* Primary Logo Color: Deep Indigo */
   --primary: #2E3192;
   --primary-hover: #25277A;
   --primary-soft: #ECECF8;
   --primary-foreground: #FFFFFF;
+  --on-primary: #FFFFFF;
 
   /* Secondary & Muted */
   --secondary: #F2F2FA;
@@ -85,20 +92,25 @@
    ========================================================================== */
 .dark {
   --background: #0F1020;
-  --foreground: #EEEFF8;
+  --surface: #181A30;
+  --surface-alt: #131428;
   --card: #181A30;
   --card-foreground: #EEEFF8;
   --popover: #181A30;
   --popover-foreground: #EEEFF8;
-  --surface-alt: #131428;
   --border: #2A2D4A;
   --input: #2A2D4A;
+
+  --foreground: #EEEFF8;
+  --foreground-secondary: #B3B5D1;
+  --foreground-muted: #7F82A3;
 
   /* Primary in dark mode: Lighter tint for readability */
   --primary: #8B90EE;
   --primary-hover: #A1A5F4;
   --primary-soft: #22254A;
   --primary-foreground: #0F1020;
+  --on-primary: #0F1020;
 
   /* Secondary & Muted */
   --secondary: #181A30;
@@ -126,4 +138,76 @@
   html {
     @apply font-sans scroll-smooth;
   }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+/* Testimonials Swiper Equal Height & Clean Overflow */
+.testimonials-swiper {
+  width: 100%;
+  overflow: hidden !important;
+}
+
+.testimonials-swiper .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.testimonials-swiper .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Typography guidelines from typography.mdx */
+body {
+  line-height: 1.6;
+}
+
+/* Bangla body text needs slightly more line height for matra and juktakkhor */
+:lang(bn) {
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+
+/* Headings in Bangla must be compact, proportional, and never balloon to 1.8 line-height */
+:lang(bn) h1,
+:lang(bn) .hero-heading {
+  line-height: 1.2 !important;
+}
+
+:lang(bn) h2 {
+  line-height: 1.25 !important;
+}
+
+:lang(bn) h3 {
+  line-height: 1.3 !important;
+}
+
+:lang(bn) h4 {
+  line-height: 1.35 !important;
 }

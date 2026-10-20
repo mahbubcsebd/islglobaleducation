@@ -10,30 +10,77 @@ import {
   Send,
   MessageCircle,
   CheckCircle2,
-  Sparkles,
 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { getContactSchema } from "@/lib/validations";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { FormField, FormInput, FormTextarea } from "@/components/ui/form-field";
 
 export function ContactSection({ dict }) {
-  const [inquiry, setInquiry] = React.useState({
-    name: "",
-    phone: "",
-    query: "",
-  });
   const [sent, setSent] = React.useState(false);
+  const [submittedData, setSubmittedData] = React.useState(null);
+  const leftColRef = React.useRef(null);
+  const [minFormHeight, setMinFormHeight] = React.useState(null);
 
-  const handleSend = (e) => {
-    e.preventDefault();
+  React.useEffect(() => {
+    if (!leftColRef.current) return;
+    const updateHeight = () => {
+      if (typeof window !== "undefined" && window.innerWidth >= 1024 && leftColRef.current) {
+        setMinFormHeight(leftColRef.current.offsetHeight);
+      } else {
+        setMinFormHeight(null);
+      }
+    };
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(leftColRef.current);
+    window.addEventListener("resize", updateHeight);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, []);
+
+  const contactSchema = React.useMemo(() => getContactSchema(dict), [dict]);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      query: "",
+    },
+  });
+
+  const onSubmit = async (data) => {
+    // Simulate API submission
+    await new Promise((resolve) => setTimeout(resolve, 600));
+    setSubmittedData(data);
     setSent(true);
-    setTimeout(() => {
-      setSent(false);
-      setInquiry({ name: "", phone: "", query: "" });
-    }, 4000);
+  };
+
+  const handleReset = () => {
+    reset();
+    setSent(false);
+    setSubmittedData(null);
+  };
+
+  const getWhatsAppDirectLink = () => {
+    if (!submittedData) return "https://wa.me/8801910030040";
+    const text = encodeURIComponent(
+      `Hello ISL Global,\nMy name is ${submittedData.name}.\nPhone: ${submittedData.phone}\nQuery: ${submittedData.query}`
+    );
+    return `https://wa.me/8801910030040?text=${text}`;
   };
 
   return (
-    <section id="contact" className="py-20 border-t border-border/40 relative bg-muted/20">
+    <section id="contact" className="py-20 relative bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
@@ -44,51 +91,50 @@ export function ContactSection({ dict }) {
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">
             {dict.contact.title}
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+          <p className="text-foreground-secondary text-sm sm:text-base leading-relaxed">
             {dict.contact.subtitle}
           </p>
         </div>
 
+        {/* 2-Column Grid aligned to start so left side never stretches on form errors */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Left Column: Office Details */}
-          <div className="space-y-4">
-            {/* Address Card with Logo */}
-            <div className="rounded-3xl border border-border/60 bg-card/80 p-6 backdrop-blur-xs shadow-sm space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-border/40">
-                <div className="bg-white/95 dark:bg-white/95 px-3 py-1.5 rounded-xl shadow-xs border border-white/20">
-                  <Image
-                    src="/logo.png"
-                    alt="ISL Global Education"
-                    width={140}
-                    height={36}
-                    className="h-7 w-auto object-contain"
-                  />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-                  Head Office
+          {/* Left Column: Office Details with fixed gap that never expands */}
+          <div ref={leftColRef} className="flex flex-col gap-4">
+            {/* Address Card with Brand Logo */}
+            <div className="rounded-xl border border-border bg-surface p-6 shadow-2xs space-y-4">
+              <div className="flex items-center justify-between pb-4 border-b border-border">
+                <Image
+                  src="/logo.png"
+                  alt="ISL Global Education"
+                  width={160}
+                  height={44}
+                  className="h-9 sm:h-10 w-auto object-contain"
+                />
+                <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-soft px-2.5 py-1 rounded-md">
+                  {dict.contact.headOffice || "Head Office"}
                 </span>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0 mt-0.5">
+                <div className="flex size-11 items-center justify-center rounded-lg bg-primary-soft text-primary shrink-0 mt-0.5">
                   <MapPin className="size-5" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-foreground">
                     {dict.contact.addressTitle}
                   </h4>
-                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                  <p className="text-xs text-foreground-secondary mt-1 leading-relaxed">
                     {dict.contact.addressDesc}
                   </p>
                   <div className="mt-2 text-xs text-primary font-medium">
-                    Direct appointment available daily
+                    {dict.contact.appointmentBadge}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Hotline Numbers Card */}
-            <div className="rounded-xl border border-border bg-surface p-6 flex items-start gap-4">
+            {/* Hotline Numbers & Premium WhatsApp Card */}
+            <div className="rounded-xl border border-border bg-surface p-6 flex items-start gap-4 shadow-2xs">
               <div className="flex size-11 items-center justify-center rounded-lg bg-primary-soft text-primary shrink-0">
                 <Phone className="size-5" />
               </div>
@@ -111,15 +157,16 @@ export function ContactSection({ dict }) {
                     +880 1910-030093
                   </a>
                 </div>
+                {/* WhatsApp Action Button with Standard Outline Theme */}
                 <div className="mt-3">
                   <a
                     href="https://wa.me/8801910030040"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-500 border border-emerald-500/30 px-3.5 py-1 text-xs font-semibold transition-colors"
+                    className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-alt hover:bg-surface hover:border-primary text-foreground px-3.5 py-2 text-xs font-semibold transition-colors shadow-2xs"
                   >
-                    <MessageCircle className="size-3.5" />
-                    <span>WhatsApp: 01910-030040</span>
+                    <MessageCircle className="size-4 text-emerald-500 shrink-0" />
+                    <span>WhatsApp: +880 1910-030040</span>
                   </a>
                 </div>
               </div>
@@ -127,7 +174,7 @@ export function ContactSection({ dict }) {
 
             {/* Email & Hours Card */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="rounded-xl border border-border bg-surface p-5">
+              <div className="rounded-xl border border-border bg-surface p-5 shadow-2xs">
                 <div className="flex size-9 items-center justify-center rounded-lg bg-primary-soft text-primary mb-3">
                   <Mail className="size-4" />
                 </div>
@@ -142,7 +189,7 @@ export function ContactSection({ dict }) {
                 </a>
               </div>
 
-              <div className="rounded-xl border border-border bg-surface p-5">
+              <div className="rounded-xl border border-border bg-surface p-5 shadow-2xs">
                 <div className="flex size-9 items-center justify-center rounded-lg bg-primary-soft text-primary mb-3">
                   <Clock className="size-4" />
                 </div>
@@ -156,75 +203,120 @@ export function ContactSection({ dict }) {
             </div>
           </div>
 
-          {/* Right Column: Quick Inquiry Form */}
-          <div className="rounded-xl border border-border bg-surface p-7">
-            <h3 className="text-lg font-bold text-foreground mb-1">
-              {dict.contact.messageBoxTitle}
-            </h3>
-            <p className="text-xs text-foreground-secondary mb-6">
-              Have a quick question? Leave your phone number and we will call you back.
-            </p>
+          {/* Right Column: Form Card matching initial left height, freely expanding on error */}
+          <div
+            style={{ minHeight: minFormHeight ? `${minFormHeight}px` : undefined }}
+            className="rounded-xl border border-border bg-surface p-7 shadow-2xs flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="text-lg font-bold text-foreground mb-1">
+                {dict.contact.messageBoxTitle}
+              </h3>
+              <p className="text-xs text-foreground-secondary mb-6">
+                {dict.contact.inquirySubtitle}
+              </p>
+            </div>
 
             {sent ? (
-              <div className="p-6 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-center space-y-2">
-                <CheckCircle2 className="size-8 text-emerald-500 mx-auto" />
-                <h4 className="text-sm font-bold text-foreground">
-                  {dict.contact.msgSent}
-                </h4>
+              <div className="p-6 rounded-xl bg-surface border border-border text-center space-y-4 my-auto animate-in fade-in-50 duration-200">
+                <div className="flex size-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 mx-auto">
+                  <CheckCircle2 className="size-7" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-foreground">
+                    {dict.contact.msgSent}
+                  </h4>
+                  <p className="text-xs text-foreground-secondary mt-1 max-w-sm mx-auto">
+                    {dict.contact.msgSentDetail}
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full sm:w-auto"
+                    asChild
+                  >
+                    <a
+                      href={getWhatsAppDirectLink()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="size-4 mr-2 text-emerald-500" />
+                      <span>{dict.contact.openWhatsApp}</span>
+                    </a>
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleReset}
+                    className="w-full sm:w-auto"
+                  >
+                    {dict.contact.sendAnother}
+                  </Button>
+                </div>
               </div>
             ) : (
-              <form onSubmit={handleSend} className="space-y-4">
-                <div>
-                  <label className="text-xs font-medium text-foreground block mb-1.5">
-                    {dict.contact.msgName} *
-                  </label>
-                  <Input
+              <form onSubmit={handleSubmit(onSubmit)} className="flex-1 flex flex-col justify-between space-y-4" noValidate>
+                <div className="space-y-4">
+                  <FormField
+                    id="contact-name"
+                    label={dict.contact.msgName}
                     required
-                    type="text"
-                    value={inquiry.name}
-                    onChange={(e) =>
-                      setInquiry({ ...inquiry, name: e.target.value })
-                    }
-                    placeholder="Your Name"
-                    className="rounded-lg bg-surface-alt border-border text-xs"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-medium text-foreground block mb-1.5">
-                    {dict.contact.msgPhone} *
-                  </label>
-                  <Input
+                    error={errors.name?.message}
+                  >
+                    <FormInput
+                      id="contact-name"
+                      type="text"
+                      placeholder={dict.contact.msgNamePlaceholder || "Lubna Rahman"}
+                      hasError={Boolean(errors.name)}
+                      {...register("name")}
+                    />
+                  </FormField>
+
+                  <FormField
+                    id="contact-phone"
+                    label={dict.contact.msgPhone}
                     required
-                    type="tel"
-                    value={inquiry.phone}
-                    onChange={(e) =>
-                      setInquiry({ ...inquiry, phone: e.target.value })
-                    }
-                    placeholder="Phone / WhatsApp"
-                    className="rounded-lg bg-surface-alt border-border text-xs"
-                  />
+                    error={errors.phone?.message}
+                  >
+                    <FormInput
+                      id="contact-phone"
+                      type="tel"
+                      placeholder={dict.contact.phonePlaceholder || "01710-000000"}
+                      hasError={Boolean(errors.phone)}
+                      {...register("phone")}
+                    />
+                  </FormField>
+
+                  <FormField
+                    id="contact-query"
+                    label={dict.contact.msgQuery}
+                    required
+                    error={errors.query?.message}
+                  >
+                    <FormTextarea
+                      id="contact-query"
+                      rows={4}
+                      placeholder={dict.contact.queryPlaceholder || "e.g., I want to study..."}
+                      hasError={Boolean(errors.query)}
+                      {...register("query")}
+                    />
+                  </FormField>
                 </div>
-                <div>
-                  <label className="text-xs font-medium text-foreground block mb-1.5">
-                    {dict.contact.msgQuery}
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={inquiry.query}
-                    onChange={(e) =>
-                      setInquiry({ ...inquiry, query: e.target.value })
-                    }
-                    placeholder="e.g., I want to study B.Sc. in Malaysia or UK with scholarship..."
-                    className="w-full rounded-lg bg-surface-alt border border-border p-3 text-xs text-foreground placeholder:text-foreground-muted outline-none focus:ring-1 focus:ring-primary focus:border-primary resize-none"
-                  />
+
+                <div className="pt-2 mt-auto">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full"
+                  >
+                    <Send className="size-4 mr-2" />
+                    {isSubmitting ? dict.eligibility.submitting : dict.contact.msgSend}
+                  </Button>
                 </div>
-                <Button
-                  type="submit"
-                  className="w-full rounded-lg py-2.5 text-xs font-semibold text-on-primary transition-colors cursor-pointer"
-                >
-                  <Send className="size-3.5 mr-2" />
-                  {dict.contact.msgSend}
-                </Button>
               </form>
             )}
           </div>

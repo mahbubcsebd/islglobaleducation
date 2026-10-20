@@ -36,7 +36,7 @@ export function MetricsRibbon({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-xl border border-border bg-surface p-4 sm:p-5 transition-colors hover:border-primary"
+                className="group relative rounded-xl border border-border bg-surface p-4 sm:p-5 transition-colors hover:border-primary shadow-2xs"
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className={`flex size-8 items-center justify-center rounded-lg ${stat.highlight ? "bg-accent/15 text-accent" : "bg-primary-soft text-primary"}`}>
@@ -44,7 +44,7 @@ export function MetricsRibbon({ dict }) {
                   </div>
                   {stat.highlight && (
                     <span className="text-[10px] font-bold uppercase tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded-md">
-                      Featured
+                      {dict.metrics.featured || "Featured"}
                     </span>
                   )}
                 </div>
