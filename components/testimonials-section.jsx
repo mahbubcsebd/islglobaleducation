@@ -45,18 +45,28 @@ export function TestimonialsSection({ dict }) {
   ];
 
   return (
-    <section id="success-wall" className="py-24 bg-navy-900 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="success-wall" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200/80 dark:border-white/10 relative overflow-hidden transition-colors">
+      {/* Background campus photo overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80"
+          alt="International Students Success Wall"
+          className="w-full h-full object-cover object-center opacity-5 dark:opacity-10 mix-blend-multiply dark:mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/90 via-slate-50/70 to-slate-50/95 dark:from-navy-900/90 dark:via-navy-900/75 dark:to-navy-900/95" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+          <span className="text-xs font-bold text-gold-700 dark:text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
             {dict.testimonials.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-3">
             {dict.testimonials.title}
           </h2>
-          <p className="text-slate-400 text-sm mt-2">
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-2">
             {dict.testimonials.subtitle}
           </p>
         </div>
@@ -73,7 +83,7 @@ export function TestimonialsSection({ dict }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.1 }}
                 whileHover={{ y: -6 }}
-                className="rounded-3xl bg-navy-950 border border-white/10 p-7 flex flex-col justify-between hover:border-gold-500/40 transition-all duration-300 shadow-xl"
+                className="rounded-3xl bg-white dark:bg-navy-950 border border-slate-200/80 dark:border-white/10 p-7 flex flex-col justify-between hover:border-gold-500/40 transition-all duration-300 shadow-lg dark:shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
@@ -84,21 +94,21 @@ export function TestimonialsSection({ dict }) {
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-6">
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic mb-6">
                     &ldquo;{story.data.quote}&rdquo;
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3.5 pt-5 border-t border-white/10">
+                <div className="flex items-center gap-3.5 pt-5 border-t border-slate-100 dark:border-white/10">
                   <img
                     src={story.image}
                     alt={story.data.name}
                     className="w-12 h-12 rounded-full object-cover ring-2 ring-gold-500/40"
                   />
                   <div>
-                    <p className="font-bold text-white text-sm">{story.data.name}</p>
-                    <p className="text-xs text-slate-400">{story.data.course}</p>
-                    <p className="text-[11px] text-emerald-400 font-semibold mt-0.5">
+                    <p className="font-bold text-slate-900 dark:text-white text-sm">{story.data.name}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{story.data.course}</p>
+                    <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">
                       {story.data.sub}
                     </p>
                   </div>

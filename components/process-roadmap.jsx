@@ -37,18 +37,29 @@ export function ProcessRoadmap({ dict }) {
   ];
 
   return (
-    <section id="roadmap" className="py-24 bg-navy-900 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="roadmap" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 relative overflow-hidden transition-colors">
+      {/* Airport Departure / Flight Route Background Image with Mask */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80"
+          alt="International Flight Departure"
+          className="w-full h-full object-cover opacity-10 dark:opacity-15 mix-blend-luminosity scale-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/95 via-slate-50/80 to-slate-50/95 dark:from-navy-900/95 dark:via-navy-900/80 dark:to-navy-900/95"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+          <span className="text-xs font-bold text-amber-700 dark:text-gold-400 uppercase tracking-widest bg-amber-500/10 dark:bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 dark:border-gold-500/30">
             {dict.process.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-3">
             {dict.process.title}
           </h2>
-          <p className="text-slate-400 text-sm mt-2">
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-2">
             {dict.process.subtitle}
           </p>
         </div>
@@ -71,10 +82,10 @@ export function ProcessRoadmap({ dict }) {
                 >
                   {item.step}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-gold-400 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-400 leading-relaxed max-w-xs">
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-w-xs">
                   {item.desc}
                 </p>
               </motion.div>

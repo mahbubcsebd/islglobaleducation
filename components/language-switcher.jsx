@@ -31,8 +31,12 @@ export function LanguageSwitcher({ currentLang = "en" }) {
   };
 
   return (
-    <div className="inline-flex items-center gap-0.5 p-1 bg-white/5 border border-white/15 rounded-xl backdrop-blur-md">
-      <div className="flex items-center pl-1 pr-0.5 text-gold-400">
+    <div
+      aria-label="Language switcher"
+      role="group"
+      className="inline-flex items-center gap-0.5 p-1 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/15 rounded-xl shadow-2xs backdrop-blur-md"
+    >
+      <div className="flex items-center pl-1 pr-0.5 text-amber-600 dark:text-gold-400">
         <Globe className="w-3.5 h-3.5" />
       </div>
       <button
@@ -40,8 +44,8 @@ export function LanguageSwitcher({ currentLang = "en" }) {
         onClick={() => handleLanguageChange("en")}
         className={`px-2 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
           currentLang === "en"
-            ? "bg-gold-500 text-navy-950 shadow-sm"
-            : "text-slate-300 hover:text-white"
+            ? "bg-gold-500 text-navy-950 shadow-xs"
+            : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
         }`}
       >
         EN
@@ -51,8 +55,8 @@ export function LanguageSwitcher({ currentLang = "en" }) {
         onClick={() => handleLanguageChange("bn")}
         className={`px-2 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
           currentLang === "bn"
-            ? "bg-gold-500 text-navy-950 shadow-sm"
-            : "text-slate-300 hover:text-white"
+            ? "bg-gold-500 text-navy-950 shadow-xs"
+            : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
         }`}
       >
         বাং

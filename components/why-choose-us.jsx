@@ -35,20 +35,29 @@ export function WhyChooseUs({ dict }) {
   ];
 
   return (
-    <section id="why-us" className="py-20 relative bg-transparent overflow-hidden">
-      {/* Subtle Why Us Radial Atmosphere */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[950px] h-[380px] sm:h-[480px] bg-[radial-gradient(ellipse_at_center,rgba(247,223,30,0.14)_0%,rgba(44,58,136,0.12)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(247,223,30,0.08)_0%,rgba(44,58,136,0.22)_50%,transparent_75%)] blur-3xl -z-10" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="why-us" className="py-24 relative bg-white dark:bg-navy-950 border-t border-slate-200 dark:border-white/10 overflow-hidden transition-colors">
+      {/* Overseas Counseling Environment Background Image with Mask */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
+          alt="ISL Global Advisory Team"
+          className="w-full h-full object-cover opacity-10 dark:opacity-15 mix-blend-luminosity scale-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/95 dark:from-navy-950/95 dark:via-navy-950/80 dark:to-navy-950/95"></div>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-300 px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
-            <CheckCircle className="size-3.5 text-gold-400" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 dark:bg-gold-500/15 border border-amber-500/25 dark:border-gold-500/30 text-amber-700 dark:text-gold-300 px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
+            <CheckCircle className="size-3.5 text-amber-600 dark:text-gold-400" />
             <span>{dict.whyUs.badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
             {dict.whyUs.title}
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
             {dict.whyUs.subtitle}
           </p>
         </div>
@@ -60,22 +69,22 @@ export function WhyChooseUs({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-2xl border border-white/10 bg-navy-950 p-6 transition-all duration-300 hover:border-gold-500/40 hover:shadow-xl shadow-2xs flex flex-col justify-between"
+                className="group relative rounded-3xl border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-navy-900/90 backdrop-blur-md p-7 transition-all duration-300 hover:border-amber-500/50 dark:hover:border-gold-500/40 hover:shadow-xl shadow-xs flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="flex size-11 items-center justify-center rounded-xl bg-gold-500/20 text-gold-400 transition-transform duration-200 group-hover:scale-105">
+                    <div className="flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-gold-400 to-amber-600 text-navy-950 shadow-md transition-transform duration-200 group-hover:scale-105">
                       <IconComponent className="size-5" />
                     </div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-gold-500/20 text-gold-300 border border-gold-500/30 px-2.5 py-1 rounded-md shadow-2xs">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-slate-100 dark:bg-gold-500/20 text-slate-800 dark:text-gold-300 border border-slate-200 dark:border-gold-500/30 px-2.5 py-1 rounded-full shadow-2xs">
                       {item.highlight}
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-gold-400 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

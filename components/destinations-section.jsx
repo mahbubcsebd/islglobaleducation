@@ -71,19 +71,19 @@ export function DestinationsSection({ lang, dict }) {
   }, [activeFilter, destinations]);
 
   return (
-    <section id="destinations" className="py-24 bg-navy-900 relative">
+    <section id="destinations" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 relative transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span className="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+            <span className="text-xs font-bold text-amber-700 dark:text-gold-400 uppercase tracking-widest bg-amber-500/10 dark:bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 dark:border-gold-500/30">
               {dict.destinations.badge}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-3">
               {dict.destinations.title}
             </h2>
-            <p className="text-slate-400 text-sm mt-2 max-w-xl">
+            <p className="text-slate-600 dark:text-slate-400 text-sm mt-2 max-w-xl">
               {dict.destinations.subtitle}
             </p>
           </div>
@@ -102,7 +102,7 @@ export function DestinationsSection({ lang, dict }) {
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
                   activeFilter === btn.id
                     ? "bg-gold-500 text-navy-950 shadow-md"
-                    : "bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10"
+                    : "bg-white dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 shadow-2xs"
                 }`}
               >
                 {btn.label}
@@ -126,16 +126,17 @@ export function DestinationsSection({ lang, dict }) {
                 exit={{ opacity: 0, scale: 0.92 }}
                 transition={{ duration: 0.35 }}
                 whileHover={{ y: -6 }}
-                className="group rounded-3xl overflow-hidden bg-navy-950 border border-white/10 hover:border-gold-500/50 transition-all duration-300 flex flex-col shadow-xl"
+                className="group rounded-3xl overflow-hidden bg-white dark:bg-navy-950 border border-slate-200 dark:border-white/10 hover:border-amber-500/50 dark:hover:border-gold-500/50 transition-all duration-300 flex flex-col shadow-sm dark:shadow-xl"
               >
                 {/* Image and Flag Banner */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden bg-slate-100 dark:bg-navy-900">
                   <img
                     src={country.image}
                     alt={country.data.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent"></div>
 
                   <div
                     className={`absolute top-4 left-4 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow ${country.badgeColor}`}
@@ -146,7 +147,7 @@ export function DestinationsSection({ lang, dict }) {
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                     <div>
                       <h3 className="text-2xl font-black">{country.data.name}</h3>
-                      <p className="text-xs text-slate-300">{country.data.cities}</p>
+                      <p className="text-xs text-slate-200">{country.data.cities}</p>
                     </div>
                     <span className="text-3xl">{country.flag}</span>
                   </div>
@@ -155,30 +156,30 @@ export function DestinationsSection({ lang, dict }) {
                 {/* Card Content & Features */}
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2.5 text-xs">
-                    <div className="flex items-center justify-between py-1.5 border-b border-white/10">
-                      <span className="text-slate-400">{dict.destinations.tuitionLabel}</span>
-                      <span className="font-bold text-gold-400">{country.data.tuition}</span>
+                    <div className="flex items-center justify-between py-1.5 border-b border-slate-100 dark:border-white/10">
+                      <span className="text-slate-500 dark:text-slate-400">{dict.destinations.tuitionLabel}</span>
+                      <span className="font-bold text-amber-700 dark:text-gold-400">{country.data.tuition}</span>
                     </div>
 
-                    <div className="flex items-center justify-between py-1.5 border-b border-white/10">
-                      <span className="text-slate-400">{dict.destinations.gapLabel}</span>
-                      <span className="font-bold text-white">{country.data.gap}</span>
+                    <div className="flex items-center justify-between py-1.5 border-b border-slate-100 dark:border-white/10">
+                      <span className="text-slate-500 dark:text-slate-400">{dict.destinations.gapLabel}</span>
+                      <span className="font-bold text-slate-800 dark:text-white">{country.data.gap}</span>
                     </div>
 
-                    <div className="flex items-center justify-between py-1.5 border-b border-white/10">
-                      <span className="text-slate-400">{dict.destinations.languageLabel}</span>
-                      <span className="font-bold text-emerald-400">{country.data.ielts}</span>
+                    <div className="flex items-center justify-between py-1.5 border-b border-slate-100 dark:border-white/10">
+                      <span className="text-slate-500 dark:text-slate-400">{dict.destinations.languageLabel}</span>
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">{country.data.ielts}</span>
                     </div>
 
-                    <div className="flex items-center justify-between py-1.5 border-b border-white/10">
-                      <span className="text-slate-400">{dict.destinations.paymentTermLabel}</span>
-                      <span className="font-bold text-gold-300">{country.data.paymentTerm}</span>
+                    <div className="flex items-center justify-between py-1.5 border-b border-slate-100 dark:border-white/10">
+                      <span className="text-slate-500 dark:text-slate-400">{dict.destinations.paymentTermLabel}</span>
+                      <span className="font-bold text-amber-600 dark:text-gold-300">{country.data.paymentTerm}</span>
                     </div>
                   </div>
 
                   <Link
                     href="#eligibility"
-                    className="w-full py-3 bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950 cursor-pointer"
+                    className="w-full py-3 bg-slate-100 dark:bg-white/10 hover:bg-gold-500 dark:hover:bg-gold-500 text-slate-800 dark:text-white hover:text-navy-950 dark:hover:text-navy-950 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950 cursor-pointer shadow-2xs"
                   >
                     <span>
                       {dict.destinations.applyNow} {country.data.name}

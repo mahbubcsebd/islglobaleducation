@@ -1,8 +1,7 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
 import { GraduationCap, Phone, Mail, MapPin } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function Footer({ lang, dict }) {
   const currentYear = 2026;
@@ -47,23 +46,13 @@ export function Footer({ lang, dict }) {
   ];
 
   return (
-    <footer className="bg-navy-950 text-slate-400 text-xs border-t border-white/10">
+    <footer className="bg-slate-900 text-slate-400 dark:bg-navy-950 dark:text-slate-400 text-xs border-t border-slate-800 dark:border-white/10 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold">
-                <GraduationCap className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="font-extrabold text-xl text-white">ISL GLOBAL</span>
-                <p className="text-[10px] text-slate-400 uppercase tracking-widest -mt-0.5">
-                  Education & Visa Services
-                </p>
-              </div>
-            </div>
+            <BrandLogo size="md" />
             <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
               {dict.footer.brandDesc}
             </p>

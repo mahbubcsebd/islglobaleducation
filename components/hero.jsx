@@ -50,13 +50,13 @@ export function Hero({ lang, dict }) {
   };
 
   return (
-    <section className="relative min-h-[820px] lg:min-h-[880px] flex items-center overflow-hidden bg-navy-950">
+    <section className="relative min-h-[820px] lg:min-h-[880px] flex items-center overflow-hidden bg-background text-foreground transition-colors duration-300">
       {/* Video / HD Campus Ambient Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
           src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=2400&q=90"
           alt="Top Global University Campus"
-          className="w-full h-full object-cover object-center scale-105 opacity-40 mix-blend-luminosity"
+          className="w-full h-full object-cover object-center scale-105 opacity-25 dark:opacity-40 mix-blend-multiply dark:mix-blend-luminosity"
         />
         {/* Cinematic Multi-stop Dark Sapphire and Warm Gold Mask */}
         <div className="absolute inset-0 hero-cinematic-mask"></div>
@@ -78,21 +78,21 @@ export function Hero({ lang, dict }) {
             className="lg:col-span-7 space-y-7"
           >
             {/* Government Registration & Trust Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-navy-850/80 border border-gold-500/30 text-gold-300 text-xs font-bold tracking-wider uppercase backdrop-blur-xl">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 dark:bg-navy-850/80 border border-gold-500/30 text-gold-700 dark:text-gold-300 text-xs font-bold tracking-wider uppercase backdrop-blur-xl shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-gold-400 animate-ping"></span>
-              <ShieldCheck className="w-4 h-4 text-gold-400 shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0" />
               <span>{dict.hero.badge}</span>
             </div>
 
             {/* Hero Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-white leading-[1.22] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-slate-900 dark:text-white leading-[1.22] tracking-tight">
               <span>{dict.hero.titleLine1}</span> <br />
-              <span className="text-gold-400 drop-shadow-sm">{dict.hero.titleLine2}</span> <br />
-              <span className="text-white">{dict.hero.titleLine3}</span>
+              <span className="text-gold-600 dark:text-gold-400 drop-shadow-sm">{dict.hero.titleLine2}</span> <br />
+              <span>{dict.hero.titleLine3}</span>
             </h1>
 
             {/* Compelling Narrative */}
-            <p className="text-base sm:text-lg text-slate-200 max-w-2xl font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 max-w-2xl font-normal leading-relaxed">
               {dict.hero.subtitle}
             </p>
 
@@ -100,15 +100,15 @@ export function Hero({ lang, dict }) {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
               <motion.div
                 whileHover={{ y: -3 }}
-                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-gold-500/40 transition-colors"
+                className="p-3.5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-sm backdrop-blur-md hover:border-gold-500/40 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-gold-500/20 text-gold-500 dark:text-gold-400 flex items-center justify-center shrink-0">
                     <Banknote className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-black text-white text-sm">0 BDT</p>
-                    <p className="text-slate-400 text-[11px] leading-tight font-medium">
+                    <p className="font-black text-slate-900 dark:text-white text-sm">0 BDT</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-tight font-medium">
                       {dict.hero.pill1 || "File Opening Fee"}
                     </p>
                   </div>
@@ -117,15 +117,15 @@ export function Hero({ lang, dict }) {
 
               <motion.div
                 whileHover={{ y: -3 }}
-                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-emerald-500/40 transition-colors"
+                className="p-3.5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-sm backdrop-blur-md hover:border-emerald-500/40 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 flex items-center justify-center shrink-0">
                     <BadgeCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-black text-white text-sm">99.2%</p>
-                    <p className="text-slate-400 text-[11px] leading-tight font-medium">
+                    <p className="font-black text-slate-900 dark:text-white text-sm">99.2%</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-tight font-medium">
                       {dict.hero.pill2 || "Visa Approval"}
                     </p>
                   </div>
@@ -134,15 +134,15 @@ export function Hero({ lang, dict }) {
 
               <motion.div
                 whileHover={{ y: -3 }}
-                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/40 transition-colors"
+                className="p-3.5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-sm backdrop-blur-md hover:border-blue-500/40 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-500 dark:text-blue-400 flex items-center justify-center shrink-0">
                     <Calendar className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-black text-white text-sm">10+ Yrs</p>
-                    <p className="text-slate-400 text-[11px] leading-tight font-medium">
+                    <p className="font-black text-slate-900 dark:text-white text-sm">10+ Yrs</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-tight font-medium">
                       {dict.hero.pill3 || "Study Gap OK"}
                     </p>
                   </div>
@@ -151,15 +151,15 @@ export function Hero({ lang, dict }) {
 
               <motion.div
                 whileHover={{ y: -3 }}
-                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-amber-500/40 transition-colors"
+                className="p-3.5 rounded-2xl bg-white/80 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-sm backdrop-blur-md hover:border-amber-500/40 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-500 dark:text-amber-400 flex items-center justify-center shrink-0">
                     <BookOpenCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-black text-white text-sm">MOI OK</p>
-                    <p className="text-slate-400 text-[11px] leading-tight font-medium">
+                    <p className="font-black text-slate-900 dark:text-white text-sm">MOI OK</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-tight font-medium">
                       {dict.hero.pill4 || "Without IELTS"}
                     </p>
                   </div>
@@ -179,9 +179,9 @@ export function Hero({ lang, dict }) {
 
               <Link
                 href="#dhaka-office"
-                className="px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/10 text-white hover:bg-white/15 border border-white/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2.5"
+                className="px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-slate-900/5 hover:bg-slate-900/10 text-slate-800 border border-slate-300 dark:bg-white/10 dark:text-white dark:hover:bg-white/15 dark:border-white/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2.5"
               >
-                <MapPin className="w-4 h-4 text-gold-400" />
+                <MapPin className="w-4 h-4 text-gold-500 dark:text-gold-400" />
                 <span>{dict.hero.ctaSecondary}</span>
               </Link>
             </div>
@@ -190,36 +190,36 @@ export function Hero({ lang, dict }) {
             <div className="flex items-center gap-4 pt-2">
               <div className="flex -space-x-3 overflow-hidden">
                 <img
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover"
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-navy-950 object-cover"
                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
                   alt="Student"
                 />
                 <img
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover"
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-navy-950 object-cover"
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
                   alt="Student"
                 />
                 <img
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover"
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-navy-950 object-cover"
                   src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80"
                   alt="Student"
                 />
                 <img
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover"
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-navy-950 object-cover"
                   src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
                   alt="Student"
                 />
               </div>
               <div>
-                <div className="flex items-center gap-1 text-gold-400 text-xs">
+                <div className="flex items-center gap-1 text-gold-500 dark:text-gold-400 text-xs">
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
                   <Star className="w-3.5 h-3.5 fill-current" />
-                  <span className="font-bold text-white ml-1">{dict.hero.socialRating}</span>
+                  <span className="font-bold text-slate-900 dark:text-white ml-1">{dict.hero.socialRating}</span>
                 </div>
-                <p className="text-slate-400 text-xs mt-0.5">{dict.hero.socialReviews}</p>
+                <p className="text-slate-600 dark:text-slate-400 text-xs mt-0.5">{dict.hero.socialReviews}</p>
               </div>
             </div>
           </motion.div>
@@ -232,7 +232,7 @@ export function Hero({ lang, dict }) {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="lg:col-span-5"
           >
-            <div className="glass-panel-luxury rounded-3xl p-6 sm:p-8 relative">
+            <div className="glass-panel-luxury bg-white/95 dark:bg-navy-950/80 border border-slate-200/80 dark:border-white/15 rounded-3xl p-6 sm:p-8 relative shadow-2xl">
               {/* Live Intake Ribbon */}
               <div className="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-black uppercase tracking-wider shadow-lg flex items-center gap-1.5 border border-emerald-300/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
@@ -241,13 +241,13 @@ export function Hero({ lang, dict }) {
 
               {/* Card Header */}
               <div className="mb-5">
-                <p className="text-gold-400 text-xs uppercase tracking-wider font-bold">
+                <p className="text-gold-600 dark:text-gold-400 text-xs uppercase tracking-wider font-bold">
                   {dict.eligibility.badge}
                 </p>
-                <h2 className="text-2xl font-extrabold text-white mt-0.5">
+                <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
                   {dict.eligibility.title}
                 </h2>
-                <p className="text-slate-400 text-xs mt-1">
+                <p className="text-slate-600 dark:text-slate-400 text-xs mt-1">
                   {dict.eligibility.subtitle}
                 </p>
               </div>
@@ -256,7 +256,7 @@ export function Hero({ lang, dict }) {
               <div className="flex items-center justify-between mb-5 px-1 text-xs">
                 <span
                   className={`font-bold flex items-center gap-1.5 ${
-                    step >= 1 ? "text-gold-400" : "text-slate-400"
+                    step >= 1 ? "text-gold-600 dark:text-gold-400" : "text-slate-500 dark:text-slate-400"
                   }`}
                 >
                   <span className="w-5 h-5 rounded-full bg-gold-500 text-navy-950 flex items-center justify-center text-[10px] font-black">
@@ -265,9 +265,9 @@ export function Hero({ lang, dict }) {
                   {dict.eligibility.step1}
                 </span>
 
-                <div className="flex-1 h-0.5 mx-3 bg-white/10">
+                <div className="flex-1 h-0.5 mx-3 bg-slate-200 dark:bg-white/10">
                   <div
-                    className={`h-full bg-gold-400 transition-all duration-300 ${
+                    className={`h-full bg-gold-500 dark:bg-gold-400 transition-all duration-300 ${
                       step === 1 ? "w-1/2" : "w-full"
                     }`}
                   ></div>
@@ -275,12 +275,12 @@ export function Hero({ lang, dict }) {
 
                 <span
                   className={`font-bold flex items-center gap-1.5 ${
-                    step === 2 ? "text-gold-400" : "text-slate-400"
+                    step === 2 ? "text-gold-600 dark:text-gold-400" : "text-slate-500 dark:text-slate-400"
                   }`}
                 >
                   <span
                     className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black ${
-                      step === 2 ? "bg-gold-500 text-navy-950" : "bg-white/10 text-white"
+                      step === 2 ? "bg-gold-500 text-navy-950" : "bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-white"
                     }`}
                   >
                     2
@@ -298,18 +298,18 @@ export function Hero({ lang, dict }) {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
-                    className="p-4 rounded-2xl bg-navy-900/90 border border-gold-500/40 text-xs space-y-3"
+                    className="p-4 rounded-2xl bg-slate-50 dark:bg-navy-900/90 border border-gold-500/40 text-xs space-y-3"
                   >
-                    <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                      <span className="text-slate-400">{dict.eligibility.probLabel}</span>
-                      <span className="text-emerald-400 font-black text-sm">
+                    <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-white/10">
+                      <span className="text-slate-500 dark:text-slate-400">{dict.eligibility.probLabel}</span>
+                      <span className="text-emerald-500 dark:text-emerald-400 font-black text-sm">
                         {dict.eligibility.probValue}
                       </span>
                     </div>
 
                     <div className="py-1 space-y-2">
-                      <p className="text-gold-300 font-bold">{dict.eligibility.scholarshipEst}</p>
-                      <p className="text-slate-300 leading-relaxed text-[11px]">
+                      <p className="text-gold-600 dark:text-gold-300 font-bold">{dict.eligibility.scholarshipEst}</p>
+                      <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-[11px]">
                         {dict.eligibility.successMsg}
                       </p>
                     </div>
@@ -331,7 +331,7 @@ export function Hero({ lang, dict }) {
                         setSubmitted(false);
                         setStep(1);
                       }}
-                      className="w-full text-center text-slate-400 hover:text-white text-[11px] pt-1"
+                      className="w-full text-center text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-[11px] pt-1"
                     >
                       {lang === "bn" ? "আরেকটি মূল্যায়ন করুন" : "Check another profile"}
                     </button>
@@ -348,30 +348,30 @@ export function Hero({ lang, dict }) {
                         className="space-y-3.5"
                       >
                         <div>
-                          <label className="block text-xs font-bold text-slate-200 mb-1">
+                          <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">
                             {dict.eligibility.targetCountry}
                           </label>
                           <select
                             value={formData.country}
                             onChange={(e) => handleChange("country", e.target.value)}
-                            className="glass-input-luxury w-full px-3.5 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer"
+                            className="glass-input-luxury w-full px-3.5 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer text-slate-900 dark:text-white"
                           >
-                            <option value="Malaysia" className="bg-navy-900 text-white">
+                            <option value="Malaysia" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                               {dict.eligibility.destOptions?.malaysia || "🇲🇾 Malaysia"}
                             </option>
-                            <option value="UK" className="bg-navy-900 text-white">
+                            <option value="UK" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                               {dict.eligibility.destOptions?.uk || "🇬🇧 United Kingdom"}
                             </option>
-                            <option value="Canada" className="bg-navy-900 text-white">
+                            <option value="Canada" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                               {dict.eligibility.destOptions?.canada || "🇨🇦 Canada"}
                             </option>
-                            <option value="Australia" className="bg-navy-900 text-white">
+                            <option value="Australia" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                               {dict.eligibility.destOptions?.australia || "🇦🇺 Australia"}
                             </option>
-                            <option value="Europe" className="bg-navy-900 text-white">
+                            <option value="Europe" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                               {dict.eligibility.destOptions?.europe || "🇪🇺 Europe / Schengen"}
                             </option>
-                            <option value="USA" className="bg-navy-900 text-white">
+                            <option value="USA" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                               {dict.eligibility.destOptions?.usa || "🇺🇸 United States"}
                             </option>
                           </select>
@@ -379,48 +379,48 @@ export function Hero({ lang, dict }) {
 
                         <div className="grid grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-xs font-bold text-slate-200 mb-1">
+                            <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">
                               {dict.eligibility.qualification}
                             </label>
                             <select
                               value={formData.qualification}
                               onChange={(e) => handleChange("qualification", e.target.value)}
-                              className="glass-input-luxury w-full px-3 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer"
+                              className="glass-input-luxury w-full px-3 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer text-slate-900 dark:text-white"
                             >
-                              <option value="HSC / A-Level" className="bg-navy-900 text-white">
+                              <option value="HSC / A-Level" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                                 {dict.eligibility.eduOptions?.hsc || "HSC / A-Level"}
                               </option>
-                              <option value="Diploma" className="bg-navy-900 text-white">
+                              <option value="Diploma" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                                 {dict.eligibility.eduOptions?.diploma || "Diploma"}
                               </option>
-                              <option value="Bachelor" className="bg-navy-900 text-white">
+                              <option value="Bachelor" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                                 {dict.eligibility.eduOptions?.bachelor || "Bachelor Degree"}
                               </option>
-                              <option value="Masters" className="bg-navy-900 text-white">
+                              <option value="Masters" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                                 {dict.eligibility.eduOptions?.master || "Masters Degree"}
                               </option>
                             </select>
                           </div>
 
                           <div>
-                            <label className="block text-xs font-bold text-slate-200 mb-1">
+                            <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">
                               {dict.eligibility.gap}
                             </label>
                             <select
                               value={formData.gap}
                               onChange={(e) => handleChange("gap", e.target.value)}
-                              className="glass-input-luxury w-full px-3 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer"
+                              className="glass-input-luxury w-full px-3 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer text-slate-900 dark:text-white"
                             >
-                              <option value="No Gap" className="bg-navy-900 text-white">
+                              <option value="No Gap" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                                 {dict.eligibility.gapOptions?.noGap || "No Gap"}
                               </option>
-                              <option value="1-3 Years" className="bg-navy-900 text-white">
+                              <option value="1-3 Years" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                                 {dict.eligibility.gapOptions?.gap1to3 || "1 - 3 Years"}
                               </option>
-                              <option value="4-7 Years" className="bg-navy-900 text-white">
+                              <option value="4-7 Years" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                                 {dict.eligibility.gapOptions?.gap4to7 || "4 - 7 Years"}
                               </option>
-                              <option value="8+ Years" className="bg-navy-900 text-white">
+                              <option value="8+ Years" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">
                                 {dict.eligibility.gapOptions?.gap8plus || "8+ Years"}
                               </option>
                             </select>
@@ -428,7 +428,7 @@ export function Hero({ lang, dict }) {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-slate-200 mb-1.5">
+                          <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1.5">
                             {dict.eligibility.engStatus}
                           </label>
                           <div className="grid grid-cols-3 gap-2 text-xs">
@@ -443,8 +443,8 @@ export function Hero({ lang, dict }) {
                                 onClick={() => handleChange("engProficiency", item.id)}
                                 className={`border rounded-xl p-2.5 text-center cursor-pointer transition text-[11px] font-bold ${
                                   formData.engProficiency === item.id
-                                    ? "border-gold-400 bg-gold-500/20 text-gold-300"
-                                    : "border-white/15 bg-white/5 text-slate-300 hover:border-gold-400/50"
+                                    ? "border-gold-500 bg-gold-500/20 text-gold-700 dark:text-gold-300 shadow-sm"
+                                    : "border-slate-200 dark:border-white/15 bg-slate-100/70 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:border-gold-500/50"
                                 }`}
                               >
                                 {item.label}
@@ -472,7 +472,7 @@ export function Hero({ lang, dict }) {
                         className="space-y-3.5"
                       >
                         <div>
-                          <label className="block text-xs font-bold text-slate-200 mb-1">
+                          <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">
                             {dict.eligibility.fullName}
                           </label>
                           <div className="relative">
@@ -483,13 +483,13 @@ export function Hero({ lang, dict }) {
                               value={formData.name}
                               onChange={(e) => handleChange("name", e.target.value)}
                               placeholder={dict.eligibility.fullNamePlaceholder}
-                              className="glass-input-luxury w-full pl-10 pr-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400"
+                              className="glass-input-luxury w-full pl-10 pr-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400 text-slate-900 dark:text-white"
                             />
                           </div>
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-slate-200 mb-1">
+                          <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">
                             {dict.eligibility.phone}
                           </label>
                           <div className="relative">
@@ -500,13 +500,13 @@ export function Hero({ lang, dict }) {
                               value={formData.phone}
                               onChange={(e) => handleChange("phone", e.target.value)}
                               placeholder={dict.eligibility.phonePlaceholder}
-                              className="glass-input-luxury w-full pl-10 pr-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400"
+                              className="glass-input-luxury w-full pl-10 pr-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400 text-slate-900 dark:text-white"
                             />
                           </div>
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-slate-200 mb-1">
+                          <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1">
                             {dict.eligibility.city}
                           </label>
                           <input
@@ -514,7 +514,7 @@ export function Hero({ lang, dict }) {
                             value={formData.city}
                             onChange={(e) => handleChange("city", e.target.value)}
                             placeholder={dict.eligibility.cityPlaceholder}
-                            className="glass-input-luxury w-full px-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400"
+                            className="glass-input-luxury w-full px-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400 text-slate-900 dark:text-white"
                           />
                         </div>
 
@@ -522,7 +522,7 @@ export function Hero({ lang, dict }) {
                           <button
                             type="button"
                             onClick={() => setStep(1)}
-                            className="w-1/3 py-3 px-3 rounded-xl font-bold text-xs bg-white/10 hover:bg-white/15 text-white transition cursor-pointer"
+                            className="w-1/3 py-3 px-3 rounded-xl font-bold text-xs bg-slate-200 hover:bg-slate-300 text-slate-800 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white transition cursor-pointer"
                           >
                             {dict.eligibility.backBtn}
                           </button>
@@ -546,12 +546,12 @@ export function Hero({ lang, dict }) {
               </AnimatePresence>
 
               {/* Privacy Note */}
-              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+              <div className="mt-4 pt-3 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 <span className="flex items-center gap-1">
-                  <Lock className="w-3.5 h-3.5 text-gold-400" />
+                  <Lock className="w-3.5 h-3.5 text-gold-500 dark:text-gold-400" />
                   <span>{dict.eligibility.noSpam}</span>
                 </span>
-                <span className="text-emerald-400 font-semibold">
+                <span className="text-emerald-500 dark:text-emerald-400 font-semibold">
                   {dict.eligibility.freeAssessment}
                 </span>
               </div>

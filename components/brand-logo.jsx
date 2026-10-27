@@ -6,7 +6,7 @@ export function BrandLogo({
   height = 48,
   priority = false,
   alt = "ISL Global Education",
-  forceLight = true, // On dark backgrounds, always use the light logo
+  forceLight = false, // When false, adapts automatically to light & dark theme
 }) {
   if (forceLight) {
     return (

@@ -13,9 +13,11 @@ import { MarketingVideo } from '@/components/marketing-video';
 import { MetricsRibbon } from '@/components/metrics-ribbon';
 import { Navbar } from '@/components/navbar';
 import { ProcessRoadmap } from '@/components/process-roadmap';
+import { ServicesSection } from '@/components/services-section';
 import { TestimonialsSection } from '@/components/testimonials-section';
 import { TopContactBar } from '@/components/top-contact-bar';
 import { UniversityMarquee } from '@/components/university-marquee';
+import { WhyChooseUs } from '@/components/why-choose-us';
 import { getDictionary, hasLocale, locales } from '@/lib/dictionaries';
 import { notFound } from 'next/navigation';
 
@@ -56,14 +58,14 @@ export default async function LocalizedPage({ params }) {
   return (
     <div
       lang={lang}
-      className="relative flex min-h-screen flex-col bg-navy-950 text-slate-100 transition-colors selection:bg-gold-500 selection:text-navy-950 font-sans"
+      className="relative flex min-h-screen flex-col bg-background text-foreground transition-colors duration-300 selection:bg-gold-500 selection:text-navy-950 font-sans"
     >
       <AmbientBackground />
       <div className="relative z-10 flex min-h-screen flex-col">
         {/* Section 1: Ultra-Premium Dhaka Top Contact Bar */}
         <TopContactBar lang={lang} dict={dict} />
 
-        {/* Section 2: Luxury Sticky Navigation */}
+        {/* Section 2: Luxury Sticky Navigation with Language & Theme Toggle */}
         <Navbar lang={lang} dict={dict} />
 
         <main className="flex-1">
@@ -102,7 +104,13 @@ export default async function LocalizedPage({ params }) {
             ctaText={lang === "bn" ? "হোয়াটসঅ্যাপে অফারটি জানুন" : "Chat on WhatsApp"}
           />
 
-          {/* Section 6: Interactive Study Cost & ROI Calculator */}
+          {/* Section 6: Comprehensive Services Suite (With Rich Visual Photography) */}
+          <ServicesSection dict={dict} />
+
+          {/* Section 7: Why Choose ISL Global (With Counseling Atmosphere Background) */}
+          <WhyChooseUs dict={dict} />
+
+          {/* Section 8: Interactive Study Cost & ROI Calculator */}
           <CostCalculator lang={lang} dict={dict} />
 
           {/* Section 7: Success Stories & Visa Approval Wall */}

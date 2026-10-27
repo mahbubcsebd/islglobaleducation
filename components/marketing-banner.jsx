@@ -18,12 +18,12 @@ export function MarketingBanner({
   const isExternal = href && (href.startsWith("http://") || href.startsWith("https://"));
 
   const BannerContent = (
-    <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-navy-950 shadow-xl hover:shadow-2xl transition-all duration-300">
+    <div className="group relative overflow-hidden rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-100 dark:bg-navy-950 shadow-xl hover:shadow-2xl transition-all duration-300">
       {/* Top Horizon Accent Line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-xl h-[1.5px] bg-gradient-to-r from-transparent via-gold-400/50 to-transparent z-20 pointer-events-none" />
 
       {/* Banner Image */}
-      <div className="relative w-full overflow-hidden bg-navy-950">
+      <div className="relative w-full overflow-hidden bg-slate-100 dark:bg-navy-950">
         <Image
           src={src}
           alt={alt}
@@ -54,22 +54,22 @@ export function MarketingBanner({
   return (
     <section className={cn("py-12 sm:py-16 relative bg-transparent overflow-hidden", className)}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header with high contrast white & gold text */}
+        {/* Section Header */}
         {(badge || title || subtitle) && (
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             {badge && (
-              <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-300 px-3.5 py-1 text-xs font-bold mb-3 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-700 dark:text-gold-300 px-3.5 py-1 text-xs font-bold mb-3 shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 text-gold-500 dark:text-gold-400" />
                 <span>{badge}</span>
               </div>
             )}
             {title && (
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-3 leading-tight">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3 leading-tight">
                 {title}
               </h3>
             )}
             {subtitle && (
-              <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
+              <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
                 {subtitle}
               </p>
             )}

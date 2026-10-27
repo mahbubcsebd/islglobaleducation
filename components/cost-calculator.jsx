@@ -61,31 +61,41 @@ export function CostCalculator({ lang, dict }) {
   const total = discountedTuition + data.living;
 
   return (
-    <section id="calculator" className="py-24 bg-navy-950 relative overflow-hidden border-t border-white/10">
+    <section id="calculator" className="py-24 bg-slate-50/70 dark:bg-navy-950/90 relative overflow-hidden border-t border-slate-200/80 dark:border-white/10 transition-colors">
+      {/* Background study abroad financial planning image with subtle opacity and gradient overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=80"
+          alt="Study Abroad Cost & Scholarship Calculation"
+          className="w-full h-full object-cover object-center opacity-10 dark:opacity-15 mix-blend-multiply dark:mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/90 via-slate-50/60 to-slate-50/95 dark:from-navy-950/90 dark:via-navy-950/70 dark:to-navy-950/95" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+          <span className="text-xs font-bold text-gold-700 dark:text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
             {dict.calculator.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-3">
             {dict.calculator.title}
           </h2>
-          <p className="text-slate-400 text-sm mt-2">
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-2">
             {dict.calculator.subtitle}
           </p>
         </div>
 
         {/* Calculator Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-panel-luxury rounded-3xl p-6 sm:p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-panel-luxury bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl">
           
           {/* Controls Column (Left 6 Cols) */}
           <div className="lg:col-span-6 space-y-6">
             
             {/* Country Switcher */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 {dict.calculator.step1}
               </label>
               <div className="grid grid-cols-3 gap-2">
@@ -96,8 +106,8 @@ export function CostCalculator({ lang, dict }) {
                     onClick={() => setCountry(c.id)}
                     className={`py-2.5 px-3 rounded-xl border text-xs font-bold transition cursor-pointer ${
                       country === c.id
-                        ? "border-gold-500 bg-gold-500/20 text-gold-300 shadow-md"
-                        : "border-white/15 bg-white/5 text-slate-300 hover:border-gold-500/50"
+                        ? "border-gold-500 bg-gold-500/20 text-gold-700 dark:text-gold-300 shadow-md"
+                        : "border-slate-200 dark:border-white/15 bg-slate-100/70 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:border-gold-500/50"
                     }`}
                   >
                     {c.label}
@@ -108,7 +118,7 @@ export function CostCalculator({ lang, dict }) {
 
             {/* Degree Switcher */}
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 {dict.calculator.step2}
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -117,8 +127,8 @@ export function CostCalculator({ lang, dict }) {
                   onClick={() => setDegree("ug")}
                   className={`py-2.5 px-3 rounded-xl border text-xs font-bold transition cursor-pointer ${
                     degree === "ug"
-                      ? "border-gold-500 bg-gold-500/20 text-white shadow-md"
-                      : "border-white/15 bg-white/5 text-slate-300 hover:border-gold-500/50"
+                      ? "border-gold-500 bg-gold-500/20 text-gold-700 dark:text-gold-300 shadow-md font-extrabold"
+                      : "border-slate-200 dark:border-white/15 bg-slate-100/70 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:border-gold-500/50"
                   }`}
                 >
                   {dict.calculator.degUg}
@@ -128,8 +138,8 @@ export function CostCalculator({ lang, dict }) {
                   onClick={() => setDegree("pg")}
                   className={`py-2.5 px-3 rounded-xl border text-xs font-bold transition cursor-pointer ${
                     degree === "pg"
-                      ? "border-gold-500 bg-gold-500/20 text-white shadow-md"
-                      : "border-white/15 bg-white/5 text-slate-300 hover:border-gold-500/50"
+                      ? "border-gold-500 bg-gold-500/20 text-gold-700 dark:text-gold-300 shadow-md font-extrabold"
+                      : "border-slate-200 dark:border-white/15 bg-slate-100/70 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:border-gold-500/50"
                   }`}
                 >
                   {dict.calculator.degPg}
@@ -140,10 +150,10 @@ export function CostCalculator({ lang, dict }) {
             {/* Academic GPA Slider */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                   {dict.calculator.step3}
                 </label>
-                <span className="font-black text-gold-400 text-sm">
+                <span className="font-black text-gold-600 dark:text-gold-400 text-sm">
                   GPA {gpa.toFixed(2)} / 5.00
                 </span>
               </div>
@@ -154,9 +164,9 @@ export function CostCalculator({ lang, dict }) {
                 step="0.1"
                 value={gpa}
                 onChange={(e) => setGpa(parseFloat(e.target.value))}
-                className="w-full accent-gold-500 bg-white/10 h-2 rounded-lg cursor-pointer"
+                className="w-full accent-gold-500 bg-slate-200 dark:bg-white/10 h-2 rounded-lg cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+              <div className="flex justify-between text-[10px] text-slate-500 dark:text-slate-400 mt-1">
                 <span>{dict.calculator.pass}</span>
                 <span>{dict.calculator.good}</span>
                 <span>{dict.calculator.outstanding}</span>
@@ -166,58 +176,58 @@ export function CostCalculator({ lang, dict }) {
           </div>
 
           {/* Real-Time Output Column (Right 6 Cols) */}
-          <div className="lg:col-span-6 bg-navy-950/90 border border-white/15 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div className="lg:col-span-6 bg-white dark:bg-navy-950/90 border border-slate-200/80 dark:border-white/15 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
             
-            <div className="flex items-center justify-between pb-4 border-b border-white/10">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-white/10">
               <div>
-                <p className="text-xs text-slate-400">{dict.calculator.pathLabel}</p>
-                <h3 className="text-2xl font-black text-white">{country}</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{dict.calculator.pathLabel}</p>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white">{country}</h3>
               </div>
               <div className="text-right">
-                <p className="text-xs text-slate-400">{dict.calculator.scholarshipAward}</p>
-                <span className="font-extrabold text-emerald-400 text-sm">
+                <p className="text-xs text-slate-500 dark:text-slate-400">{dict.calculator.scholarshipAward}</p>
+                <span className="font-extrabold text-emerald-500 dark:text-emerald-400 text-sm">
                   {waiverPct > 0 ? `${waiverPct}% Waiver` : dict.calculator.stdBand}
                 </span>
               </div>
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="flex items-center justify-between py-2 border-b border-white/10">
-                <span className="text-slate-400">{dict.calculator.tuitionRow}</span>
-                <span className="font-bold text-white text-sm">
+              <div className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-white/10">
+                <span className="text-slate-500 dark:text-slate-400">{dict.calculator.tuitionRow}</span>
+                <span className="font-bold text-slate-900 dark:text-white text-sm">
                   {discountedTuition.toLocaleString("en-BD")} BDT / Yr
                 </span>
               </div>
 
-              <div className="flex items-center justify-between py-2 border-b border-white/10">
-                <span className="text-slate-400">{dict.calculator.livingRow}</span>
-                <span className="font-bold text-white text-sm">
+              <div className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-white/10">
+                <span className="text-slate-500 dark:text-slate-400">{dict.calculator.livingRow}</span>
+                <span className="font-bold text-slate-900 dark:text-white text-sm">
                   {data.living.toLocaleString("en-BD")} BDT / Yr
                 </span>
               </div>
 
-              <div className="flex items-center justify-between py-2 border-b border-white/10">
-                <span className="text-slate-400">{dict.calculator.islServiceRow}</span>
-                <span className="font-black text-emerald-400 text-sm">
+              <div className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-white/10">
+                <span className="text-slate-500 dark:text-slate-400">{dict.calculator.islServiceRow}</span>
+                <span className="font-black text-emerald-500 dark:text-emerald-400 text-sm">
                   {dict.calculator.islFree}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between py-2 border-b border-white/10">
-                <span className="text-slate-400">{dict.calculator.salaryRow}</span>
-                <span className="font-bold text-gold-300 text-sm">
+              <div className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-white/10">
+                <span className="text-slate-500 dark:text-slate-400">{dict.calculator.salaryRow}</span>
+                <span className="font-bold text-gold-600 dark:text-gold-300 text-sm">
                   {data.salary} / Month
                 </span>
               </div>
             </div>
 
             {/* Total Highlight Box */}
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-navy-850 to-navy-800 border border-gold-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-amber-50 to-amber-100/60 dark:from-navy-850 dark:to-navy-800 border border-gold-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
+                <p className="text-[11px] uppercase tracking-wider text-slate-600 dark:text-slate-400 font-semibold">
                   {dict.calculator.totalRow}
                 </p>
-                <p className="text-2xl font-black text-gold-400 mt-0.5">
+                <p className="text-2xl font-black text-gold-600 dark:text-gold-400 mt-0.5">
                   {total.toLocaleString("en-BD")} BDT
                 </p>
               </div>

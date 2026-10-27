@@ -61,58 +61,58 @@
 }
 
 /* ==========================================================================
-   DEFAULT LUXURY THEME TOKENS
+   LIGHT THEME (CLEAN EDITORIAL PORCELAIN & LUXURY GOLD)
    ========================================================================== */
 :root {
-  --background: #030813;
-  --surface: #061325;
-  --surface-alt: #0A1D37;
-  --card: #061325;
-  --card-foreground: #F8FAFC;
-  --popover: #061325;
-  --popover-foreground: #F8FAFC;
-  --border: rgba(255, 255, 255, 0.12);
-  --input: rgba(255, 255, 255, 0.12);
+  --background: #FAF9FD;
+  --surface: #FFFFFF;
+  --surface-alt: #F1F5F9;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
 
-  --foreground: #F8FAFC;
-  --foreground-secondary: #CBD5E1;
-  --foreground-muted: #94A3B8;
+  --foreground: #0F172A;
+  --foreground-secondary: #475569;
+  --foreground-muted: #64748B;
 
-  /* Primary Gold: #F5BE47 */
-  --primary: #F5BE47;
-  --primary-hover: #E5A93C;
-  --primary-soft: rgba(245, 190, 71, 0.15);
-  --primary-foreground: #030813;
-  --on-primary: #030813;
+  /* Primary Amber Gold: #D97706 */
+  --primary: #D97706;
+  --primary-hover: #B45309;
+  --primary-soft: #FEF3C7;
+  --primary-foreground: #FFFFFF;
+  --on-primary: #FFFFFF;
 
   /* Secondary & Muted */
-  --secondary: #0A1D37;
-  --secondary-foreground: #F8FAFC;
-  --muted: #061325;
-  --muted-foreground: #94A3B8;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #F8FAFC;
+  --muted-foreground: #64748B;
 
   /* Accent: Gold */
-  --accent: #F5BE47;
-  --accent-foreground: #030813;
+  --accent: #D97706;
+  --accent-foreground: #FFFFFF;
 
-  --destructive: #EF4444;
-  --ring: #F5BE47;
+  --destructive: #DC2626;
+  --ring: #D97706;
   --radius: 0.75rem;
 }
 
 /* ==========================================================================
-   DARK THEME (DEEP SAPPHIRE & GOLD)
+   DARK THEME (DEEP SAPPHIRE & RADIANT GOLD)
    ========================================================================== */
 .dark {
   --background: #030813;
   --surface: #061325;
   --surface-alt: #0A1D37;
-  --card: #061325;
+  --card: #0A1D37;
   --card-foreground: #F8FAFC;
   --popover: #061325;
   --popover-foreground: #F8FAFC;
   --border: rgba(255, 255, 255, 0.12);
-  --input: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
 
   --foreground: #F8FAFC;
   --foreground-secondary: #CBD5E1;
@@ -129,7 +129,7 @@
   --muted: #061325;
   --muted-foreground: #94A3B8;
 
-  --accent: #E5A93C;
+  --accent: #F5BE47;
   --accent-foreground: #030813;
 
   --destructive: #F87171;
@@ -420,27 +420,46 @@ body {
    LUXURY PORTAL TOKENS & UTILITIES
    ========================================================================== */
 .hero-cinematic-mask {
+  background: radial-gradient(circle at 75% 20%, rgba(217, 119, 6, 0.12) 0%, rgba(248, 250, 252, 0.85) 42%, #F8FAFC 90%),
+              linear-gradient(180deg, rgba(248, 250, 252, 0.75) 0%, rgba(248, 250, 252, 0.95) 85%, #F8FAFC 100%);
+}
+.dark .hero-cinematic-mask {
   background: radial-gradient(circle at 75% 20%, rgba(229, 169, 60, 0.18) 0%, rgba(6, 19, 37, 0.88) 42%, #030813 85%),
               linear-gradient(180deg, rgba(3, 8, 19, 0.72) 0%, rgba(3, 8, 19, 0.94) 80%, #030813 100%);
 }
 
 .glass-panel-luxury {
-  background: linear-gradient(135deg, rgba(15, 43, 82, 0.45) 0%, rgba(7, 21, 43, 0.65) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.95) 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.dark .glass-panel-luxury {
+  background: linear-gradient(135deg, rgba(15, 43, 82, 0.45) 0%, rgba(7, 21, 43, 0.65) 100%);
   border: 1px solid rgba(245, 190, 71, 0.18);
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .glass-input-luxury {
-  background: rgba(6, 19, 37, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #ffffff;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #0F172A;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.2s ease;
 }
 .glass-input-luxury:focus {
+  border-color: #D97706;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
+}
+.dark .glass-input-luxury {
+  background: rgba(6, 19, 37, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+.dark .glass-input-luxury:focus {
   border-color: #E5A93C;
   background: rgba(10, 29, 55, 0.9);
   box-shadow: 0 0 0 3px rgba(229, 169, 60, 0.25);

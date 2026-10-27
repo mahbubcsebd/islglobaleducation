@@ -16,22 +16,22 @@ export function MarketingVideo({
       )}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header with high contrast white & gold */}
+        {/* Section Header with high contrast */}
         {(badge || title || subtitle) && (
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             {badge && (
-              <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-300 px-3.5 py-1 text-xs font-bold mb-3 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-700 dark:text-gold-300 px-3.5 py-1 text-xs font-bold mb-3 shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 text-gold-500 dark:text-gold-400" />
                 <span>{badge}</span>
               </div>
             )}
             {title && (
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-3 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3 leading-tight">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
+              <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
                 {subtitle}
               </p>
             )}

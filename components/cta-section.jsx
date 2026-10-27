@@ -7,29 +7,39 @@ import { motion } from "framer-motion";
 
 export function CtaSection({ dict }) {
   return (
-    <section className="py-20 relative bg-navy-950 overflow-hidden border-t border-white/10">
+    <section className="py-20 relative bg-transparent overflow-hidden border-t border-slate-200/80 dark:border-white/10 transition-colors">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative rounded-3xl border border-gold-500/30 glass-panel-luxury p-8 sm:p-14 text-center shadow-2xl overflow-hidden"
+          className="relative rounded-3xl border border-gold-500/40 glass-panel-luxury bg-white/95 dark:bg-navy-950/90 p-8 sm:p-14 text-center shadow-2xl overflow-hidden"
         >
+          {/* Background graduation celebration photo */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80"
+              alt="Study Abroad Graduation Celebration"
+              className="w-full h-full object-cover object-center opacity-10 dark:opacity-15 mix-blend-multiply dark:mix-blend-luminosity"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/95 dark:from-navy-950/95 dark:via-navy-950/85 dark:to-navy-950/95" />
+          </div>
+
           {/* Luminous glow */}
           <div className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-gold-500/15 blur-3xl select-none" />
 
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-300 px-3.5 py-1 text-xs font-bold mb-6">
-              <Sparkles className="size-3.5 text-gold-400" />
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-700 dark:text-gold-300 px-3.5 py-1 text-xs font-bold mb-6">
+              <Sparkles className="size-3.5 text-gold-500 dark:text-gold-400" />
               <span>{dict.cta.badge}</span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight mb-4">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-3xl mx-auto leading-tight mb-4">
               {dict.cta.title}
             </h2>
 
-            <p className="text-slate-300 text-xs sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-base max-w-xl mx-auto mb-8 leading-relaxed font-normal">
               {dict.cta.subtitle}
             </p>
 
@@ -46,15 +56,15 @@ export function CtaSection({ dict }) {
                 href="https://wa.me/8801910030040?text=Hello%20ISL%20Global,%20I%20would%20like%20to%20book%20a%20free%20counseling%20session."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/10 hover:bg-white/15 text-white border border-white/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-slate-900/5 hover:bg-slate-900/10 text-slate-800 border border-slate-300 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
-                <MessageCircle className="size-4 text-emerald-400" />
+                <MessageCircle className="size-4 text-emerald-500 dark:text-emerald-400" />
                 <span>{dict.cta.whatsappBtn}</span>
               </a>
             </div>
 
-            <div className="flex items-center justify-center gap-2 text-xs text-slate-400 font-medium">
-              <ShieldCheck className="size-4 text-emerald-400" />
+            <div className="flex items-center justify-center gap-2 text-xs text-slate-600 dark:text-slate-400 font-medium">
+              <ShieldCheck className="size-4 text-emerald-500 dark:text-emerald-400" />
               <span>{dict.cta.note}</span>
             </div>
           </div>
