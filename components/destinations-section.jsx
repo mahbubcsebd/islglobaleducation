@@ -2,262 +2,196 @@
 
 import * as React from "react";
 import Link from "next/link";
-import {
-  Globe2,
-  CheckCircle2,
-  ArrowRight,
-  Search,
-  RotateCcw,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { searchDestinations } from "@/lib/destination-search";
+import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function DestinationsSection({ lang, dict }) {
   const [activeFilter, setActiveFilter] = React.useState("all");
-  const [searchQuery, setSearchQuery] = React.useState("");
 
   const destinations = [
     {
-      id: "malaysia",
+      id: "Malaysia",
+      key: "malaysia",
       flag: "🇲🇾",
-      popular: true,
-      ...dict.destinations.malaysia,
+      categories: ["budget", "noielts"],
+      image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80",
+      badgeColor: "bg-emerald-500 text-navy-950",
+      data: dict.destinations.malaysia,
     },
     {
-      id: "uk",
+      id: "UK",
+      key: "uk",
       flag: "🇬🇧",
-      ...dict.destinations.uk,
+      categories: ["psw", "noielts"],
+      image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
+      badgeColor: "bg-blue-600 text-white",
+      data: dict.destinations.uk,
     },
     {
-      id: "canada",
+      id: "Canada",
+      key: "canada",
       flag: "🇨🇦",
-      ...dict.destinations.canada,
+      categories: ["psw"],
+      image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80",
+      badgeColor: "bg-red-600 text-white",
+      data: dict.destinations.canada,
     },
     {
-      id: "australia",
+      id: "Australia",
+      key: "australia",
       flag: "🇦🇺",
-      ...dict.destinations.australia,
+      categories: ["psw"],
+      image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80",
+      badgeColor: "bg-sky-600 text-white",
+      data: dict.destinations.australia,
     },
     {
-      id: "europe",
+      id: "Europe",
+      key: "europe",
       flag: "🇪🇺",
-      ...dict.destinations.europe,
+      categories: ["budget", "noielts"],
+      image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80",
+      badgeColor: "bg-indigo-600 text-white",
+      data: dict.destinations.europe,
     },
     {
-      id: "usa",
+      id: "USA",
+      key: "usa",
       flag: "🇺🇸",
-      ...dict.destinations.usa,
+      categories: ["psw"],
+      image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=800&q=80",
+      badgeColor: "bg-purple-600 text-white",
+      data: dict.destinations.usa,
     },
   ];
 
-  // Listen to search events triggered from the Hero search omnibar
-  React.useEffect(() => {
-    const handleSearchEvent = (e) => {
-      const query = (e.detail || "").toString().trim();
-      if (!query) {
-        setSearchQuery("");
-        setActiveFilter("all");
-        return;
-      }
-
-      // Check if it's an exact destination id
-      const isDirectId = destinations.some((d) => d.id === query.toLowerCase());
-      if (isDirectId) {
-        setActiveFilter(query.toLowerCase());
-        setSearchQuery("");
-        return;
-      }
-
-      // Otherwise it's a text query (Bangla or English)
-      setSearchQuery(query);
-      setActiveFilter("all");
-    };
-
-    window.addEventListener("destination-search", handleSearchEvent);
-    return () => window.removeEventListener("destination-search", handleSearchEvent);
-  }, [destinations]);
-
-  // Compute filtered destinations
   const filtered = React.useMemo(() => {
-    if (searchQuery.trim()) {
-      const matches = searchDestinations(searchQuery);
-      const matchIds = new Set(matches.map((m) => m.id));
-      return destinations.filter((d) => matchIds.has(d.id));
-    }
-    if (activeFilter !== "all") {
-      return destinations.filter((d) => d.id === activeFilter);
-    }
-    return destinations;
-  }, [searchQuery, activeFilter, destinations]);
-
-  const handleResetSearch = () => {
-    setSearchQuery("");
-    setActiveFilter("all");
-  };
+    if (activeFilter === "all") return destinations;
+    return destinations.filter((d) => d.categories.includes(activeFilter));
+  }, [activeFilter, destinations]);
 
   return (
-    <section id="destinations" className="py-20 relative bg-transparent overflow-hidden">
-      {/* Subtle Destinations Radial Atmosphere */}
-      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[950px] h-[400px] sm:h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.14)_0%,rgba(247,223,30,0.12)_45%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.25)_0%,rgba(247,223,30,0.08)_45%,transparent_75%)] blur-3xl -z-10" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="destinations" className="py-24 bg-navy-900 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
-            <Globe2 className="size-3.5" />
-            <span>{dict.destinations.badge}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">
-            {dict.destinations.title}
-          </h2>
-          <p className="text-foreground-secondary text-sm sm:text-base leading-relaxed">
-            {dict.destinations.subtitle}
-          </p>
-        </div>
-
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-          <Button
-            type="button"
-            size="sm"
-            variant={activeFilter === "all" && !searchQuery ? "default" : "secondary"}
-            onClick={handleResetSearch}
-          >
-            {dict.destinations.filterAll}
-          </Button>
-          {destinations.map((d) => (
-            <Button
-              key={d.id}
-              type="button"
-              size="sm"
-              variant={activeFilter === d.id && !searchQuery ? "default" : "secondary"}
-              onClick={() => {
-                setActiveFilter(d.id);
-                setSearchQuery("");
-              }}
-            >
-              <span>{d.flag}</span>
-              <span>{d.name}</span>
-            </Button>
-          ))}
-        </div>
-
-        {/* Active Search Banner */}
-        {searchQuery && (
-          <div className="mx-auto max-w-lg mb-8 p-3 rounded-xl border border-primary/25 bg-primary/8 flex items-center justify-between gap-3 text-xs">
-            <div className="flex items-center gap-2 text-foreground font-medium">
-              <Search className="size-4 text-primary shrink-0" />
-              <span>{dict.destinations.searchResultsFor || "Results for:"} <strong className="text-primary font-bold">"{searchQuery}"</strong></span>
-            </div>
-            <button
-              type="button"
-              onClick={handleResetSearch}
-              className="px-2.5 py-1 rounded-md bg-surface text-foreground hover:bg-surface-alt border border-border text-[11px] font-semibold transition-colors cursor-pointer"
-            >
-              {dict.destinations.clearSearch || "Reset"} ✕
-            </button>
-          </div>
-        )}
-
-        {/* If no destinations matched the search */}
-        {filtered.length === 0 ? (
-          <div className="mx-auto max-w-md text-center py-12 px-6 rounded-xl border border-border bg-surface shadow-2xs space-y-4 animate-in fade-in-50 duration-200">
-            <div className="flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground mx-auto shadow-2xs">
-              <Search className="size-6" />
-            </div>
-            <h3 className="text-base font-bold text-foreground">
-              {dict.destinations.noMatchTitle || "No destinations matched your search"}
-            </h3>
-            <p className="text-xs text-foreground-secondary leading-relaxed">
-              {dict.destinations.noMatchDesc || "Try searching with a different country name or keyword, or reset to see all destinations."}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span className="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+              {dict.destinations.badge}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+              {dict.destinations.title}
+            </h2>
+            <p className="text-slate-400 text-sm mt-2 max-w-xl">
+              {dict.destinations.subtitle}
             </p>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={handleResetSearch}
-              className="mt-2"
-            >
-              <RotateCcw className="size-3.5 mr-1.5" />
-              {dict.destinations.resetFilter || "Show All Destinations"}
-            </Button>
           </div>
-        ) : (
-          /* Destination Cards Grid */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((item) => (
-              <div
-                key={item.id}
-                className="group relative flex flex-col justify-between rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-6 transition-all duration-300 hover:border-primary hover:bg-surface hover:shadow-xl shadow-2xs"
+
+          {/* Filter Controls */}
+          <div className="mt-6 md:mt-0 flex flex-wrap gap-2">
+            {[
+              { id: "all", label: dict.destinations.filterAll },
+              { id: "budget", label: dict.destinations.filterBudget },
+              { id: "noielts", label: dict.destinations.filterNoIelts },
+              { id: "psw", label: dict.destinations.filterPsw },
+            ].map((btn) => (
+              <button
+                key={btn.id}
+                onClick={() => setActiveFilter(btn.id)}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
+                  activeFilter === btn.id
+                    ? "bg-gold-500 text-navy-950 shadow-md"
+                    : "bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10"
+                }`}
               >
-              {/* Highlight badge for Malaysia with Primary */}
-              {item.popular && (
-                <div className="absolute -top-3 right-5 rounded-md bg-primary px-2.5 py-0.5 text-[10px] font-bold text-primary-foreground tracking-wide uppercase shadow-2xs">
-                  {dict.destinations.topChoice || "Top Choice"}
-                </div>
-              )}
-
-              <div>
-                {/* Header: Flag, Name, Tag */}
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">{item.flag}</span>
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      {item.name}
-                    </h3>
-                    <span className="text-[11px] font-semibold text-primary">
-                      {item.tag}
-                    </span>
-                  </div>
-                </div>
-
-                <p className="text-xs text-foreground-secondary leading-relaxed mb-5">
-                  {item.description}
-                </p>
-
-                {/* Info Badges (Tuition, Intake, IELTS) */}
-                <div className="space-y-2 mb-6 rounded-lg bg-surface-alt p-3.5 border border-border text-xs">
-                  <div className="flex items-center justify-between">
-                    <span className="text-foreground-secondary">{dict.destinations.tuitionLabel}:</span>
-                    <span className="font-semibold text-foreground">{item.tuition}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-foreground-secondary">{dict.destinations.intakeLabel}:</span>
-                    <span className="font-semibold text-foreground">{item.intake}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-foreground-secondary">{dict.destinations.ieltsLabel}:</span>
-                    <span className="font-semibold text-primary">{item.ielts}</span>
-                  </div>
-                </div>
-
-                {/* Features Bullet List */}
-                <ul className="space-y-2 mb-6 text-xs text-foreground-secondary">
-                  {item.features.map((feat, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Action Button */}
-              <Button
-                variant="outline"
-                size="default"
-                className="w-full justify-between hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors font-semibold"
-                asChild
-              >
-                <Link href="#eligibility">
-                  <span>{dict.destinations.applyNow}</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-            </div>
-          ))}
+                {btn.label}
+              </button>
+            ))}
+          </div>
         </div>
-      )}
-    </div>
-  </section>
-);
+
+        {/* Destination Cards Grid (6 Countries) with Framer Motion */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence>
+            {filtered.map((country) => (
+              <motion.div
+                layout
+                key={country.id}
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.92 }}
+                transition={{ duration: 0.35 }}
+                whileHover={{ y: -6 }}
+                className="group rounded-3xl overflow-hidden bg-navy-950 border border-white/10 hover:border-gold-500/50 transition-all duration-300 flex flex-col shadow-xl"
+              >
+                {/* Image and Flag Banner */}
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={country.image}
+                    alt={country.data.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+
+                  <div
+                    className={`absolute top-4 left-4 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow ${country.badgeColor}`}
+                  >
+                    {country.data.badge}
+                  </div>
+
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                    <div>
+                      <h3 className="text-2xl font-black">{country.data.name}</h3>
+                      <p className="text-xs text-slate-300">{country.data.cities}</p>
+                    </div>
+                    <span className="text-3xl">{country.flag}</span>
+                  </div>
+                </div>
+
+                {/* Card Content & Features */}
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2.5 text-xs">
+                    <div className="flex items-center justify-between py-1.5 border-b border-white/10">
+                      <span className="text-slate-400">{dict.destinations.tuitionLabel}</span>
+                      <span className="font-bold text-gold-400">{country.data.tuition}</span>
+                    </div>
+
+                    <div className="flex items-center justify-between py-1.5 border-b border-white/10">
+                      <span className="text-slate-400">{dict.destinations.gapLabel}</span>
+                      <span className="font-bold text-white">{country.data.gap}</span>
+                    </div>
+
+                    <div className="flex items-center justify-between py-1.5 border-b border-white/10">
+                      <span className="text-slate-400">{dict.destinations.languageLabel}</span>
+                      <span className="font-bold text-emerald-400">{country.data.ielts}</span>
+                    </div>
+
+                    <div className="flex items-center justify-between py-1.5 border-b border-white/10">
+                      <span className="text-slate-400">{dict.destinations.paymentTermLabel}</span>
+                      <span className="font-bold text-gold-300">{country.data.paymentTerm}</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    href="#eligibility"
+                    className="w-full py-3 bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950 cursor-pointer"
+                  >
+                    <span>
+                      {dict.destinations.applyNow} {country.data.name}
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+      </div>
+    </section>
+  );
 }

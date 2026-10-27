@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISL Global Education | Leading Overseas University Advisory Dhaka</title>
+  
+  <!-- Premium Editorial Typography: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#030813',
+              900: '#061325',
+              850: '#0A1D37',
+              800: '#0F2B52',
+              700: '#183D73',
+              600: '#2563EB',
+            },
+            gold: {
+              300: '#FDE68A',
+              400: '#F5BE47',
+              500: '#E5A93C',
+              600: '#C98A26',
+              700: '#9E6714',
+            }
+          },
+          animation: {
+            'marquee': 'marquee 32s linear infinite',
+            'float-slow': 'float 7s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.08)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Prevent accidental horizontal overflows */
+    html, body {
+      overflow-x: hidden;
+      background-color: #030813;
+      color: #E2E8F0;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+
+    /* Ambient luxury gradients & overlays */
+    .hero-cinematic-mask {
+      background: radial-gradient(circle at 75% 20%, rgba(229, 169, 60, 0.18) 0%, rgba(6, 19, 37, 0.88) 42%, #030813 85%),
+                  linear-gradient(180deg, rgba(3, 8, 19, 0.72) 0%, rgba(3, 8, 19, 0.94) 80%, #030813 100%);
+    }
+
+    /* High-end glassmorphism design tokens */
+    .glass-panel-luxury {
+      background: linear-gradient(135deg, rgba(15, 43, 82, 0.45) 0%, rgba(7, 21, 43, 0.65) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(245, 190, 71, 0.18);
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-input-luxury {
+      background: rgba(6, 19, 37, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .glass-input-luxury:focus {
+      border-color: #E5A93C;
+      background: rgba(10, 29, 55, 0.9);
+      box-shadow: 0 0 0 3px rgba(229, 169, 60, 0.25);
+    }
+
+    .gold-shimmer {
+      background: linear-gradient(90deg, #FDE68A 0%, #E5A93C 50%, #F5BE47 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-button-glow {
+      box-shadow: 0 8px 30px -4px rgba(229, 169, 60, 0.45);
+    }
+    .gold-button-glow:hover {
+      box-shadow: 0 12px 35px -2px rgba(245, 190, 71, 0.65);
+    }
+
+    /* Infinite marquee gradient mask */
+    .marquee-mask {
+      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    }
+
+    /* Desktop Roadmap Connected Line */
+    @media (min-width: 1024px) {
+      .roadmap-step::after {
+        content: '';
+        position: absolute;
+        top: 36px;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #E5A93C 0%, rgba(229, 169, 60, 0.15) 100%);
+        z-index: 1;
+      }
+      .roadmap-step:last-child::after {
+        display: none;
+      }
+    }
+
+    /* Custom high-end scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #030813;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #183D73;
+      border-radius: 9999px;
+      border: 2px solid #030813;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E5A93C;
+    }
+  </style>
+</head>
+<body class="selection:bg-gold-500 selection:text-navy-950 font-sans">
+
+  <!-- ================= SECTION 1: ULTRA-PREMIUM DHAKA TOP CONTACT BAR ================= -->
+  <div class="bg-navy-950 text-slate-300 text-xs border-b border-white/10 relative z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between">
+      
+      <!-- Left Contact & Location Details -->
+      <div class="flex items-center gap-6">
+        <a href="tel:+8801910030040" class="flex items-center gap-2 hover:text-gold-400 transition-colors duration-200">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-gold-500"></i>
+          <span class="font-bold text-white tracking-wide">+880 1910-030040</span>
+          <span class="hidden sm:inline text-slate-400 text-[11px] font-normal">(Dhaka Hotline)</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-2 text-slate-300">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-500"></i>
+          <span>Panthapath (Near Square Hospital), Dhaka 1205</span>
+        </div>
+
+        <div class="hidden xl:flex items-center gap-2 text-slate-400">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Sat – Thu: 10:00 AM – 7:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Right Counselor Status & Actions -->
+      <div class="flex items-center gap-4">
+        <!-- Live counselor pulse -->
+        <div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Counselors Online Now</span>
+        </div>
+
+        <span class="text-slate-700 hidden sm:inline">|</span>
+
+        <a href="https://wa.me/8801910030040?text=Hello%20ISL%20Global%2C%20I%20want%20to%20consult%20regarding%20studying%20abroad" target="_blank" class="flex items-center gap-1.5 text-slate-200 hover:text-emerald-400 font-semibold transition text-[11px]">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>WhatsApp Advisor</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= SECTION 2: LUXURY STICKY NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 bg-navy-950/90 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo Badge -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold-400 via-gold-500 to-amber-700 p-0.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
+          <div class="w-full h-full bg-navy-950 rounded-[14px] flex items-center justify-center text-gold-400">
+            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-display font-extrabold text-2xl tracking-tight text-white">ISL</span>
+            <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md bg-gold-500/20 text-gold-300 border border-gold-500/30">GLOBAL</span>
+          </div>
+          <p class="text-[10px] tracking-wider uppercase font-semibold text-slate-400 -mt-0.5">Education & Visa Consultancy</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-8 text-[13px] font-semibold text-slate-300">
+        <a href="#destinations" class="hover:text-gold-400 transition-colors py-1">Study Destinations</a>
+        <a href="#eligibility-wizard" class="hover:text-gold-400 transition-colors py-1 flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i>
+          <span>Smart Eligibility</span>
+        </a>
+        <a href="#calculator" class="hover:text-gold-400 transition-colors py-1">Cost & ROI Estimator</a>
+        <a href="#success-wall" class="hover:text-gold-400 transition-colors py-1">Visa Grants</a>
+        <a href="#comparison" class="hover:text-gold-400 transition-colors py-1">Why ISL vs Others</a>
+        <a href="#roadmap" class="hover:text-gold-400 transition-colors py-1">Roadmap</a>
+        <a href="#dhaka-office" class="hover:text-gold-400 transition-colors py-1">Panthapath Hub</a>
+      </nav>
+
+      <!-- CTA Action Button -->
+      <div class="hidden sm:flex items-center gap-3.5">
+        <a href="#eligibility-wizard" class="relative group overflow-hidden px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-500 via-gold-400 to-amber-500 text-navy-950 gold-button-glow transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
+          <span class="relative z-10">Free 1-on-1 Counseling</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/10 transition" aria-label="Toggle Mobile Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-navy-950/98 px-6 py-6 space-y-4 backdrop-blur-2xl">
+      <a href="#destinations" onclick="toggleMobileMenu()" class="block text-slate-200 font-semibold py-1">Study Destinations</a>
+      <a href="#eligibility-wizard" onclick="toggleMobileMenu()" class="block text-gold-400 font-bold py-1">Smart Eligibility Checker</a>
+      <a href="#calculator" onclick="toggleMobileMenu()" class="block text-slate-200 font-semibold py-1">Cost & ROI Estimator</a>
+      <a href="#success-wall" onclick="toggleMobileMenu()" class="block text-slate-200 font-semibold py-1">Visa Grant Wall</a>
+      <a href="#comparison" onclick="toggleMobileMenu()" class="block text-slate-200 font-semibold py-1">Why ISL vs Others</a>
+      <a href="#roadmap" onclick="toggleMobileMenu()" class="block text-slate-200 font-semibold py-1">4-Step Visa Roadmap</a>
+      <a href="#dhaka-office" onclick="toggleMobileMenu()" class="block text-slate-200 font-semibold py-1">Visit Dhaka Office</a>
+      <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+        <a href="#eligibility-wizard" onclick="toggleMobileMenu()" class="w-full text-center py-3 rounded-xl bg-gold-500 text-navy-950 font-bold text-xs uppercase tracking-wider">Book Free Counseling</a>
+        <a href="https://wa.me/8801910030040" target="_blank" class="w-full text-center py-3 rounded-xl bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Directly
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= SECTION 3: CINEMATIC HERO SECTION WITH VIDEO/IMAGE BACKGROUND ================= -->
+  <section class="relative min-h-[820px] lg:min-h-[880px] flex items-center overflow-hidden">
+    
+    <!-- Video / HD Campus Ambient Background -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <!-- High-res ambient video / background campus with subtle animation -->
+      <img 
+        src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=2400&q=90" 
+        alt="Top Global University Campus" 
+        class="w-full h-full object-cover object-center scale-105 motion-safe:animate-pulse-glow"
+      />
+      <!-- Cinematic Multi-stop Dark Sapphire and Warm Gold Mask -->
+      <div class="absolute inset-0 hero-cinematic-mask"></div>
+      
+      <!-- Glowing Atmospheric Particle Orbs -->
+      <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-gold-500/10 blur-[130px] pointer-events-none"></div>
+      <div class="absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full bg-blue-600/15 blur-[150px] pointer-events-none"></div>
+    </div>
+
+    <!-- Hero Content Grid -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        
+        <!-- Left 7 Columns: Editorial Messaging, Brand Trust & Badges -->
+        <div class="lg:col-span-7 space-y-7">
+          
+          <!-- Government Registration & Trust Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-navy-850/80 border border-gold-500/30 text-gold-300 text-xs font-bold tracking-wider uppercase backdrop-blur-xl">
+            <span class="flex h-2 w-2 rounded-full bg-gold-400 animate-ping"></span>
+            <i data-lucide="shield-check" class="w-4 h-4 text-gold-400"></i>
+            <span>Govt. Regd. Student Consultancy • Dhaka Hub</span>
+          </div>
+
+          <!-- Hero Headline -->
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[62px] font-black text-white leading-[1.10] tracking-tight">
+            Your Gateway to <br />
+            <span class="gold-shimmer">World-Class Degrees</span> <br />
+            With Zero File Opening Fee.
+          </h1>
+
+          <!-- Compelling Narrative -->
+          <p class="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+            Personalized counseling for admission and visa processing across <strong class="text-white font-semibold">Malaysia, United Kingdom, Canada, Australia, Europe & USA</strong>. We accept long study gaps and guide applications with or without IELTS.
+          </p>
+
+          <!-- 4 Core Trust Markers Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
+            
+            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-gold-500/40 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="banknote" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="font-black text-white text-sm">0 BDT</p>
+                  <p class="text-slate-400 text-[11px] leading-tight font-medium">File Opening Fee</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-emerald-500/40 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="badge-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="font-black text-white text-sm">99.2%</p>
+                  <p class="text-slate-400 text-[11px] leading-tight font-medium">Visa Approval</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/40 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="calendar" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="font-black text-white text-sm">10+ Yrs</p>
+                  <p class="text-slate-400 text-[11px] leading-tight font-medium">Study Gap OK</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-amber-500/40 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="book-open-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="font-black text-white text-sm">MOI OK</p>
+                  <p class="text-slate-400 text-[11px] leading-tight font-medium">Without IELTS</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dual Hero CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#destinations" class="px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-500 via-gold-400 to-amber-500 text-navy-950 gold-button-glow transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2.5">
+              <span>Explore Top Destinations</span>
+              <i data-lucide="compass" class="w-4 h-4"></i>
+            </a>
+
+            <a href="#dhaka-office" class="px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/10 text-white hover:bg-white/15 border border-white/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-gold-400"></i>
+              <span>Visit Panthapath Hub</span>
+            </a>
+          </div>
+
+          <!-- Social Proof Snippet -->
+          <div class="flex items-center gap-4 pt-2">
+            <div class="flex -space-x-3 overflow-hidden">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Student">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Student">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Student">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Student">
+            </div>
+            <div>
+              <div class="flex items-center gap-1 text-gold-400 text-xs">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <span class="font-bold text-white ml-1">4.9 / 5.0</span>
+              </div>
+              <p class="text-slate-400 text-xs mt-0.5">Over 1,250+ visas approved from Dhaka since 2018</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right 5 Columns: 2-Minute Smart Eligibility Checker Wizard Card -->
+        <div id="eligibility-wizard" class="lg:col-span-5">
+          <div class="glass-panel-luxury rounded-3xl p-6 sm:p-8 relative">
+            
+            <!-- Live Intake Ribbon -->
+            <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-black uppercase tracking-wider shadow-lg flex items-center gap-1.5 border border-emerald-300/30">
+              <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+              2026 / 2027 Intakes Open
+            </div>
+
+            <!-- Card Header -->
+            <div class="mb-5">
+              <p class="text-gold-400 text-xs uppercase tracking-wider font-bold">Smart Visa Evaluation</p>
+              <h2 class="font-display text-2xl font-extrabold text-white">Check Your Eligibility</h2>
+              <p class="text-slate-400 text-xs mt-1">Get an instant probability score and scholarship estimate.</p>
+            </div>
+
+            <!-- Step Progress Indicator -->
+            <div class="flex items-center justify-between mb-5 px-1 text-xs">
+              <span id="step-label-1" class="font-bold text-gold-400 flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-gold-500 text-navy-950 flex items-center justify-center text-[10px] font-black">1</span>
+                Academic
+              </span>
+              <div class="flex-1 h-0.5 mx-3 bg-white/10">
+                <div id="wizard-progress-bar" class="h-full bg-gold-400 w-1/2 transition-all duration-300"></div>
+              </div>
+              <span id="step-label-2" class="font-bold text-slate-400 flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-white/10 text-white flex items-center justify-center text-[10px]">2</span>
+                Contact
+              </span>
+            </div>
+
+            <!-- Form Content -->
+            <form id="smart-wizard-form" onsubmit="handleWizardSubmit(event)" class="space-y-4">
+              
+              <!-- STEP 1 CONTAINER -->
+              <div id="wizard-step-1" class="space-y-3.5">
+                <div>
+                  <label class="block text-xs font-bold text-slate-200 mb-1">Target Country</label>
+                  <select id="wiz-country" class="glass-input-luxury w-full px-3.5 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer">
+                    <option value="Malaysia" class="bg-navy-900">🇲🇾 Malaysia (0 Fee After Visa Offer)</option>
+                    <option value="UK" class="bg-navy-900">🇬🇧 United Kingdom (Fast-track CAS)</option>
+                    <option value="Canada" class="bg-navy-900">🇨🇦 Canada (3-Yr PGWP & PR)</option>
+                    <option value="Australia" class="bg-navy-900">🇦🇺 Australia (High Min. Wage)</option>
+                    <option value="Europe" class="bg-navy-900">🇪🇺 Europe / Schengen (29 Nations)</option>
+                    <option value="USA" class="bg-navy-900">🇺🇸 United States (STEM OPT 3 Yrs)</option>
+                  </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-200 mb-1">Latest Qualification</label>
+                    <select id="wiz-qual" class="glass-input-luxury w-full px-3 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer">
+                      <option value="HSC / A-Level" class="bg-navy-900">HSC / A-Level</option>
+                      <option value="Diploma" class="bg-navy-900">Diploma (Polytechnic)</option>
+                      <option value="Bachelor" class="bg-navy-900">Bachelor Degree</option>
+                      <option value="Masters" class="bg-navy-900">Masters Degree</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-slate-200 mb-1">Study Gap</label>
+                    <select id="wiz-gap" class="glass-input-luxury w-full px-3 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer">
+                      <option value="No Gap" class="bg-navy-900">No Gap (Fresh)</option>
+                      <option value="1-3 Years" class="bg-navy-900">1 - 3 Years</option>
+                      <option value="4-7 Years" class="bg-navy-900">4 - 7 Years (Accepted)</option>
+                      <option value="8+ Years" class="bg-navy-900">8+ Years (Accepted)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-200 mb-1.5">English Proficiency Status</label>
+                  <div class="grid grid-cols-3 gap-2 text-xs">
+                    <label class="border border-white/15 rounded-xl p-2.5 text-center cursor-pointer bg-white/5 hover:border-gold-400 has-[:checked]:border-gold-400 has-[:checked]:bg-gold-500/20 transition">
+                      <input type="radio" name="wiz-eng" value="No IELTS (MOI)" checked class="sr-only">
+                      <span class="font-bold text-slate-200 block text-[11px]">No IELTS (MOI)</span>
+                    </label>
+                    <label class="border border-white/15 rounded-xl p-2.5 text-center cursor-pointer bg-white/5 hover:border-gold-400 has-[:checked]:border-gold-400 has-[:checked]:bg-gold-500/20 transition">
+                      <input type="radio" name="wiz-eng" value="Has IELTS" class="sr-only">
+                      <span class="font-bold text-slate-200 block text-[11px]">Has IELTS</span>
+                    </label>
+                    <label class="border border-white/15 rounded-xl p-2.5 text-center cursor-pointer bg-white/5 hover:border-gold-400 has-[:checked]:border-gold-400 has-[:checked]:bg-gold-500/20 transition">
+                      <input type="radio" name="wiz-eng" value="Duolingo / PTE" class="sr-only">
+                      <span class="font-bold text-slate-200 block text-[11px]">Duolingo/PTE</span>
+                    </label>
+                  </div>
+                </div>
+
+                <button type="button" onclick="goToWizardStep(2)" class="w-full mt-2 py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-gold-500 hover:bg-gold-400 text-navy-950 transition flex items-center justify-center gap-2 gold-button-glow">
+                  <span>Continue to Evaluation</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+              <!-- STEP 2 CONTAINER -->
+              <div id="wizard-step-2" class="space-y-3.5 hidden">
+                <div>
+                  <label class="block text-xs font-bold text-slate-200 mb-1">Your Full Name</label>
+                  <div class="relative">
+                    <i data-lucide="user" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
+                    <input type="text" id="wiz-name" placeholder="e.g. Tanvir Ahmed" class="glass-input-luxury w-full pl-10 pr-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-200 mb-1">WhatsApp / Phone Number</label>
+                  <div class="relative">
+                    <i data-lucide="phone" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
+                    <input type="tel" id="wiz-phone" placeholder="01XXXXXXXXX" class="glass-input-luxury w-full pl-10 pr-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-200 mb-1">District / City in Bangladesh</label>
+                  <input type="text" id="wiz-city" placeholder="e.g. Dhaka, Chittagong, Sylhet" class="glass-input-luxury w-full px-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400">
+                </div>
+
+                <div class="flex items-center gap-2 pt-1">
+                  <button type="button" onclick="goToWizardStep(1)" class="w-1/3 py-3 px-3 rounded-xl font-bold text-xs bg-white/10 hover:bg-white/15 text-white transition">
+                    Back
+                  </button>
+                  <button type="submit" id="wiz-submit-btn" class="w-2/3 py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-gold-500 hover:bg-gold-400 text-navy-950 transition flex items-center justify-center gap-2 gold-button-glow">
+                    <span>Calculate My Chances</span>
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+            </form>
+
+            <!-- Dynamic Result Card (Appears after submission) -->
+            <div id="wizard-result-card" class="hidden mt-4 p-4 rounded-2xl bg-navy-900/90 border border-gold-500/40 text-xs">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <span class="text-slate-400">Visa Success Probability:</span>
+                <span class="text-emerald-400 font-black text-sm">98.5% (High Match)</span>
+              </div>
+              <div class="py-2.5 space-y-1.5">
+                <p class="text-gold-300 font-bold">Estimated Scholarship Eligibility: Up to 35%</p>
+                <p class="text-slate-300 leading-relaxed text-[11px]">
+                  Thank you! Our Panthapath counseling team is preparing your university shortlists. We will WhatsApp the official PDF guideline within 15 minutes.
+                </p>
+              </div>
+              <a href="https://wa.me/8801910030040" target="_blank" class="mt-2 w-full py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-bold text-center block text-[11px]">
+                Chat with Senior Counselor on WhatsApp
+              </a>
+            </div>
+
+            <!-- Privacy Note -->
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+              <span class="flex items-center gap-1">
+                <i data-lucide="lock" class="w-3.5 h-3.5 text-gold-400"></i> No Spam Guarantee
+              </span>
+              <span class="text-emerald-400 font-semibold">Free File Assessment</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 4: INFINITE GLOBAL UNIVERSITY MARQUEE ================= -->
+  <div class="bg-navy-950 border-y border-white/10 py-7 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 mb-3 text-center">
+      <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400">
+        Direct Admission Partner Institutions Across 14+ Countries
+      </p>
+    </div>
+
+    <div class="relative w-full overflow-hidden marquee-mask">
+      <div class="flex w-max items-center gap-12 whitespace-nowrap animate-marquee">
+        
+        <!-- Marquee Item Set 1 -->
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇬🇧</span>
+          <span class="font-display font-extrabold text-sm text-white">University of Nottingham</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇲🇾</span>
+          <span class="font-display font-extrabold text-sm text-white">Asia Pacific University (APU)</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇦🇺</span>
+          <span class="font-display font-extrabold text-sm text-white">Monash University</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇨🇦</span>
+          <span class="font-display font-extrabold text-sm text-white">Fanshawe College Ontario</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇲🇾</span>
+          <span class="font-display font-extrabold text-sm text-white">Taylor's University</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇬🇧</span>
+          <span class="font-display font-extrabold text-sm text-white">Heriot-Watt University</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇪🇺</span>
+          <span class="font-display font-extrabold text-sm text-white">University of Debrecen</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇺🇸</span>
+          <span class="font-display font-extrabold text-sm text-white">Arizona State University Affiliates</span>
+        </div>
+
+        <!-- Marquee Item Set 2 (Duplicate for seamless loop) -->
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇬🇧</span>
+          <span class="font-display font-extrabold text-sm text-white">University of Nottingham</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇲🇾</span>
+          <span class="font-display font-extrabold text-sm text-white">Asia Pacific University (APU)</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇦🇺</span>
+          <span class="font-display font-extrabold text-sm text-white">Monash University</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇨🇦</span>
+          <span class="font-display font-extrabold text-sm text-white">Fanshawe College Ontario</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇲🇾</span>
+          <span class="font-display font-extrabold text-sm text-white">Taylor's University</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇬🇧</span>
+          <span class="font-display font-extrabold text-sm text-white">Heriot-Watt University</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇪🇺</span>
+          <span class="font-display font-extrabold text-sm text-white">University of Debrecen</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg">🇺🇸</span>
+          <span class="font-display font-extrabold text-sm text-white">Arizona State University Affiliates</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SECTION 5: STUDY DESTINATIONS SHOWCASE ================= -->
+  <section id="destinations" class="py-24 bg-navy-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+            Global Campuses
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-3">
+            Choose Your Ideal Study Destination
+          </h2>
+          <p class="text-slate-400 text-sm mt-2 max-w-xl">
+            Filter by post-study work permits, budget-friendliness, or without IELTS options.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="mt-6 md:mt-0 flex flex-wrap gap-2">
+          <button onclick="filterDestCards('all', this)" class="dest-btn px-4 py-2 rounded-xl text-xs font-bold bg-gold-500 text-navy-950 transition">All Destinations</button>
+          <button onclick="filterDestCards('budget', this)" class="dest-btn px-4 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition">Budget Friendly</button>
+          <button onclick="filterDestCards('noielts', this)" class="dest-btn px-4 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition">No IELTS / MOI</button>
+          <button onclick="filterDestCards('psw', this)" class="dest-btn px-4 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition">Post Study Work</button>
+        </div>
+      </div>
+
+      <!-- Destination Cards Grid (6 Countries) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Destination 1: Malaysia -->
+        <div class="dest-card group rounded-3xl overflow-hidden bg-navy-950 border border-white/10 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col shadow-xl" data-cat="budget noielts">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80" alt="Malaysia" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-emerald-500 text-navy-950 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+              99.8% Visa • Zero Risk Offer
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+              <div>
+                <h3 class="font-display text-2xl font-black">Malaysia</h3>
+                <p class="text-xs text-slate-300">Kuala Lumpur, Cyberjaya, Penang</p>
+              </div>
+              <span class="text-3xl">🇲🇾</span>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5 text-xs">
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Annual Tuition Band</span>
+                <span class="font-bold text-gold-400">3.5 - 6.5 Lakh BDT</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Study Gap Permitted</span>
+                <span class="font-bold text-white">Up to 10+ Years</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Language Criteria</span>
+                <span class="font-bold text-emerald-400">MOI / No IELTS Accepted</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Payment Term</span>
+                <span class="font-bold text-gold-300">All fees after visa approval</span>
+              </div>
+            </div>
+
+            <button onclick="prefillDestination('Malaysia')" class="w-full py-3 bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950">
+              <span>Apply for Malaysia</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Destination 2: United Kingdom -->
+        <div class="dest-card group rounded-3xl overflow-hidden bg-navy-950 border border-white/10 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col shadow-xl" data-cat="psw noielts">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" alt="United Kingdom" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+              2 Years Post-Study Work (PSW)
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+              <div>
+                <h3 class="font-display text-2xl font-black">United Kingdom</h3>
+                <p class="text-xs text-slate-300">London, Manchester, Birmingham</p>
+              </div>
+              <span class="text-3xl">🇬🇧</span>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5 text-xs">
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Annual Tuition Band</span>
+                <span class="font-bold text-gold-400">£11,000 - £16,500</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Merit Scholarships</span>
+                <span class="font-bold text-emerald-400">Up to £4,000 Waivers</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">English Requirements</span>
+                <span class="font-bold text-white">MOI / Internal Test / IELTS</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">CAS Turnaround</span>
+                <span class="font-bold text-white">Fast-Track 3-5 Working Days</span>
+              </div>
+            </div>
+
+            <button onclick="prefillDestination('UK')" class="w-full py-3 bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950">
+              <span>Apply for UK</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Destination 3: Canada -->
+        <div class="dest-card group rounded-3xl overflow-hidden bg-navy-950 border border-white/10 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col shadow-xl" data-cat="psw">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80" alt="Canada" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+              3-Year PGWP • PR Pathway
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+              <div>
+                <h3 class="font-display text-2xl font-black">Canada</h3>
+                <p class="text-xs text-slate-300">Ontario, British Columbia, Alberta</p>
+              </div>
+              <span class="text-3xl">🇨🇦</span>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5 text-xs">
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Annual Tuition Band</span>
+                <span class="font-bold text-gold-400">CAD $15,000 - $22,000</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Work Rights</span>
+                <span class="font-bold text-white">Part-Time 24 hrs / week</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">PR Eligibility</span>
+                <span class="font-bold text-emerald-400">Express Entry & PNP Ready</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">PAL / Provincial Letter</span>
+                <span class="font-bold text-white">Guaranteed Attestation Support</span>
+              </div>
+            </div>
+
+            <button onclick="prefillDestination('Canada')" class="w-full py-3 bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950">
+              <span>Apply for Canada</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Destination 4: Australia -->
+        <div class="dest-card group rounded-3xl overflow-hidden bg-navy-950 border border-white/10 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col shadow-xl" data-cat="psw">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80" alt="Australia" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-sky-600 text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+              High Minimum Wage & 2-4 Yr PSW
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+              <div>
+                <h3 class="font-display text-2xl font-black">Australia</h3>
+                <p class="text-xs text-slate-300">Sydney, Melbourne, Brisbane</p>
+              </div>
+              <span class="text-3xl">🇦🇺</span>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5 text-xs">
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Annual Tuition Band</span>
+                <span class="font-bold text-gold-400">AUD $19,000 - $32,000</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">GS / GTE Preparation</span>
+                <span class="font-bold text-emerald-400">Expert SOP Review</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Spouse Working Rights</span>
+                <span class="font-bold text-white">Full Work Rights for Masters</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Work Permit Length</span>
+                <span class="font-bold text-white">2 - 4 Years Post-Study</span>
+              </div>
+            </div>
+
+            <button onclick="prefillDestination('Australia')" class="w-full py-3 bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950">
+              <span>Apply for Australia</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Destination 5: Europe / Schengen -->
+        <div class="dest-card group rounded-3xl overflow-hidden bg-navy-950 border border-white/10 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col shadow-xl" data-cat="budget noielts">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80" alt="Europe Schengen" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-indigo-600 text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+              29 Nations Free Movement
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+              <div>
+                <h3 class="font-display text-2xl font-black">Europe / Schengen</h3>
+                <p class="text-xs text-slate-300">Germany, Hungary, Sweden, Poland</p>
+              </div>
+              <span class="text-3xl">🇪🇺</span>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5 text-xs">
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Annual Tuition Band</span>
+                <span class="font-bold text-gold-400">Free to €3,500 / Yr</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Schengen Freedom</span>
+                <span class="font-bold text-emerald-400">Travel Across 29 Countries</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">English Medium</span>
+                <span class="font-bold text-white">100% English Taught Programs</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Scholarships</span>
+                <span class="font-bold text-gold-300">Stipendium Hungaricum / Erasmus</span>
+              </div>
+            </div>
+
+            <button onclick="prefillDestination('Europe')" class="w-full py-3 bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950">
+              <span>Apply for Schengen</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Destination 6: USA -->
+        <div class="dest-card group rounded-3xl overflow-hidden bg-navy-950 border border-white/10 hover:border-gold-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col shadow-xl" data-cat="psw">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=800&q=80" alt="USA" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 bg-purple-600 text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+              STEM OPT 3 Years Work Permit
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+              <div>
+                <h3 class="font-display text-2xl font-black">United States</h3>
+                <p class="text-xs text-slate-300">Tier-1 State & Private Universities</p>
+              </div>
+              <span class="text-3xl">🇺🇸</span>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5 text-xs">
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Annual Tuition Band</span>
+                <span class="font-bold text-gold-400">$13,000 - $26,000</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Mock Interview Drill</span>
+                <span class="font-bold text-emerald-400">Dhaka Office 1-on-1 Prep</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Scholarship Waiver</span>
+                <span class="font-bold text-white">Up to 60% Tuition Waiver</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-white/10">
+                <span class="text-slate-400">Standardized Test</span>
+                <span class="font-bold text-white">Duolingo / IELTS / GRE Optional</span>
+              </div>
+            </div>
+
+            <button onclick="prefillDestination('USA')" class="w-full py-3 bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950">
+              <span>Apply for USA</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 6: INTERACTIVE STUDY COST & ROI CALCULATOR ================= -->
+  <section id="calculator" class="py-24 bg-navy-950 relative overflow-hidden border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+          Financial Intelligence Tool
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          Interactive Study Cost & ROI Calculator
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Calculate tuition after scholarships, living costs, and projected post-graduation earning potential.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-panel-luxury rounded-3xl p-6 sm:p-10">
+        
+        <!-- Controls Column (Left 6 Cols) -->
+        <div class="lg:col-span-6 space-y-6">
+          
+          <!-- Country Switcher -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">1. Select Destination</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="calcSelectCountry('Malaysia', this)" class="calc-btn py-2.5 px-3 rounded-xl border text-xs font-bold transition border-gold-500 bg-gold-500/20 text-gold-300">🇲🇾 Malaysia</button>
+              <button onclick="calcSelectCountry('UK', this)" class="calc-btn py-2.5 px-3 rounded-xl border border-white/15 bg-white/5 text-slate-300 text-xs font-bold hover:border-gold-500 transition">🇬🇧 UK</button>
+              <button onclick="calcSelectCountry('Canada', this)" class="calc-btn py-2.5 px-3 rounded-xl border border-white/15 bg-white/5 text-slate-300 text-xs font-bold hover:border-gold-500 transition">🇨🇦 Canada</button>
+              <button onclick="calcSelectCountry('Australia', this)" class="calc-btn py-2.5 px-3 rounded-xl border border-white/15 bg-white/5 text-slate-300 text-xs font-bold hover:border-gold-500 transition">🇦🇺 Australia</button>
+              <button onclick="calcSelectCountry('Europe', this)" class="calc-btn py-2.5 px-3 rounded-xl border border-white/15 bg-white/5 text-slate-300 text-xs font-bold hover:border-gold-500 transition">🇪🇺 Europe</button>
+              <button onclick="calcSelectCountry('USA', this)" class="calc-btn py-2.5 px-3 rounded-xl border border-white/15 bg-white/5 text-slate-300 text-xs font-bold hover:border-gold-500 transition">🇺🇸 USA</button>
+            </div>
+          </div>
+
+          <!-- Degree Switcher -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">2. Degree Level</label>
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="calcSelectDegree('ug', this)" class="calc-deg-btn py-2.5 px-3 rounded-xl border text-xs font-bold transition border-gold-500 bg-gold-500/20 text-white">Undergraduate / Bachelor</button>
+              <button onclick="calcSelectDegree('pg', this)" class="calc-deg-btn py-2.5 px-3 rounded-xl border border-white/15 bg-white/5 text-slate-300 text-xs font-bold hover:border-gold-500 transition">Postgraduate / Masters</button>
+            </div>
+          </div>
+
+          <!-- Academic GPA Slider -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-300">3. Your GPA / Academic Score</label>
+              <span id="calc-gpa-text" class="font-black text-gold-400 text-sm">GPA 4.50 / 5.00</span>
+            </div>
+            <input type="range" id="calc-gpa-slider" min="2.5" max="5.0" step="0.1" value="4.5" oninput="renderCalculation()" class="w-full accent-gold-500 bg-white/10 h-2 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+              <span>Pass (2.50)</span>
+              <span>Good (3.75)</span>
+              <span>Outstanding (5.00)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Real-Time Output Column (Right 6 Cols) -->
+        <div class="lg:col-span-6 bg-navy-950/90 border border-white/15 rounded-3xl p-6 sm:p-8 space-y-6">
+          
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <div>
+              <p class="text-xs text-slate-400">Selected Country Pathway</p>
+              <h3 id="calc-disp-country" class="font-display text-2xl font-black text-white">Malaysia</h3>
+            </div>
+            <div class="text-right">
+              <p class="text-xs text-slate-400">Merit Scholarship</p>
+              <span id="calc-disp-waiver" class="font-extrabold text-emerald-400 text-sm">25% Tuition Waiver</span>
+            </div>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="flex items-center justify-between py-2 border-b border-white/10">
+              <span class="text-slate-400">Estimated Annual Tuition</span>
+              <span id="calc-disp-tuition" class="font-bold text-white text-sm">4,50,000 BDT</span>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-white/10">
+              <span class="text-slate-400">Estimated Living & Accommodation</span>
+              <span id="calc-disp-living" class="font-bold text-white text-sm">2,80,000 BDT</span>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-white/10">
+              <span class="text-slate-400">ISL File Processing Charge</span>
+              <span class="font-black text-emerald-400 text-sm">0 BDT (Free Service)</span>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-white/10">
+              <span class="text-slate-400">Average Starting Salary (Post-Study)</span>
+              <span id="calc-disp-salary" class="font-bold text-gold-300 text-sm">RM 4,200 - 6,500 / Month</span>
+            </div>
+          </div>
+
+          <!-- Total Highlight Box -->
+          <div class="p-5 rounded-2xl bg-gradient-to-r from-navy-850 to-navy-800 border border-gold-500/30 flex items-center justify-between">
+            <div>
+              <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Total Estimated Annual Budget</p>
+              <p id="calc-disp-total" class="font-display text-2xl font-black text-gold-400 mt-0.5">7,30,000 BDT</p>
+            </div>
+            <a href="#eligibility-wizard" class="px-5 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs uppercase tracking-wider transition gold-button-glow">
+              Get Official Breakdown
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 7: SUCCESS STORIES & VISA APPROVAL WALL ================= -->
+  <section id="success-wall" class="py-24 bg-navy-900 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+          Proven Track Record
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          Visa Grant & Success Wall
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Genuine success stories of students who trusted ISL Global for their international education.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Story 1 -->
+        <div class="rounded-3xl bg-navy-950 border border-white/10 p-7 flex flex-col justify-between hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-black">
+                🇲🇾 Visa Granted • APU Malaysia
+              </span>
+              <span class="text-slate-400 text-xs font-bold">2026 Intake</span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-6">
+              "I had an 8-year study gap after HSC. Most agencies in Dhanmondi refused my file or asked for high deposits. ISL Global handled my justification with zero file fee. I received my eVAL and single entry visa in record time!"
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3.5 pt-5 border-t border-white/10">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=140&q=80" alt="Student" class="w-12 h-12 rounded-full object-cover ring-2 ring-gold-500/40">
+            <div>
+              <p class="font-bold text-white text-sm">Fahim Mahmud</p>
+              <p class="text-xs text-slate-400">BSc (Hons) in Cybersecurity</p>
+              <p class="text-[11px] text-emerald-400 font-semibold mt-0.5">Zero Fee Campaign Beneficiary</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="rounded-3xl bg-navy-950 border border-white/10 p-7 flex flex-col justify-between hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-black">
+                🇬🇧 Visa Granted • Univ. of Hertfordshire
+              </span>
+              <span class="text-slate-400 text-xs font-bold">Fast-Track CAS</span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-6">
+              "Their 1-on-1 embassy mock drills at Panthapath office gave me extreme confidence. The counselor pointed out exactly where my financial explanations sounded weak. My UK visa was issued in just 10 days without interview trouble."
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3.5 pt-5 border-t border-white/10">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=140&q=80" alt="Student" class="w-12 h-12 rounded-full object-cover ring-2 ring-gold-500/40">
+            <div>
+              <p class="font-bold text-white text-sm">Sadia Sultana</p>
+              <p class="text-xs text-slate-400">MSc in International Business Management</p>
+              <p class="text-[11px] text-blue-400 font-semibold mt-0.5">£3,000 Vice Chancellor Scholarship</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="rounded-3xl bg-navy-950 border border-white/10 p-7 flex flex-col justify-between hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-black">
+                🇨🇦 Visa Granted • Fanshawe College
+              </span>
+              <span class="text-slate-400 text-xs font-bold">3-Year PGWP</span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic mb-6">
+              "Canada visa rules became strict with the new provincial caps. ISL Global secured my Provincial Attestation Letter (PAL) and crafted an airtight Statement of Purpose. My visa was approved without a single glitch!"
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3.5 pt-5 border-t border-white/10">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=140&q=80" alt="Student" class="w-12 h-12 rounded-full object-cover ring-2 ring-gold-500/40">
+            <div>
+              <p class="font-bold text-white text-sm">Rifat Chowdhury</p>
+              <p class="text-xs text-slate-400">Postgrad in Project Management</p>
+              <p class="text-[11px] text-red-400 font-semibold mt-0.5">Spouse Accompanying Approved</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 8: WHY ISL GLOBAL VS OTHERS (TRANSPARENT MATRIX) ================= -->
+  <section id="comparison" class="py-24 bg-navy-950 border-t border-white/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+          Honest Transparency
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          ISL Global vs. Traditional Consultancies
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Compare our ethical policies against standard practices in Bangladesh.
+        </p>
+      </div>
+
+      <div class="rounded-3xl overflow-hidden border border-white/15 bg-navy-900 shadow-2xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-navy-850 border-b border-white/10 text-slate-300">
+                <th class="p-5 font-bold">Key Evaluation Factor</th>
+                <th class="p-5 font-black text-gold-400 bg-navy-800/80">ISL Global Education</th>
+                <th class="p-5 font-bold text-slate-400">Other Agencies in BD</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10">
+              
+              <tr>
+                <td class="p-5 font-semibold text-white">Initial File Opening / Counseling Fee</td>
+                <td class="p-5 font-black text-emerald-400 bg-navy-800/40">0 BDT (Completely Free)</td>
+                <td class="p-5 text-rose-400">10,000 – 30,000 BDT Upfront</td>
+              </tr>
+
+              <tr>
+                <td class="p-5 font-semibold text-white">University Tuition Transfers</td>
+                <td class="p-5 font-black text-emerald-400 bg-navy-800/40">Direct to University Official Bank Account</td>
+                <td class="p-5 text-rose-400">Cash or third-party handling risks</td>
+              </tr>
+
+              <tr>
+                <td class="p-5 font-semibold text-white">Study Gap Acceptance Policy</td>
+                <td class="p-5 font-black text-emerald-400 bg-navy-800/40">Accepted up to 10+ Years with Work Proof</td>
+                <td class="p-5 text-slate-400">Files often rejected or charged penalty</td>
+              </tr>
+
+              <tr>
+                <td class="p-5 font-semibold text-white">Embassy Mock Interview Preparation</td>
+                <td class="p-5 font-black text-emerald-400 bg-navy-800/40">1-on-1 In-Person Simulated Drills</td>
+                <td class="p-5 text-slate-400">Generic PDF sheets or no practice</td>
+              </tr>
+
+              <tr>
+                <td class="p-5 font-semibold text-white">Malaysia University Fees</td>
+                <td class="p-5 font-black text-emerald-400 bg-navy-800/40">Pay All Fees After Visa (eVAL) Approval</td>
+                <td class="p-5 text-rose-400">Full tuition collected in advance</td>
+              </tr>
+
+              <tr>
+                <td class="p-5 font-semibold text-white">Post-Visa Hidden Service Charge</td>
+                <td class="p-5 font-black text-emerald-400 bg-navy-800/40">0 BDT Hidden Charges</td>
+                <td class="p-5 text-rose-400">50,000 – 1.5 Lakh BDT After Visa</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 9: 4-STEP INTERACTIVE ROADMAP ================= -->
+  <section id="roadmap" class="py-24 bg-navy-900 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+          Hassle-Free Process
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          Your 4-Step Road to University Campus
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Clear milestones from initial assessment to touchdown at your international airport.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        
+        <!-- Step 1 -->
+        <div class="roadmap-step relative flex flex-col items-center text-center group">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-400 to-amber-600 text-navy-950 flex items-center justify-center text-xl font-black mb-6 shadow-xl z-10 group-hover:scale-110 transition-transform">
+            01
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Free Profile Review</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-xs">
+            Review transcripts, evaluate study gap, verify English requirements, and handpick suitable universities.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="roadmap-step relative flex flex-col items-center text-center group">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-400 to-amber-600 text-navy-950 flex items-center justify-center text-xl font-black mb-6 shadow-xl z-10 group-hover:scale-110 transition-transform">
+            02
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Admission & Offer Letter</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-xs">
+            Professional SOP formulation and swift submission to secure conditional or unconditional offer letters.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="roadmap-step relative flex flex-col items-center text-center group">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-400 to-amber-600 text-navy-950 flex items-center justify-center text-xl font-black mb-6 shadow-xl z-10 group-hover:scale-110 transition-transform">
+            03
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Visa Dossier Lodgement</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-xs">
+            Bank statement verification, medical documentation, and rigorous one-on-one embassy interview drills.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="roadmap-step relative flex flex-col items-center text-center group">
+          <div class="w-16 h-16 rounded-2xl bg-emerald-500 text-navy-950 flex items-center justify-center text-xl font-black mb-6 shadow-xl z-10 group-hover:scale-110 transition-transform">
+            04
+          </div>
+          <h3 class="font-display text-lg font-bold text-white mb-2">Visa Approval & Flight</h3>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-xs">
+            Collect your visa, finalize university accommodation, student travel discounts, and airport reception.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 10: DHAKA PANTHAPATH OFFICE & COUNSELOR BOOKING ================= -->
+  <section id="dhaka-office" class="py-24 bg-navy-950 border-t border-white/10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left 6 Columns: Physical Office & Counselor Credentials -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 text-gold-400 text-xs font-bold uppercase tracking-wider border border-gold-500/30">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+            <span>Dhaka Central Hub</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            Meet Our Senior Counselors at Panthapath
+          </h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Conveniently located near Square Hospital. Walk in with your academic certificates and family members for face-to-face document assessment.
+          </p>
+
+          <div class="space-y-3.5 pt-2">
+            
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="building" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Physical Office Address</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Panthapath (Square Hospital Crossing), Dhaka 1205, Bangladesh</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="phone-call" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Direct Phone & WhatsApp Hotline</h4>
+                <p class="text-xs text-slate-400 mt-0.5">+880 1910-030040 (24/7 WhatsApp Assistance)</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Office Schedule</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Saturday – Thursday: 10:00 AM – 7:00 PM (Friday Closed)</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right 6 Columns: Book Visit Slot Form -->
+        <div class="lg:col-span-6">
+          <div class="glass-panel-luxury rounded-3xl p-6 sm:p-8">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-1">Book an In-Person Meeting</h3>
+            <p class="text-xs text-slate-400 mb-6">Skip the wait time by pre-booking your counseling slot.</p>
+
+            <form onsubmit="handleOfficeBooking(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-200 mb-1">Your Full Name</label>
+                <input type="text" id="slot-name" required placeholder="Enter student name" class="glass-input-luxury w-full px-4 py-2.5 rounded-xl text-xs outline-none">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-200 mb-1">WhatsApp / Phone</label>
+                  <input type="tel" id="slot-phone" required placeholder="01XXXXXXXXX" class="glass-input-luxury w-full px-4 py-2.5 rounded-xl text-xs outline-none">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-200 mb-1">Preferred Date</label>
+                  <input type="date" id="slot-date" required class="glass-input-luxury w-full px-4 py-2.5 rounded-xl text-xs outline-none">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-200 mb-1">Country of Focus</label>
+                <select id="slot-dest" class="glass-input-luxury w-full px-4 py-2.5 rounded-xl text-xs outline-none cursor-pointer">
+                  <option value="Malaysia" class="bg-navy-900">Malaysia</option>
+                  <option value="UK" class="bg-navy-900">United Kingdom</option>
+                  <option value="Canada" class="bg-navy-900">Canada</option>
+                  <option value="Australia" class="bg-navy-900">Australia</option>
+                  <option value="Europe" class="bg-navy-900">Europe / Schengen</option>
+                  <option value="USA" class="bg-navy-900">United States</option>
+                </select>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs uppercase tracking-wider rounded-xl transition gold-button-glow flex items-center justify-center gap-2">
+                <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                <span>Confirm Office Slot</span>
+              </button>
+            </form>
+
+            <div id="slot-success-msg" class="hidden mt-4 p-3 bg-emerald-950 border border-emerald-500 rounded-xl text-emerald-300 text-xs">
+              Slot requested! Our receptionist will call you within 1 hour to confirm your time.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 11: INTERACTIVE FAQ ACCORDION ================= -->
+  <section class="py-24 bg-navy-900 border-t border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <span class="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+          Everything Explained
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Clear answers about eligibility, study gaps, and embassy policies.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faq-list">
+        
+        <!-- Item 1 -->
+        <div class="border border-white/10 rounded-2xl overflow-hidden bg-navy-950">
+          <button onclick="toggleFaqItem(this)" class="w-full flex items-center justify-between p-5 text-left font-bold text-white text-sm sm:text-base hover:bg-white/5 transition">
+            <span>Can I apply if I have a significant study gap?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gold-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-desc hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+            Yes! For Malaysia and several European nations, study gaps of up to 10+ years are accepted provided you can show authentic employment experience, freelancing portfolios, or professional activities during the gap period. UK and Canada also accept study gaps for Masters programs with valid job experience letters.
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="border border-white/10 rounded-2xl overflow-hidden bg-navy-950">
+          <button onclick="toggleFaqItem(this)" class="w-full flex items-center justify-between p-5 text-left font-bold text-white text-sm sm:text-base hover:bg-white/5 transition">
+            <span>Is it possible to apply without IELTS?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gold-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-desc hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+            Yes, many universities in Malaysia and the UK accept a Medium of Instruction (MOI) certificate if your previous degree was taught in English. Additionally, Duolingo English Test (DET) or internal university exams are viable alternatives for many destinations.
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="border border-white/10 rounded-2xl overflow-hidden bg-navy-950">
+          <button onclick="toggleFaqItem(this)" class="w-full flex items-center justify-between p-5 text-left font-bold text-white text-sm sm:text-base hover:bg-white/5 transition">
+            <span>What does "0 BDT File Opening Fee" really mean?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gold-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-desc hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+            We do not collect any registration fee, profile evaluation charge, or upfront agency commission. You only pay standard third-party fees (such as embassy visa fees and university tuition deposits) directly to official bank accounts.
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="border border-white/10 rounded-2xl overflow-hidden bg-navy-950">
+          <button onclick="toggleFaqItem(this)" class="w-full flex items-center justify-between p-5 text-left font-bold text-white text-sm sm:text-base hover:bg-white/5 transition">
+            <span>Can I bring my spouse with me?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gold-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-desc hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+            Yes, Australia allows full unrestricted spouse work rights for postgraduate research and master's candidates. Canada allows spouse open work permits for select degree pathways, and Malaysia issues dependent passes for postgraduate students.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 12: LUXURY FOOTER ================= -->
+  <footer class="bg-navy-950 text-slate-400 text-xs border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold">
+              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="font-display font-extrabold text-xl text-white">ISL GLOBAL</span>
+              <p class="text-[10px] text-slate-400 uppercase tracking-widest -mt-0.5">Education & Visa Services</p>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+            Registered educational consulting agency based in Dhaka, Bangladesh. Empowering students with transparent, zero-cost processing for top international universities.
+          </p>
+          <div class="flex items-center gap-3 pt-1">
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-gold-500 hover:text-navy-950 flex items-center justify-center transition text-slate-300">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-gold-500 hover:text-navy-950 flex items-center justify-center transition text-slate-300">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-gold-500 hover:text-navy-950 flex items-center justify-center transition text-slate-300">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-gold-500 hover:text-navy-950 flex items-center justify-center transition text-slate-300">
+              <i data-lucide="youtube" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Destinations -->
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3.5">Study Destinations</h4>
+          <ul class="space-y-2">
+            <li><a href="#destinations" class="hover:text-gold-400 transition">Study in Malaysia</a></li>
+            <li><a href="#destinations" class="hover:text-gold-400 transition">Study in UK</a></li>
+            <li><a href="#destinations" class="hover:text-gold-400 transition">Study in Canada</a></li>
+            <li><a href="#destinations" class="hover:text-gold-400 transition">Study in Australia</a></li>
+            <li><a href="#destinations" class="hover:text-gold-400 transition">Study in Europe</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Tools & Resources -->
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3.5">Tools & Guidance</h4>
+          <ul class="space-y-2">
+            <li><a href="#eligibility-wizard" class="hover:text-gold-400 transition">Smart Eligibility Checker</a></li>
+            <li><a href="#calculator" class="hover:text-gold-400 transition">Cost & ROI Calculator</a></li>
+            <li><a href="#success-wall" class="hover:text-gold-400 transition">Visa Approval Wall</a></li>
+            <li><a href="#comparison" class="hover:text-gold-400 transition">Why ISL vs Others</a></li>
+            <li><a href="#roadmap" class="hover:text-gold-400 transition">4-Step Roadmap</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3.5">Dhaka Headquarters</h4>
+          <p class="text-xs text-slate-300 leading-relaxed mb-2">
+            Panthapath (Square Hospital Crossing), Dhaka 1205
+          </p>
+          <p class="text-xs text-gold-400 font-bold">Hotline: +880 1910-030040</p>
+          <p class="text-xs text-slate-400 mt-1">Email: info@islglobaleducation.com</p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500">
+        <p>© 2026-2027 ISL Global Education. All rights reserved. Panthapath, Dhaka, Bangladesh.</p>
+        <p class="mt-2 sm:mt-0">Zero File Fee Policy • Code of Ethical Counseling</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= SECTION 13: FLOATING ACTION HUB ================= -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <!-- Back to top button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 rounded-full bg-navy-900/90 text-slate-300 hover:text-white border border-white/20 backdrop-blur-md flex items-center justify-center shadow-xl hover:scale-110 transition-transform" aria-label="Back to Top">
+      <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Floating WhatsApp CTA with text reveal -->
+    <a href="https://wa.me/8801910030040?text=Hello%20ISL%20Global%20Counselor%2C%20I%20am%20interested%20in%20studying%20abroad." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center group hover:scale-105 transition-all duration-300" aria-label="Chat with Senior Counselor">
+      <i data-lucide="message-circle" class="w-7 h-7"></i>
+      <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-bold text-xs group-hover:px-2.5">
+        Chat with Senior Counselor
+      </span>
+    </a>
+  </div>
+
+  <!-- ================= SECTION 14: INTERACTIVE JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Toggle Mobile Navigation
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Wizard Step Navigation
+    function goToWizardStep(step) {
+      const step1 = document.getElementById('wizard-step-1');
+      const step2 = document.getElementById('wizard-step-2');
+      const label1 = document.getElementById('step-label-1');
+      const label2 = document.getElementById('step-label-2');
+      const bar = document.getElementById('wizard-progress-bar');
+
+      if (step === 2) {
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        label2.classList.remove('text-slate-400');
+        label2.classList.add('text-gold-400');
+        bar.classList.remove('w-1/2');
+        bar.classList.add('w-full');
+      } else {
+        step2.classList.add('hidden');
+        step1.classList.remove('hidden');
+        label2.classList.add('text-slate-400');
+        label2.classList.remove('text-gold-400');
+        bar.classList.remove('w-full');
+        bar.classList.add('w-1/2');
+      }
+    }
+
+    // Handle Wizard Submission
+    function handleWizardSubmit(event) {
+      event.preventDefault();
+      const btn = document.getElementById('wiz-submit-btn');
+      const resultCard = document.getElementById('wizard-result-card');
+      const step2 = document.getElementById('wizard-step-2');
+
+      btn.disabled = true;
+      btn.innerHTML = `<span class="animate-spin mr-2">◌</span> Evaluating Profile...`;
+
+      setTimeout(() => {
+        step2.classList.add('hidden');
+        resultCard.classList.remove('hidden');
+        lucide.createIcons();
+      }, 1000);
+    }
+
+    // Prefill Target Destination into Wizard
+    function prefillDestination(country) {
+      const select = document.getElementById('wiz-country');
+      if (select) select.value = country;
+      const section = document.getElementById('eligibility-wizard');
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Destination Filter Logic
+    function filterDestCards(category, btnElement) {
+      const cards = document.querySelectorAll('.dest-card');
+      const buttons = document.querySelectorAll('.dest-btn');
+
+      buttons.forEach(b => {
+        b.classList.remove('bg-gold-500', 'text-navy-950');
+        b.classList.add('bg-white/5', 'text-slate-300');
+      });
+
+      btnElement.classList.add('bg-gold-500', 'text-navy-950');
+      btnElement.classList.remove('bg-white/5', 'text-slate-300');
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat') || '';
+        if (category === 'all' || cat.includes(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Cost Calculator State & Dataset
+    let calcCurrentCountry = 'Malaysia';
+    let calcCurrentDegree = 'ug';
+
+    const costDataset = {
+      Malaysia: {
+        currency: 'BDT',
+        ug: { tuition: 450000, living: 280000, waiverMax: 35, salary: 'RM 4,200 - 6,500' },
+        pg: { tuition: 520000, living: 280000, waiverMax: 40, salary: 'RM 5,500 - 8,500' }
+      },
+      UK: {
+        currency: 'BDT',
+        ug: { tuition: 1650000, living: 1400000, waiverMax: 20, salary: '£26,000 - £34,000' },
+        pg: { tuition: 1850000, living: 1400000, waiverMax: 25, salary: '£30,000 - £42,000' }
+      },
+      Canada: {
+        currency: 'BDT',
+        ug: { tuition: 1550000, living: 1300000, waiverMax: 15, salary: 'CAD $48,000 - $65,000' },
+        pg: { tuition: 1750000, living: 1300000, waiverMax: 20, salary: 'CAD $55,000 - $78,000' }
+      },
+      Australia: {
+        currency: 'BDT',
+        ug: { tuition: 1950000, living: 1600000, waiverMax: 25, salary: 'AUD $58,000 - $75,000' },
+        pg: { tuition: 2200000, living: 1600000, waiverMax: 30, salary: 'AUD $68,000 - $90,000' }
+      },
+      Europe: {
+        currency: 'BDT',
+        ug: { tuition: 400000, living: 900000, waiverMax: 40, salary: '€28,000 - €42,000' },
+        pg: { tuition: 480000, living: 900000, waiverMax: 50, salary: '€35,000 - €55,000' }
+      },
+      USA: {
+        currency: 'BDT',
+        ug: { tuition: 2100000, living: 1500000, waiverMax: 40, salary: '$55,000 - $80,000' },
+        pg: { tuition: 2400000, living: 1500000, waiverMax: 50, salary: '$65,000 - $105,000' }
+      }
+    };
+
+    function calcSelectCountry(country, btn) {
+      calcCurrentCountry = country;
+      document.querySelectorAll('.calc-btn').forEach(b => {
+        b.classList.remove('border-gold-500', 'bg-gold-500/20', 'text-gold-300');
+        b.classList.add('border-white/15', 'bg-white/5', 'text-slate-300');
+      });
+      btn.classList.add('border-gold-500', 'bg-gold-500/20', 'text-gold-300');
+      btn.classList.remove('border-white/15', 'bg-white/5', 'text-slate-300');
+      renderCalculation();
+    }
+
+    function calcSelectDegree(degree, btn) {
+      calcCurrentDegree = degree;
+      document.querySelectorAll('.calc-deg-btn').forEach(b => {
+        b.classList.remove('border-gold-500', 'bg-gold-500/20', 'text-white');
+        b.classList.add('border-white/15', 'bg-white/5', 'text-slate-300');
+      });
+      btn.classList.add('border-gold-500', 'bg-gold-500/20', 'text-white');
+      btn.classList.remove('border-white/15', 'bg-white/5', 'text-slate-300');
+      renderCalculation();
+    }
+
+    function renderCalculation() {
+      const gpa = parseFloat(document.getElementById('calc-gpa-slider').value);
+      document.getElementById('calc-gpa-text').textContent = `GPA ${gpa.toFixed(2)} / 5.00`;
+
+      const data = costDataset[calcCurrentCountry][calcCurrentDegree];
+      let waiverPct = 0;
+      if (gpa >= 4.75) {
+        waiverPct = data.waiverMax;
+      } else if (gpa >= 4.0) {
+        waiverPct = Math.round(data.waiverMax * 0.7);
+      } else if (gpa >= 3.5) {
+        waiverPct = Math.round(data.waiverMax * 0.4);
+      }
+
+      const discountedTuition = Math.round(data.tuition * (1 - waiverPct / 100));
+      const total = discountedTuition + data.living;
+
+      document.getElementById('calc-disp-country').textContent = calcCurrentCountry;
+      document.getElementById('calc-disp-waiver').textContent = waiverPct > 0 
+        ? `${waiverPct}% Merit Scholarship Award` 
+        : `Standard Tuition Band`;
+
+      document.getElementById('calc-disp-tuition').textContent = `${discountedTuition.toLocaleString('en-BD')} BDT / Year`;
+      document.getElementById('calc-disp-living').textContent = `${data.living.toLocaleString('en-BD')} BDT / Year`;
+      document.getElementById('calc-disp-total').textContent = `${total.toLocaleString('en-BD')} BDT`;
+      document.getElementById('calc-disp-salary').textContent = `${data.salary} / Year`;
+    }
+
+    // Office Slot Form Handler
+    function handleOfficeBooking(event) {
+      event.preventDefault();
+      document.getElementById('slot-success-msg').classList.remove('hidden');
+      event.target.reset();
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaqItem(button) {
+      const desc = button.nextElementSibling;
+      const icon = button.querySelector('i');
+      const isHidden = desc.classList.contains('hidden');
+
+      document.querySelectorAll('.faq-desc').forEach(d => d.classList.add('hidden'));
+      document.querySelectorAll('#faq-list i').forEach(i => i.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        desc.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dateEl = document.getElementById('slot-date');
+      if (dateEl) {
+        dateEl.value = tomorrow.toISOString().split('T')[0];
+      }
+      renderCalculation();
+    });
+  </script>
+</body>
+</html>

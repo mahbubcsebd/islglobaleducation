@@ -1,224 +1,563 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
+import * as React from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowRight,
-  FileCheck2,
-  Globe2,
-  GraduationCap,
-  Search,
+  ShieldCheck,
+  Banknote,
+  BadgeCheck,
+  Calendar,
+  BookOpenCheck,
+  Compass,
+  MapPin,
+  Star,
   Sparkles,
-  TrendingUp,
-} from 'lucide-react';
-import Link from 'next/link';
-import * as React from 'react';
-import { searchDestinations } from '@/lib/destination-search';
+  ArrowRight,
+  User,
+  Phone,
+  Lock,
+  MessageCircle,
+} from "lucide-react";
 
 export function Hero({ lang, dict }) {
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const [isFocused, setIsFocused] = React.useState(false);
-  const searchContainerRef = React.useRef(null);
+  const [step, setStep] = React.useState(1);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitted, setSubmitted] = React.useState(false);
 
-  // Real-time matches based on current query
-  const matches = React.useMemo(() => {
-    return searchDestinations(searchQuery);
-  }, [searchQuery]);
+  // Wizard form state
+  const [formData, setFormData] = React.useState({
+    country: "Malaysia",
+    qualification: "HSC / A-Level",
+    gap: "No Gap",
+    engProficiency: "No IELTS (MOI)",
+    name: "",
+    phone: "",
+    city: "",
+  });
 
-  // Close dropdown on outside click
-  React.useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
-        setIsFocused(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const triggerSearch = (queryOrId) => {
-    const targetQuery = queryOrId !== undefined ? queryOrId : searchQuery.trim();
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(
-        new CustomEvent("destination-search", {
-          detail: targetQuery,
-        })
-      );
-      const dest = document.getElementById("destinations");
-      dest?.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsFocused(false);
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSearchSubmit = (e) => {
+  const handleWizardSubmit = (e) => {
     e.preventDefault();
-    triggerSearch();
-  };
-
-  const handleSelectDestination = (destItem) => {
-    setSearchQuery(lang === "bn" ? destItem.bnName : destItem.enName);
-    triggerSearch(destItem.id);
-  };
-
-  const handleClear = () => {
-    setSearchQuery("");
-    triggerSearch("");
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 900);
   };
 
   return (
-    <section className="relative pt-8 pb-16 md:pt-14 md:pb-24 bg-transparent">
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-        {/* Floating pill announcement badge with primary yellow */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-1.5 text-xs font-bold mb-6 shadow-2xs">
-          <span className="size-2 rounded-full bg-primary-foreground animate-pulse" />
-          <span>{dict.hero.badge}</span>
-        </div>
+    <section className="relative min-h-[820px] lg:min-h-[880px] flex items-center overflow-hidden bg-navy-950">
+      {/* Video / HD Campus Ambient Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=2400&q=90"
+          alt="Top Global University Campus"
+          className="w-full h-full object-cover object-center scale-105 opacity-40 mix-blend-luminosity"
+        />
+        {/* Cinematic Multi-stop Dark Sapphire and Warm Gold Mask */}
+        <div className="absolute inset-0 hero-cinematic-mask"></div>
 
-        {/* Hero Headings: strictly 2 lines with balanced leading */}
-        <h1 className="hero-heading mx-auto max-w-5xl text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold tracking-tight text-foreground leading-[1.2] md:leading-[1.24] mb-6">
-          <span className="block">{dict.hero.titleLine1}</span>
-          <span className="block text-primary underline decoration-primary/60 underline-offset-8 mt-1.5 sm:mt-2.5">
-            {dict.hero.titleLine2}
-          </span>
-        </h1>
+        {/* Glowing Atmospheric Particle Orbs */}
+        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-gold-500/10 blur-[130px]"></div>
+        <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full bg-blue-600/15 blur-[150px]"></div>
+      </div>
 
-        {/* Hero Subtitle */}
-        <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-foreground-secondary leading-relaxed mb-8">
-          {dict.hero.subtitle}
-        </p>
-
-        {/* Quick Search / Destination Omnibar with real-time bilingual matching */}
-        <div ref={searchContainerRef} className="relative mx-auto max-w-xl mb-8 text-left">
-          <form onSubmit={handleSearchSubmit}>
-            <div className="relative flex items-center rounded-xl border border-border/80 bg-surface/90 dark:bg-surface/90 backdrop-blur-xl p-1.5 shadow-md focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
-              <div className="pl-3.5 pr-2 text-foreground-muted">
-                <Search className="size-4 text-primary" />
-              </div>
-              <input
-                type="text"
-                value={searchQuery}
-                onFocus={() => setIsFocused(true)}
-                onChange={(e) => {
-                  setSearchQuery(e.target.value);
-                  setIsFocused(true);
-                }}
-                placeholder={
-                  dict.hero?.searchPlaceholder ||
-                  (lang === 'en'
-                    ? 'Search country (Malaysia, UK, Canada...) or subject...'
-                    : 'দেশ (মালয়েশিয়া, ইউকে, কানাডা...) বা পছন্দের বিষয় লিখুন...')
-                }
-                className="w-full bg-transparent text-xs sm:text-sm text-foreground placeholder:text-foreground-muted outline-none pr-2"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={handleClear}
-                  className="px-2 text-foreground-muted hover:text-foreground text-xs"
-                  aria-label="Clear search"
-                >
-                  ✕
-                </button>
-              )}
-              <Button type="submit" size="sm" className="shrink-0">
-                <Globe2 className="size-3.5 mr-1" />
-                {dict.hero.ctaSecondary}
-              </Button>
+      {/* Hero Content Grid */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          {/* Left 7 Columns: Editorial Messaging, Brand Trust & Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="lg:col-span-7 space-y-7"
+          >
+            {/* Government Registration & Trust Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-navy-850/80 border border-gold-500/30 text-gold-300 text-xs font-bold tracking-wider uppercase backdrop-blur-xl">
+              <span className="flex h-2 w-2 rounded-full bg-gold-400 animate-ping"></span>
+              <ShieldCheck className="w-4 h-4 text-gold-400 shrink-0" />
+              <span>{dict.hero.badge}</span>
             </div>
-          </form>
 
-          {/* Real-time Bilingual Autocomplete Dropdown */}
-          {isFocused && searchQuery.trim().length > 0 && (
-            <div className="absolute top-full left-0 right-0 mt-2 z-50 rounded-xl border border-border bg-surface shadow-xl overflow-hidden animate-in fade-in-50 zoom-in-95 duration-150">
-              <div className="px-4 py-2 bg-surface-alt border-b border-border text-[11px] font-semibold text-foreground-secondary uppercase tracking-wider flex items-center justify-between">
-                <span>{dict.hero?.searchSuggestions || (lang === 'bn' ? 'পরামর্শকৃত দেশসমূহ' : 'Suggested Destinations')}</span>
-                <span>{matches.length} {lang === 'bn' ? 'টি দেশ' : 'matches'}</span>
+            {/* Hero Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-black text-white leading-[1.12] tracking-tight">
+              {dict.hero.titleLine1} <br />
+              <span className="gold-shimmer">{dict.hero.titleLine2}</span> <br />
+              {dict.hero.titleLine3}
+            </h1>
+
+            {/* Compelling Narrative */}
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+              {dict.hero.subtitle}
+            </p>
+
+            {/* 4 Core Trust Markers Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
+              <motion.div
+                whileHover={{ y: -3 }}
+                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-gold-500/40 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0">
+                    <Banknote className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-black text-white text-sm">0 BDT</p>
+                    <p className="text-slate-400 text-[11px] leading-tight font-medium">
+                      {dict.hero.pill1 || "File Opening Fee"}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -3 }}
+                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-emerald-500/40 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                    <BadgeCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-black text-white text-sm">99.2%</p>
+                    <p className="text-slate-400 text-[11px] leading-tight font-medium">
+                      {dict.hero.pill2 || "Visa Approval"}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -3 }}
+                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-500/40 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                    <Calendar className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-black text-white text-sm">10+ Yrs</p>
+                    <p className="text-slate-400 text-[11px] leading-tight font-medium">
+                      {dict.hero.pill3 || "Study Gap OK"}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -3 }}
+                className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-amber-500/40 transition-colors"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                    <BookOpenCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-black text-white text-sm">MOI OK</p>
+                    <p className="text-slate-400 text-[11px] leading-tight font-medium">
+                      {dict.hero.pill4 || "Without IELTS"}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Dual Hero CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Link
+                href="#destinations"
+                className="px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-500 via-gold-400 to-amber-500 text-navy-950 gold-button-glow transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2.5"
+              >
+                <span>{dict.hero.ctaPrimary}</span>
+                <Compass className="w-4 h-4" />
+              </Link>
+
+              <Link
+                href="#dhaka-office"
+                className="px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/10 text-white hover:bg-white/15 border border-white/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2.5"
+              >
+                <MapPin className="w-4 h-4 text-gold-400" />
+                <span>{dict.hero.ctaSecondary}</span>
+              </Link>
+            </div>
+
+            {/* Social Proof Snippet */}
+            <div className="flex items-center gap-4 pt-2">
+              <div className="flex -space-x-3 overflow-hidden">
+                <img
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover"
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                  alt="Student"
+                />
+                <img
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                  alt="Student"
+                />
+                <img
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover"
+                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80"
+                  alt="Student"
+                />
+                <img
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-navy-950 object-cover"
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
+                  alt="Student"
+                />
+              </div>
+              <div>
+                <div className="flex items-center gap-1 text-gold-400 text-xs">
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <span className="font-bold text-white ml-1">{dict.hero.socialRating}</span>
+                </div>
+                <p className="text-slate-400 text-xs mt-0.5">{dict.hero.socialReviews}</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right 5 Columns: 2-Minute Smart Eligibility Checker Wizard Card */}
+          <motion.div
+            id="eligibility"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="lg:col-span-5"
+          >
+            <div className="glass-panel-luxury rounded-3xl p-6 sm:p-8 relative">
+              {/* Live Intake Ribbon */}
+              <div className="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-black uppercase tracking-wider shadow-lg flex items-center gap-1.5 border border-emerald-300/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                <span>{dict.hero.intakeBadge || "2026 / 2027 Intakes Open"}</span>
               </div>
 
-              {matches.length > 0 ? (
-                <div className="max-h-64 overflow-y-auto divide-y divide-border">
-                  {matches.map((item) => (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => handleSelectDestination(item)}
-                      className="w-full text-left px-4 py-3 flex items-center justify-between hover:bg-surface-alt transition-colors group cursor-pointer"
+              {/* Card Header */}
+              <div className="mb-5">
+                <p className="text-gold-400 text-xs uppercase tracking-wider font-bold">
+                  {dict.eligibility.badge}
+                </p>
+                <h2 className="text-2xl font-extrabold text-white mt-0.5">
+                  {dict.eligibility.title}
+                </h2>
+                <p className="text-slate-400 text-xs mt-1">
+                  {dict.eligibility.subtitle}
+                </p>
+              </div>
+
+              {/* Step Progress Indicator */}
+              <div className="flex items-center justify-between mb-5 px-1 text-xs">
+                <span
+                  className={`font-bold flex items-center gap-1.5 ${
+                    step >= 1 ? "text-gold-400" : "text-slate-400"
+                  }`}
+                >
+                  <span className="w-5 h-5 rounded-full bg-gold-500 text-navy-950 flex items-center justify-center text-[10px] font-black">
+                    1
+                  </span>
+                  {dict.eligibility.step1}
+                </span>
+
+                <div className="flex-1 h-0.5 mx-3 bg-white/10">
+                  <div
+                    className={`h-full bg-gold-400 transition-all duration-300 ${
+                      step === 1 ? "w-1/2" : "w-full"
+                    }`}
+                  ></div>
+                </div>
+
+                <span
+                  className={`font-bold flex items-center gap-1.5 ${
+                    step === 2 ? "text-gold-400" : "text-slate-400"
+                  }`}
+                >
+                  <span
+                    className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black ${
+                      step === 2 ? "bg-gold-500 text-navy-950" : "bg-white/10 text-white"
+                    }`}
+                  >
+                    2
+                  </span>
+                  {dict.eligibility.step2}
+                </span>
+              </div>
+
+              {/* Wizard Content */}
+              <AnimatePresence mode="wait">
+                {submitted ? (
+                  /* Dynamic Result Card */
+                  <motion.div
+                    key="result"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    className="p-4 rounded-2xl bg-navy-900/90 border border-gold-500/40 text-xs space-y-3"
+                  >
+                    <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                      <span className="text-slate-400">{dict.eligibility.probLabel}</span>
+                      <span className="text-emerald-400 font-black text-sm">
+                        {dict.eligibility.probValue}
+                      </span>
+                    </div>
+
+                    <div className="py-1 space-y-2">
+                      <p className="text-gold-300 font-bold">{dict.eligibility.scholarshipEst}</p>
+                      <p className="text-slate-300 leading-relaxed text-[11px]">
+                        {dict.eligibility.successMsg}
+                      </p>
+                    </div>
+
+                    <a
+                      href={`https://wa.me/8801910030040?text=${encodeURIComponent(
+                        `Hello ISL Global Counselor, I completed the eligibility assessment.\nName: ${formData.name || "Student"}\nPhone: ${formData.phone}\nCountry: ${formData.country}\nQualification: ${formData.qualification}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-bold text-center block text-xs transition"
                     >
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">{item.flag}</span>
+                      {dict.eligibility.chatCounselor}
+                    </a>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setStep(1);
+                      }}
+                      className="w-full text-center text-slate-400 hover:text-white text-[11px] pt-1"
+                    >
+                      {lang === "bn" ? "আরেকটি মূল্যায়ন করুন" : "Check another profile"}
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleWizardSubmit} className="space-y-4">
+                    {step === 1 ? (
+                      /* STEP 1: Academic */
+                      <motion.div
+                        key="step-1"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 10 }}
+                        className="space-y-3.5"
+                      >
                         <div>
-                          <div className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">
-                            {lang === "bn" ? item.bnName : item.enName}
-                            <span className="text-xs font-normal text-foreground-muted ml-2">
-                              ({lang === "bn" ? item.enName : item.bnName})
-                            </span>
+                          <label className="block text-xs font-bold text-slate-200 mb-1">
+                            {dict.eligibility.targetCountry}
+                          </label>
+                          <select
+                            value={formData.country}
+                            onChange={(e) => handleChange("country", e.target.value)}
+                            className="glass-input-luxury w-full px-3.5 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer"
+                          >
+                            <option value="Malaysia" className="bg-navy-900 text-white">
+                              {dict.eligibility.destOptions?.malaysia || "🇲🇾 Malaysia"}
+                            </option>
+                            <option value="UK" className="bg-navy-900 text-white">
+                              {dict.eligibility.destOptions?.uk || "🇬🇧 United Kingdom"}
+                            </option>
+                            <option value="Canada" className="bg-navy-900 text-white">
+                              {dict.eligibility.destOptions?.canada || "🇨🇦 Canada"}
+                            </option>
+                            <option value="Australia" className="bg-navy-900 text-white">
+                              {dict.eligibility.destOptions?.australia || "🇦🇺 Australia"}
+                            </option>
+                            <option value="Europe" className="bg-navy-900 text-white">
+                              {dict.eligibility.destOptions?.europe || "🇪🇺 Europe / Schengen"}
+                            </option>
+                            <option value="USA" className="bg-navy-900 text-white">
+                              {dict.eligibility.destOptions?.usa || "🇺🇸 United States"}
+                            </option>
+                          </select>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-xs font-bold text-slate-200 mb-1">
+                              {dict.eligibility.qualification}
+                            </label>
+                            <select
+                              value={formData.qualification}
+                              onChange={(e) => handleChange("qualification", e.target.value)}
+                              className="glass-input-luxury w-full px-3 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer"
+                            >
+                              <option value="HSC / A-Level" className="bg-navy-900 text-white">
+                                {dict.eligibility.eduOptions?.hsc || "HSC / A-Level"}
+                              </option>
+                              <option value="Diploma" className="bg-navy-900 text-white">
+                                {dict.eligibility.eduOptions?.diploma || "Diploma"}
+                              </option>
+                              <option value="Bachelor" className="bg-navy-900 text-white">
+                                {dict.eligibility.eduOptions?.bachelor || "Bachelor Degree"}
+                              </option>
+                              <option value="Masters" className="bg-navy-900 text-white">
+                                {dict.eligibility.eduOptions?.master || "Masters Degree"}
+                              </option>
+                            </select>
                           </div>
-                          <div className="text-xs text-foreground-secondary line-clamp-1">
-                            {lang === "bn" ? item.bnTag : item.enTag}
+
+                          <div>
+                            <label className="block text-xs font-bold text-slate-200 mb-1">
+                              {dict.eligibility.gap}
+                            </label>
+                            <select
+                              value={formData.gap}
+                              onChange={(e) => handleChange("gap", e.target.value)}
+                              className="glass-input-luxury w-full px-3 py-2.5 rounded-xl text-xs font-medium outline-none cursor-pointer"
+                            >
+                              <option value="No Gap" className="bg-navy-900 text-white">
+                                {dict.eligibility.gapOptions?.noGap || "No Gap"}
+                              </option>
+                              <option value="1-3 Years" className="bg-navy-900 text-white">
+                                {dict.eligibility.gapOptions?.gap1to3 || "1 - 3 Years"}
+                              </option>
+                              <option value="4-7 Years" className="bg-navy-900 text-white">
+                                {dict.eligibility.gapOptions?.gap4to7 || "4 - 7 Years"}
+                              </option>
+                              <option value="8+ Years" className="bg-navy-900 text-white">
+                                {dict.eligibility.gapOptions?.gap8plus || "8+ Years"}
+                              </option>
+                            </select>
                           </div>
                         </div>
-                      </div>
-                      <ArrowRight className="size-4 text-foreground-muted group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0 ml-2" />
-                    </button>
-                  ))}
-                </div>
-              ) : (
-                <div className="p-4 text-center text-xs text-foreground-secondary">
-                  <p>{dict.hero?.searchNoResults || (lang === 'bn' ? 'কোনো দেশ খুঁজে পাওয়া যায়নি' : 'No destinations found')}</p>
-                  <p className="text-[11px] text-foreground-muted mt-1">
-                    {lang === 'bn'
-                      ? 'ইংরেজি বা বাংলায় দেশের নাম লিখুন (যেমন: মালয়েশিয়া, UK, Canada, IELTS)'
-                      : 'Type in English or Bangla (e.g. Malaysia, ইউকে, Canada, IELTS)'}
-                  </p>
-                </div>
-              )}
+
+                        <div>
+                          <label className="block text-xs font-bold text-slate-200 mb-1.5">
+                            {dict.eligibility.engStatus}
+                          </label>
+                          <div className="grid grid-cols-3 gap-2 text-xs">
+                            {[
+                              { id: "No IELTS (MOI)", label: dict.eligibility.engOptions?.moi || "No IELTS (MOI)" },
+                              { id: "Has IELTS", label: dict.eligibility.engOptions?.ielts || "Has IELTS" },
+                              { id: "Duolingo / PTE", label: dict.eligibility.engOptions?.other || "Duolingo / PTE" },
+                            ].map((item) => (
+                              <button
+                                key={item.id}
+                                type="button"
+                                onClick={() => handleChange("engProficiency", item.id)}
+                                className={`border rounded-xl p-2.5 text-center cursor-pointer transition text-[11px] font-bold ${
+                                  formData.engProficiency === item.id
+                                    ? "border-gold-400 bg-gold-500/20 text-gold-300"
+                                    : "border-white/15 bg-white/5 text-slate-300 hover:border-gold-400/50"
+                                }`}
+                              >
+                                {item.label}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => setStep(2)}
+                          className="w-full mt-2 py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-gold-500 hover:bg-gold-400 text-navy-950 transition flex items-center justify-center gap-2 gold-button-glow cursor-pointer"
+                        >
+                          <span>{dict.eligibility.continueBtn}</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </motion.div>
+                    ) : (
+                      /* STEP 2: Contact */
+                      <motion.div
+                        key="step-2"
+                        initial={{ opacity: 0, x: 10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        className="space-y-3.5"
+                      >
+                        <div>
+                          <label className="block text-xs font-bold text-slate-200 mb-1">
+                            {dict.eligibility.fullName}
+                          </label>
+                          <div className="relative">
+                            <User className="w-4 h-4 absolute left-3.5 top-3 text-slate-400" />
+                            <input
+                              type="text"
+                              required
+                              value={formData.name}
+                              onChange={(e) => handleChange("name", e.target.value)}
+                              placeholder={dict.eligibility.fullNamePlaceholder}
+                              className="glass-input-luxury w-full pl-10 pr-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-bold text-slate-200 mb-1">
+                            {dict.eligibility.phone}
+                          </label>
+                          <div className="relative">
+                            <Phone className="w-4 h-4 absolute left-3.5 top-3 text-slate-400" />
+                            <input
+                              type="tel"
+                              required
+                              value={formData.phone}
+                              onChange={(e) => handleChange("phone", e.target.value)}
+                              placeholder={dict.eligibility.phonePlaceholder}
+                              className="glass-input-luxury w-full pl-10 pr-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-bold text-slate-200 mb-1">
+                            {dict.eligibility.city}
+                          </label>
+                          <input
+                            type="text"
+                            value={formData.city}
+                            onChange={(e) => handleChange("city", e.target.value)}
+                            placeholder={dict.eligibility.cityPlaceholder}
+                            className="glass-input-luxury w-full px-3.5 py-2.5 text-xs rounded-xl outline-none font-medium placeholder-slate-400"
+                          />
+                        </div>
+
+                        <div className="flex items-center gap-2 pt-1">
+                          <button
+                            type="button"
+                            onClick={() => setStep(1)}
+                            className="w-1/3 py-3 px-3 rounded-xl font-bold text-xs bg-white/10 hover:bg-white/15 text-white transition cursor-pointer"
+                          >
+                            {dict.eligibility.backBtn}
+                          </button>
+                          <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-2/3 py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-gold-500 hover:bg-gold-400 text-navy-950 transition flex items-center justify-center gap-2 gold-button-glow cursor-pointer disabled:opacity-75"
+                          >
+                            <span>
+                              {isSubmitting
+                                ? dict.eligibility.calculating
+                                : dict.eligibility.submitBtn}
+                            </span>
+                            <Sparkles className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </form>
+                )}
+              </AnimatePresence>
+
+              {/* Privacy Note */}
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+                <span className="flex items-center gap-1">
+                  <Lock className="w-3.5 h-3.5 text-gold-400" />
+                  <span>{dict.eligibility.noSpam}</span>
+                </span>
+                <span className="text-emerald-400 font-semibold">
+                  {dict.eligibility.freeAssessment}
+                </span>
+              </div>
             </div>
-          )}
-        </div>
+          </motion.div>
 
-        {/* 4 Trust Highlights Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 text-xs font-medium text-foreground">
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
-            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
-              <FileCheck2 className="size-3.5" />
-            </span>
-            <span className="font-semibold">{dict.hero.pill1}</span>
-          </div>
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
-            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
-              <GraduationCap className="size-3.5" />
-            </span>
-            <span className="font-semibold">{dict.hero.pill2}</span>
-          </div>
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
-            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
-              <Sparkles className="size-3.5" />
-            </span>
-            <span className="font-semibold">{dict.hero.pill3}</span>
-          </div>
-          <div className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md px-3 py-1.5 shadow-2xs hover:bg-surface transition-colors">
-            <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
-              <TrendingUp className="size-3.5" />
-            </span>
-            <span className="font-semibold">{dict.hero.pill4}</span>
-          </div>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Button size="lg" className="w-full sm:w-auto" asChild>
-            <Link href="#eligibility">
-              {dict.hero.ctaPrimary}
-              <ArrowRight className="size-4 ml-1.5" />
-            </Link>
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto"
-            asChild
-          >
-            <Link href="#destinations">{dict.hero.ctaSecondary}</Link>
-          </Button>
         </div>
       </div>
     </section>

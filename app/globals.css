@@ -37,6 +37,19 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-destructive: var(--destructive);
 
+  --color-navy-950: #030813;
+  --color-navy-900: #061325;
+  --color-navy-850: #0A1D37;
+  --color-navy-800: #0F2B52;
+  --color-navy-700: #183D73;
+  --color-navy-600: #2563EB;
+
+  --color-gold-300: #FDE68A;
+  --color-gold-400: #F5BE47;
+  --color-gold-500: #E5A93C;
+  --color-gold-600: #C98A26;
+  --color-gold-700: #9E6714;
+
   --font-sans: var(--font-inter), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sans);
 
@@ -404,4 +417,77 @@ body {
 .butterfly-flying {
   animation: butterfly-takeoff 1.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
   pointer-events: none;
+}
+
+/* ==========================================================================
+   LUXURY PORTAL TOKENS & UTILITIES
+   ========================================================================== */
+.hero-cinematic-mask {
+  background: radial-gradient(circle at 75% 20%, rgba(229, 169, 60, 0.18) 0%, rgba(6, 19, 37, 0.88) 42%, #030813 85%),
+              linear-gradient(180deg, rgba(3, 8, 19, 0.72) 0%, rgba(3, 8, 19, 0.94) 80%, #030813 100%);
+}
+
+.glass-panel-luxury {
+  background: linear-gradient(135deg, rgba(15, 43, 82, 0.45) 0%, rgba(7, 21, 43, 0.65) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(245, 190, 71, 0.18);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-input-luxury {
+  background: rgba(6, 19, 37, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+}
+.glass-input-luxury:focus {
+  border-color: #E5A93C;
+  background: rgba(10, 29, 55, 0.9);
+  box-shadow: 0 0 0 3px rgba(229, 169, 60, 0.25);
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #FDE68A 0%, #E5A93C 50%, #F5BE47 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-button-glow {
+  box-shadow: 0 8px 30px -4px rgba(229, 169, 60, 0.45);
+}
+.gold-button-glow:hover {
+  box-shadow: 0 12px 35px -2px rgba(245, 190, 71, 0.65);
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@media (min-width: 1024px) {
+  .roadmap-step::after {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #E5A93C 0%, rgba(229, 169, 60, 0.15) 100%);
+    z-index: 1;
+  }
+  .roadmap-step:last-child::after {
+    display: none;
+  }
 }

@@ -1,51 +1,78 @@
 "use client";
 
 import * as React from "react";
-import { HelpCircle } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { ChevronDown, HelpCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function FaqSection({ dict }) {
+  const [openIndex, setOpenIndex] = React.useState(0);
+
   const faqs = [
-    { id: "faq-1", q: dict.faq.q1, a: dict.faq.a1 },
-    { id: "faq-2", q: dict.faq.q2, a: dict.faq.a2 },
-    { id: "faq-3", q: dict.faq.q3, a: dict.faq.a3 },
-    { id: "faq-4", q: dict.faq.q4, a: dict.faq.a4 },
-    { id: "faq-5", q: dict.faq.q5, a: dict.faq.a5 },
+    { q: dict.faq.q1, a: dict.faq.a1 },
+    { q: dict.faq.q2, a: dict.faq.a2 },
+    { q: dict.faq.q3, a: dict.faq.a3 },
+    { q: dict.faq.q4, a: dict.faq.a4 },
   ];
 
   return (
-    <section id="faq" className="py-20 relative bg-transparent overflow-hidden">
-      {/* Subtle FAQ Radial Atmosphere */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[850px] h-[380px] sm:h-[480px] bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.12)_0%,rgba(247,223,30,0.10)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.22)_0%,rgba(247,223,30,0.08)_50%,transparent_75%)] blur-3xl -z-10" />
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center mb-14">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
-            <HelpCircle className="size-3.5" />
-            <span>{dict.faq.badge}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">
+    <section id="faq" className="py-24 bg-navy-900 border-t border-white/10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center mb-14">
+          <span className="text-xs font-bold text-gold-400 uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/30">
+            {dict.faq.badge}
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
             {dict.faq.title}
           </h2>
-          <p className="text-foreground-secondary text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-400 text-sm mt-2">
             {dict.faq.subtitle}
           </p>
         </div>
 
-        {/* Shadcn Accordion */}
-        <Accordion type="single" collapsible className="space-y-3">
-          {faqs.map((faq) => (
-            <AccordionItem key={faq.id} value={faq.id}>
-              <AccordionTrigger>{faq.q}</AccordionTrigger>
-              <AccordionContent>{faq.a}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        {/* FAQ Accordion List with Framer Motion */}
+        <div className="space-y-4">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div
+                key={idx}
+                className="border border-white/10 rounded-2xl overflow-hidden bg-navy-950 transition-colors"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? -1 : idx)}
+                  className="w-full flex items-center justify-between p-5 text-left font-bold text-white text-sm sm:text-base hover:bg-white/5 transition cursor-pointer"
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-gold-400 transition-transform duration-300 shrink-0 ml-3 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );
