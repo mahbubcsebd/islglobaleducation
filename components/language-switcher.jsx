@@ -31,17 +31,17 @@ export function LanguageSwitcher({ currentLang = "en" }) {
   };
 
   return (
-    <div className="inline-flex items-center gap-1 p-1 bg-surface-alt border border-border rounded-lg shadow-2xs">
-      <div className="flex items-center pl-1.5 pr-1 text-primary">
-        <Globe className="size-3.5" />
+    <div className="inline-flex items-center gap-0.5 p-1 bg-white/5 border border-white/15 rounded-xl backdrop-blur-md">
+      <div className="flex items-center pl-1 pr-0.5 text-gold-400">
+        <Globe className="w-3.5 h-3.5" />
       </div>
       <button
         type="button"
         onClick={() => handleLanguageChange("en")}
-        className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors cursor-pointer ${
+        className={`px-2 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
           currentLang === "en"
-            ? "bg-primary text-primary-foreground font-semibold shadow-2xs"
-            : "text-foreground-secondary hover:text-foreground"
+            ? "bg-gold-500 text-navy-950 shadow-sm"
+            : "text-slate-300 hover:text-white"
         }`}
       >
         EN
@@ -49,10 +49,10 @@ export function LanguageSwitcher({ currentLang = "en" }) {
       <button
         type="button"
         onClick={() => handleLanguageChange("bn")}
-        className={`px-2.5 py-1 text-xs font-medium rounded-md transition-colors cursor-pointer ${
+        className={`px-2 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
           currentLang === "bn"
-            ? "bg-primary text-primary-foreground font-semibold shadow-2xs"
-            : "text-foreground-secondary hover:text-foreground"
+            ? "bg-gold-500 text-navy-950 shadow-sm"
+            : "text-slate-300 hover:text-white"
         }`}
       >
         বাং

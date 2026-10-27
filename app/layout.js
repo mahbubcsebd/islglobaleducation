@@ -27,9 +27,9 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${notoSansBengali.variable}`}
+      className={`dark ${inter.variable} ${notoSansBengali.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans antialiased transition-colors duration-200">
+      <body className="min-h-full flex flex-col bg-navy-950 text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-navy-950">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

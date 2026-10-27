@@ -56,12 +56,12 @@ export default async function LocalizedPage({ params }) {
   return (
     <div
       lang={lang}
-      className="relative flex min-h-screen flex-col bg-navy-950 text-foreground transition-colors selection:bg-gold-500 selection:text-navy-950 font-sans"
+      className="relative flex min-h-screen flex-col bg-navy-950 text-slate-100 transition-colors selection:bg-gold-500 selection:text-navy-950 font-sans"
     >
       <AmbientBackground />
       <div className="relative z-10 flex min-h-screen flex-col">
         {/* Section 1: Ultra-Premium Dhaka Top Contact Bar */}
-        <TopContactBar dict={dict} />
+        <TopContactBar lang={lang} dict={dict} />
 
         {/* Section 2: Luxury Sticky Navigation */}
         <Navbar lang={lang} dict={dict} />

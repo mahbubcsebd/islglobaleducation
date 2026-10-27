@@ -16,7 +16,7 @@ export function FormField({
       {label && (
         <label
           htmlFor={id}
-          className="flex items-center gap-1 text-xs font-medium text-foreground-secondary tracking-wide select-none"
+          className="flex items-center gap-1 text-xs font-semibold text-slate-200 tracking-wide select-none"
         >
           <span>{label}</span>
           {required && <span className="text-destructive font-bold ml-0.5">*</span>}
@@ -35,7 +35,7 @@ export function FormField({
           <span>{error}</span>
         </p>
       ) : hint ? (
-        <p className="text-[11px] text-foreground-muted">{hint}</p>
+        <p className="text-[11px] text-slate-400">{hint}</p>
       ) : null}
     </div>
   );
@@ -50,9 +50,9 @@ export const FormInput = React.forwardRef(function FormInput(
       ref={ref}
       aria-invalid={hasError ? "true" : undefined}
       className={cn(
-        "w-full h-10 rounded-md bg-background/90 dark:bg-[#0C0E1F] border border-border/80 dark:border-[#2C2F4D] px-3 text-xs sm:text-sm text-foreground placeholder:text-foreground-muted/70 dark:placeholder:text-[#8E92A8] outline-none transition-all duration-150",
-        "hover:border-border dark:hover:border-[#3D4268] hover:bg-background",
-        "focus:border-primary focus:ring-0 focus:outline-none focus:bg-background",
+        "w-full h-10 rounded-md bg-navy-900 border border-white/15 px-3 text-xs sm:text-sm text-white placeholder:text-slate-400 outline-none transition-all duration-150",
+        "hover:border-white/25 hover:bg-navy-850",
+        "focus:border-gold-400 focus:ring-1 focus:ring-gold-400/30 focus:outline-none focus:bg-navy-900",
         hasError && "border-destructive focus:border-destructive",
         className
       )}
@@ -70,9 +70,9 @@ export const FormSelect = React.forwardRef(function FormSelect(
       ref={ref}
       aria-invalid={hasError ? "true" : undefined}
       className={cn(
-        "w-full h-10 rounded-md bg-background/90 dark:bg-[#0C0E1F] border border-border/80 dark:border-[#2C2F4D] px-3 text-xs sm:text-sm text-foreground outline-none transition-all duration-150 cursor-pointer",
-        "hover:border-border dark:hover:border-[#3D4268] hover:bg-background",
-        "focus:border-primary focus:ring-0 focus:outline-none focus:bg-background",
+        "w-full h-10 rounded-md bg-navy-900 border border-white/15 px-3 text-xs sm:text-sm text-white outline-none transition-all duration-150 cursor-pointer",
+        "hover:border-white/25 hover:bg-navy-850",
+        "focus:border-gold-400 focus:ring-1 focus:ring-gold-400/30 focus:outline-none focus:bg-navy-900",
         hasError && "border-destructive focus:border-destructive",
         className
       )}
@@ -93,9 +93,9 @@ export const FormTextarea = React.forwardRef(function FormTextarea(
       rows={rows}
       aria-invalid={hasError ? "true" : undefined}
       className={cn(
-        "w-full rounded-md bg-background/90 dark:bg-[#0C0E1F] border border-border/80 dark:border-[#2C2F4D] p-3 text-xs sm:text-sm text-foreground placeholder:text-foreground-muted/70 dark:placeholder:text-[#8E92A8] outline-none resize-y min-h-[90px] transition-all duration-150",
-        "hover:border-border dark:hover:border-[#3D4268] hover:bg-background",
-        "focus:border-primary focus:ring-0 focus:outline-none focus:bg-background",
+        "w-full rounded-md bg-navy-900 border border-white/15 p-3 text-xs sm:text-sm text-white placeholder:text-slate-400 outline-none resize-y min-h-[90px] transition-all duration-150",
+        "hover:border-white/25 hover:bg-navy-850",
+        "focus:border-gold-400 focus:ring-1 focus:ring-gold-400/30 focus:outline-none focus:bg-navy-900",
         hasError && "border-destructive focus:border-destructive",
         className
       )}

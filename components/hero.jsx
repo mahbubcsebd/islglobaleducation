@@ -85,14 +85,14 @@ export function Hero({ lang, dict }) {
             </div>
 
             {/* Hero Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-black text-white leading-[1.12] tracking-tight">
-              {dict.hero.titleLine1} <br />
-              <span className="gold-shimmer">{dict.hero.titleLine2}</span> <br />
-              {dict.hero.titleLine3}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-white leading-[1.22] tracking-tight">
+              <span>{dict.hero.titleLine1}</span> <br />
+              <span className="text-gold-400 drop-shadow-sm">{dict.hero.titleLine2}</span> <br />
+              <span className="text-white">{dict.hero.titleLine3}</span>
             </h1>
 
             {/* Compelling Narrative */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 max-w-2xl font-normal leading-relaxed">
               {dict.hero.subtitle}
             </p>
 

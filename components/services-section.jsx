@@ -56,14 +56,14 @@ export function ServicesSection({ dict }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
-            <Sparkles className="size-3.5" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-300 px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
+            <Sparkles className="size-3.5 text-gold-400" />
             <span>{dict.services.badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
             {dict.services.title}
           </h2>
-          <p className="text-foreground-secondary text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             {dict.services.subtitle}
           </p>
         </div>
@@ -75,21 +75,21 @@ export function ServicesSection({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-7 transition-all duration-300 hover:border-primary hover:bg-surface hover:shadow-xl shadow-2xs"
+                className="group relative rounded-2xl border border-white/10 bg-navy-950 p-7 transition-all duration-300 hover:border-gold-500/40 hover:shadow-xl shadow-2xs"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-2xs transition-transform duration-200 group-hover:scale-105">
+                  <div className="flex size-11 items-center justify-center rounded-xl bg-gold-500/20 text-gold-400 transition-transform duration-200 group-hover:scale-105">
                     <IconComponent className="size-5" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider bg-primary text-primary-foreground px-2.5 py-1 rounded-md shadow-2xs">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider bg-gold-500/20 text-gold-300 border border-gold-500/30 px-2.5 py-1 rounded-md shadow-2xs">
                     {service.category}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-foreground-secondary leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                   {service.desc}
                 </p>
               </div>

@@ -61,82 +61,79 @@
 }
 
 /* ==========================================================================
-   LIGHT THEME (PRIMARY YELLOW #F7DF1E)
+   DEFAULT LUXURY THEME TOKENS
    ========================================================================== */
 :root {
-  --background: #FAF9FD;
-  --surface: #FFFFFF;
-  --surface-alt: #F2F2FA;
-  --card: #FFFFFF;
-  --card-foreground: #15162B;
-  --popover: #FFFFFF;
-  --popover-foreground: #15162B;
-  --border: #E1E2F0;
-  --input: #E1E2F0;
+  --background: #030813;
+  --surface: #061325;
+  --surface-alt: #0A1D37;
+  --card: #061325;
+  --card-foreground: #F8FAFC;
+  --popover: #061325;
+  --popover-foreground: #F8FAFC;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.12);
 
-  --foreground: #15162B;
-  --foreground-secondary: #55577A;
-  --foreground-muted: #8A8CA8;
+  --foreground: #F8FAFC;
+  --foreground-secondary: #CBD5E1;
+  --foreground-muted: #94A3B8;
 
-  /* Primary Yellow: #F7DF1E (exact same as dark mode) */
-  --primary: #F7DF1E;
-  --primary-hover: #E5CE16;
-  --primary-soft: #FEF9C3;
-  --primary-foreground: #0F1020;
-  --on-primary: #0F1020;
+  /* Primary Gold: #F5BE47 */
+  --primary: #F5BE47;
+  --primary-hover: #E5A93C;
+  --primary-soft: rgba(245, 190, 71, 0.15);
+  --primary-foreground: #030813;
+  --on-primary: #030813;
 
   /* Secondary & Muted */
-  --secondary: #F2F2FA;
-  --secondary-foreground: #0F1020;
-  --muted: #F2F2FA;
-  --muted-foreground: #55577A;
+  --secondary: #0A1D37;
+  --secondary-foreground: #F8FAFC;
+  --muted: #061325;
+  --muted-foreground: #94A3B8;
 
-  /* Accent: #F7DF1E */
-  --accent: #F7DF1E;
-  --accent-foreground: #0F1020;
+  /* Accent: Gold */
+  --accent: #F5BE47;
+  --accent-foreground: #030813;
 
-  --destructive: #E5242A;
-  --ring: #F7DF1E;
+  --destructive: #EF4444;
+  --ring: #F5BE47;
   --radius: 0.75rem;
 }
 
 /* ==========================================================================
-   DARK THEME
+   DARK THEME (DEEP SAPPHIRE & GOLD)
    ========================================================================== */
 .dark {
-  --background: #0F1020;
-  --surface: #181A30;
-  --surface-alt: #131428;
-  --card: #181A30;
-  --card-foreground: #EEEFF8;
-  --popover: #181A30;
-  --popover-foreground: #EEEFF8;
-  --border: #2A2D4A;
-  --input: #2A2D4A;
+  --background: #030813;
+  --surface: #061325;
+  --surface-alt: #0A1D37;
+  --card: #061325;
+  --card-foreground: #F8FAFC;
+  --popover: #061325;
+  --popover-foreground: #F8FAFC;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.12);
 
-  --foreground: #EEEFF8;
-  --foreground-secondary: #B3B5D1;
-  --foreground-muted: #7F82A3;
+  --foreground: #F8FAFC;
+  --foreground-secondary: #CBD5E1;
+  --foreground-muted: #94A3B8;
 
-  /* Primary in dark mode: JS Yellow #F7DF1E */
-  --primary: #F7DF1E;
-  --primary-hover: #E5CE16;
-  --primary-soft: #262412;
-  --primary-foreground: #0F1020;
-  --on-primary: #0F1020;
+  --primary: #F5BE47;
+  --primary-hover: #E5A93C;
+  --primary-soft: rgba(245, 190, 71, 0.18);
+  --primary-foreground: #030813;
+  --on-primary: #030813;
 
-  /* Secondary & Muted */
-  --secondary: #181A30;
-  --secondary-foreground: #EEEFF8;
-  --muted: #131428;
-  --muted-foreground: #7F82A3;
+  --secondary: #0A1D37;
+  --secondary-foreground: #F8FAFC;
+  --muted: #061325;
+  --muted-foreground: #94A3B8;
 
-  /* Gold Accent */
-  --accent: #D8B661;
-  --accent-foreground: #0F1020;
+  --accent: #E5A93C;
+  --accent-foreground: #030813;
 
-  --destructive: #F35369;
-  --ring: #F7DF1E;
+  --destructive: #F87171;
+  --ring: #F5BE47;
   --radius: 0.75rem;
 }
 
