@@ -15,7 +15,7 @@ export function FaqSection({ dict }) {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200/80 dark:border-white/10 transition-colors">
+    <section id="faq" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200/80 dark:border-white/10 transition-colors noise-overlay section-divider-gold">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

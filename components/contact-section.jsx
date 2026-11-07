@@ -31,7 +31,7 @@ export function ContactSection({ dict }) {
   };
 
   return (
-    <section id="dhaka-office" className="py-24 bg-slate-50 dark:bg-navy-950 border-t border-slate-200/80 dark:border-white/10 relative transition-colors">
+    <section id="dhaka-office" className="py-24 bg-slate-50 dark:bg-navy-950 border-t border-slate-200/80 dark:border-white/10 relative transition-colors noise-overlay section-divider-gold">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           

@@ -14,16 +14,16 @@ export function CtaSection({ dict }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative rounded-3xl border border-gold-500/40 glass-panel-luxury bg-white/95 dark:bg-navy-950/90 p-8 sm:p-14 text-center shadow-2xl overflow-hidden"
+          className="relative rounded-3xl border border-gold-500/30 glass-panel-luxury bg-white/95 dark:bg-navy-950/90 p-8 sm:p-14 text-center shadow-2xl overflow-hidden"
         >
           {/* Background graduation celebration photo */}
           <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80"
               alt="Study Abroad Graduation Celebration"
-              className="w-full h-full object-cover object-center opacity-10 dark:opacity-15 mix-blend-multiply dark:mix-blend-luminosity"
+              className="w-full h-full object-cover object-center opacity-25 dark:opacity-30 transition-opacity"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/95 dark:from-navy-950/95 dark:via-navy-950/85 dark:to-navy-950/95" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/80 to-white/92 dark:from-navy-950/95 dark:via-navy-950/85 dark:to-navy-950/95" />
           </div>
 
           {/* Luminous glow */}

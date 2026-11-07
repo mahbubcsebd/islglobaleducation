@@ -37,7 +37,7 @@ export function ProcessRoadmap({ dict }) {
   ];
 
   return (
-    <section id="roadmap" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 relative overflow-hidden transition-colors">
+    <section id="roadmap" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 relative overflow-hidden transition-colors noise-overlay section-divider-gold">
       {/* Airport Departure / Flight Route Background Image with Mask */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img

@@ -35,16 +35,16 @@ export function WhyChooseUs({ dict }) {
   ];
 
   return (
-    <section id="why-us" className="py-24 relative bg-white dark:bg-navy-950 border-t border-slate-200 dark:border-white/10 overflow-hidden transition-colors">
-      {/* Overseas Counseling Environment Background Image with Mask */}
+    <section id="why-us" className="py-24 relative bg-white dark:bg-navy-950 border-t border-slate-200 dark:border-white/10 overflow-hidden transition-colors section-divider-gold">
+      {/* Overseas Counseling Environment Background Image with Clean Scrim */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
           alt="ISL Global Advisory Team"
-          className="w-full h-full object-cover opacity-10 dark:opacity-15 mix-blend-luminosity scale-105"
+          className="w-full h-full object-cover opacity-15 dark:opacity-20 scale-100 transition-opacity"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/95 dark:from-navy-950/95 dark:via-navy-950/80 dark:to-navy-950/95"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white/95 dark:from-navy-950/95 dark:via-navy-950/85 dark:to-navy-950/95"></div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -69,7 +69,7 @@ export function WhyChooseUs({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-3xl border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-navy-900/90 backdrop-blur-md p-7 transition-all duration-300 hover:border-amber-500/50 dark:hover:border-gold-500/40 hover:shadow-xl shadow-xs flex flex-col justify-between"
+                className="group relative rounded-3xl glass-card-premium backdrop-blur-md p-7 transition-all duration-300 hover:shadow-luxury-hover shadow-luxury flex flex-col justify-between premium-card-glow"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">

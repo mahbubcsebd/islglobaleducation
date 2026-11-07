@@ -71,8 +71,8 @@ export function DestinationsSection({ lang, dict }) {
   }, [activeFilter, destinations]);
 
   return (
-    <section id="destinations" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 relative transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="destinations" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 relative transition-colors noise-overlay section-divider-gold">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -126,14 +126,14 @@ export function DestinationsSection({ lang, dict }) {
                 exit={{ opacity: 0, scale: 0.92 }}
                 transition={{ duration: 0.35 }}
                 whileHover={{ y: -6 }}
-                className="group rounded-3xl overflow-hidden bg-white dark:bg-navy-950 border border-slate-200 dark:border-white/10 hover:border-amber-500/50 dark:hover:border-gold-500/50 transition-all duration-300 flex flex-col shadow-sm dark:shadow-xl"
+                className="group rounded-3xl overflow-hidden glass-card-premium transition-all duration-300 flex flex-col shadow-luxury hover:shadow-luxury-hover premium-card-glow"
               >
                 {/* Image and Flag Banner */}
                 <div className="relative h-64 overflow-hidden bg-slate-100 dark:bg-navy-900">
                   <img
                     src={country.image}
                     alt={country.data.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                    className="w-full h-full object-cover img-cinematic"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent"></div>
@@ -179,7 +179,7 @@ export function DestinationsSection({ lang, dict }) {
 
                   <Link
                     href="#eligibility"
-                    className="w-full py-3 bg-slate-100 dark:bg-white/10 hover:bg-gold-500 dark:hover:bg-gold-500 text-slate-800 dark:text-white hover:text-navy-950 dark:hover:text-navy-950 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950 cursor-pointer shadow-2xs"
+                    className="w-full py-3 bg-slate-100 dark:bg-white/10 hover:bg-gold-500 dark:hover:bg-gold-500 text-slate-800 dark:text-white hover:text-navy-950 dark:hover:text-navy-950 rounded-xl text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 group-hover:bg-gold-500 group-hover:text-navy-950 cursor-pointer shadow-luxury"
                   >
                     <span>
                       {dict.destinations.applyNow} {country.data.name}

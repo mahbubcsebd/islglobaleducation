@@ -15,7 +15,7 @@ export function ComparisonMatrix({ dict }) {
   ];
 
   return (
-    <section id="comparison" className="py-24 bg-slate-50/60 dark:bg-navy-950 border-t border-slate-200/80 dark:border-white/10 transition-colors">
+    <section id="comparison" className="py-24 bg-slate-50/60 dark:bg-navy-950 border-t border-slate-200/80 dark:border-white/10 transition-colors noise-overlay section-divider-gold">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

@@ -56,8 +56,8 @@ export function ServicesSection({ dict }) {
   ];
 
   return (
-    <section id="services" className="py-24 relative bg-slate-50/70 dark:bg-navy-900/60 border-t border-slate-200 dark:border-white/10 overflow-hidden transition-colors">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 relative bg-slate-50/70 dark:bg-navy-900/60 border-t border-slate-200 dark:border-white/10 overflow-hidden transition-colors noise-overlay section-divider-gold">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 dark:bg-gold-500/15 border border-amber-500/25 dark:border-gold-500/30 text-amber-700 dark:text-gold-300 px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
@@ -79,14 +79,14 @@ export function ServicesSection({ dict }) {
             return (
               <div
                 key={i}
-                className="group relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-navy-950 transition-all duration-300 hover:border-amber-500/50 dark:hover:border-gold-500/40 hover:shadow-xl shadow-xs flex flex-col justify-between"
+                className="group relative rounded-3xl overflow-hidden glass-card-premium transition-all duration-300 hover:shadow-luxury-hover shadow-luxury flex flex-col justify-between premium-card-glow"
               >
                 {/* Photo Thumbnail */}
                 <div className="relative h-44 w-full overflow-hidden bg-slate-100 dark:bg-navy-900">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover img-cinematic"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>

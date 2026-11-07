@@ -15,7 +15,6 @@ import { Navbar } from '@/components/navbar';
 import { ProcessRoadmap } from '@/components/process-roadmap';
 import { ServicesSection } from '@/components/services-section';
 import { TestimonialsSection } from '@/components/testimonials-section';
-import { TopContactBar } from '@/components/top-contact-bar';
 import { UniversityMarquee } from '@/components/university-marquee';
 import { WhyChooseUs } from '@/components/why-choose-us';
 import { getDictionary, hasLocale, locales } from '@/lib/dictionaries';
@@ -62,14 +61,11 @@ export default async function LocalizedPage({ params }) {
     >
       <AmbientBackground />
       <div className="relative z-10 flex min-h-screen flex-col">
-        {/* Section 1: Ultra-Premium Dhaka Top Contact Bar */}
-        <TopContactBar lang={lang} dict={dict} />
-
-        {/* Section 2: Luxury Sticky Navigation with Language & Theme Toggle */}
+        {/* Transparent Overlay Navigation — gets bg on scroll */}
         <Navbar lang={lang} dict={dict} />
 
         <main className="flex-1">
-          {/* Section 3: Cinematic Hero with 2-Minute Smart Eligibility Checker Wizard */}
+          {/* Section 1: Cinematic Full-Screen Hero with Eligibility Checker */}
           <Hero lang={lang} dict={dict} />
 
           {/* Section 4: Infinite Global University Marquee */}

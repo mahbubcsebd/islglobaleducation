@@ -34,10 +34,10 @@ export function Navbar({ lang, dict }) {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-colors duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         isScrolled || mobileMenuOpen
-          ? "bg-white/95 dark:bg-navy-950/95 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/15 shadow-md dark:shadow-xl"
-          : "bg-white/85 dark:bg-navy-950/85 backdrop-blur-xl border-b border-slate-200/60 dark:border-white/10"
+          ? "bg-white/95 dark:bg-navy-950/95 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/15 shadow-lg dark:shadow-xl"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">

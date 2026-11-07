@@ -61,7 +61,7 @@ export function CostCalculator({ lang, dict }) {
   const total = discountedTuition + data.living;
 
   return (
-    <section id="calculator" className="py-24 bg-slate-50/70 dark:bg-navy-950/90 relative overflow-hidden border-t border-slate-200/80 dark:border-white/10 transition-colors">
+    <section id="calculator" className="py-24 bg-slate-50/70 dark:bg-navy-950/90 relative overflow-hidden border-t border-slate-200/80 dark:border-white/10 transition-colors noise-overlay section-divider-gold">
       {/* Background study abroad financial planning image with subtle opacity and gradient overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img

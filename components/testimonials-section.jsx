@@ -45,7 +45,7 @@ export function TestimonialsSection({ dict }) {
   ];
 
   return (
-    <section id="success-wall" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200/80 dark:border-white/10 relative overflow-hidden transition-colors">
+    <section id="success-wall" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200/80 dark:border-white/10 relative overflow-hidden transition-colors noise-overlay section-divider-gold">
       {/* Background campus photo overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
@@ -83,7 +83,7 @@ export function TestimonialsSection({ dict }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.1 }}
                 whileHover={{ y: -6 }}
-                className="rounded-3xl bg-white dark:bg-navy-950 border border-slate-200/80 dark:border-white/10 p-7 flex flex-col justify-between hover:border-gold-500/40 transition-all duration-300 shadow-lg dark:shadow-xl"
+                className="rounded-3xl glass-card-premium p-7 flex flex-col justify-between transition-all duration-300 shadow-luxury hover:shadow-luxury-hover premium-card-glow"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
