@@ -3,7 +3,6 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function ThemeToggle({ className }) {
   const { resolvedTheme, setTheme } = useTheme();
@@ -15,33 +14,31 @@ export function ThemeToggle({ className }) {
 
   if (!mounted) {
     return (
-      <Button
-        variant="outline"
-        size="icon-sm"
-        className={`rounded-lg border-border bg-surface text-muted-foreground ${className || ""}`}
+      <button
+        type="button"
+        className={`p-2 rounded-xl border border-slate-200 dark:border-white/15 bg-white dark:bg-white/5 text-slate-700 dark:text-slate-300 ${className || ""}`}
         aria-label="Toggle theme"
       >
-        <Sun className="size-4 text-accent" />
-      </Button>
+        <Sun className="w-4 h-4 text-amber-500" />
+      </button>
     );
   }
 
   const isDark = resolvedTheme === "dark";
 
   return (
-    <Button
-      variant="outline"
-      size="icon-sm"
+    <button
+      type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`rounded-lg border-border bg-surface hover:bg-surface-alt transition-colors ${className || ""}`}
+      className={`p-2 rounded-xl border border-slate-200 dark:border-white/15 bg-white dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer shadow-2xs ${className || ""}`}
       title={isDark ? "Switch to Light mode" : "Switch to Dark mode"}
       aria-label="Toggle theme"
     >
       {isDark ? (
-        <Sun className="size-4 text-accent transition-transform duration-200" />
+        <Sun className="w-4 h-4 text-gold-400 transition-transform duration-200" />
       ) : (
-        <Moon className="size-4 text-primary transition-transform duration-200" />
+        <Moon className="w-4 h-4 text-indigo-600 transition-transform duration-200" />
       )}
-    </Button>
+    </button>
   );
 }

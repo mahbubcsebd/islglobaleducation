@@ -368,7 +368,7 @@ export function ButterflyScrollTop() {
 
         {/* Floating Tooltip Pill */}
         <span
-          className={`absolute -top-8 px-2.5 py-1 text-[11px] font-semibold tracking-wide rounded-full shadow-lg bg-surface text-foreground border border-border whitespace-nowrap transition-all duration-300 pointer-events-none ${
+          className={`absolute -top-8 px-2.5 py-1 text-[11px] font-semibold tracking-wide rounded-full shadow-lg bg-navy-900 text-white border border-white/20 whitespace-nowrap transition-all duration-300 pointer-events-none ${
             isHovered && !isFlying
               ? "opacity-100 translate-y-0 scale-100"
               : "opacity-0 translate-y-2 scale-90"

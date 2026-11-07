@@ -1,328 +1,210 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
-import { BrandLogo } from "@/components/brand-logo";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Send,
-  MessageCircle,
+  Building,
+  PhoneCall,
+  Calendar,
+  CalendarCheck,
   CheckCircle2,
 } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { getContactSchema } from "@/lib/validations";
-import { Button } from "@/components/ui/button";
-import { FormField, FormInput, FormTextarea } from "@/components/ui/form-field";
 
 export function ContactSection({ dict }) {
-  const [sent, setSent] = React.useState(false);
-  const [submittedData, setSubmittedData] = React.useState(null);
-  const leftColRef = React.useRef(null);
-  const [minFormHeight, setMinFormHeight] = React.useState(null);
-
-  React.useEffect(() => {
-    if (!leftColRef.current) return;
-    const updateHeight = () => {
-      if (typeof window !== "undefined" && window.innerWidth >= 1024 && leftColRef.current) {
-        setMinFormHeight(leftColRef.current.offsetHeight);
-      } else {
-        setMinFormHeight(null);
-      }
-    };
-    updateHeight();
-    const observer = new ResizeObserver(updateHeight);
-    observer.observe(leftColRef.current);
-    window.addEventListener("resize", updateHeight);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updateHeight);
-    };
-  }, []);
-
-  const contactSchema = React.useMemo(() => getContactSchema(dict), [dict]);
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm({
-    resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: "",
-      phone: "",
-      query: "",
-    },
+  const [booked, setBooked] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    name: "",
+    phone: "",
+    date: "",
+    country: "Malaysia",
   });
 
-  const onSubmit = async (data) => {
-    // Simulate API submission
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setSubmittedData(data);
-    setSent(true);
-  };
-
-  const handleReset = () => {
-    reset();
-    setSent(false);
-    setSubmittedData(null);
-  };
-
-  const getWhatsAppDirectLink = () => {
-    if (!submittedData) return "https://wa.me/8801910030040";
-    const text = encodeURIComponent(
-      `Hello ISL Global,\nMy name is ${submittedData.name}.\nPhone: ${submittedData.phone}\nQuery: ${submittedData.query}`
-    );
-    return `https://wa.me/8801910030040?text=${text}`;
+  const handleBooking = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setBooked(true);
+    }, 700);
   };
 
   return (
-    <section id="contact" className="py-20 relative bg-transparent overflow-hidden">
-      {/* Subtle Contact Radial Atmosphere */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[950px] h-[400px] sm:h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.14)_0%,rgba(247,223,30,0.12)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.25)_0%,rgba(247,223,30,0.08)_50%,transparent_75%)] blur-3xl -z-10" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
-            <MapPin className="size-3.5" />
-            <span>{dict.contact.badge}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">
-            {dict.contact.title}
-          </h2>
-          <p className="text-foreground-secondary text-sm sm:text-base leading-relaxed">
-            {dict.contact.subtitle}
-          </p>
-        </div>
+    <section id="dhaka-office" className="py-24 bg-slate-50 dark:bg-navy-950 border-t border-slate-200/80 dark:border-white/10 relative transition-colors noise-overlay section-divider-gold">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left 6 Columns: Physical Office & Counselor Credentials */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-6 space-y-6"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 text-gold-700 dark:text-gold-400 text-xs font-bold uppercase tracking-wider border border-gold-500/30">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>{dict.contact.badge}</span>
+            </div>
 
-        {/* 2-Column Grid aligned to start so left side never stretches on form errors */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Left Column: Office Details with fixed gap that never expands */}
-          <div ref={leftColRef} className="flex flex-col gap-4">
-            {/* Address Card with Brand Logo */}
-            <div className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-6 shadow-2xs space-y-4 hover:bg-surface transition-colors">
-              <div className="flex items-center justify-between pb-4 border-b border-border">
-                <BrandLogo
-                  width={160}
-                  height={44}
-                  className="h-9 sm:h-10 w-auto object-contain"
-                />
-                <span className="text-[10px] font-extrabold uppercase tracking-wider bg-primary text-primary-foreground px-2.5 py-1 rounded-md shadow-2xs">
-                  {dict.contact.headOffice || "Head Office"}
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">
+              {dict.contact.title}
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+              {dict.contact.subtitle}
+            </p>
+
+            {/* Office Representation Image */}
+            <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border border-slate-200/80 dark:border-white/10 shadow-lg group">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+                alt="ISL Global Dhaka Counseling Headquarters"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-4">
+                <span className="text-xs font-bold text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-lg border border-white/20">
+                  📍 Panthapath, Square Hospital Crossing, Dhaka
                 </span>
               </div>
+            </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shrink-0 mt-0.5 shadow-2xs">
-                  <MapPin className="size-5" />
+            <div className="space-y-3.5 pt-1">
+              <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-sm flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-500 dark:text-gold-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Building className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-foreground">
-                    {dict.contact.addressTitle}
-                  </h4>
-                  <p className="text-xs text-foreground-secondary mt-1 leading-relaxed">
-                    {dict.contact.addressDesc}
-                  </p>
-                  <div className="mt-2 inline-flex items-center gap-1.5 text-xs text-foreground-secondary font-medium">
-                    {dict.contact.appointmentBadge}
+                  <h4 className="font-bold text-slate-900 dark:text-white text-sm">{dict.contact.officeTitle}</h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{dict.contact.officeAddress}</p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-sm flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <PhoneCall className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-white text-sm">{dict.contact.phoneTitle}</h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{dict.contact.phoneDesc}</p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-sm flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-500 dark:text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-white text-sm">{dict.contact.hoursTitle}</h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{dict.contact.hoursDesc}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right 6 Columns: Book Visit Slot Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-6"
+          >
+            <div className="glass-panel-luxury bg-white/95 dark:bg-white/5 border border-slate-200/80 dark:border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1">
+                {dict.contact.bookTitle}
+              </h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">
+                {dict.contact.bookSubtitle}
+              </p>
+
+              <form onSubmit={handleBooking} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-200 mb-1">
+                    {dict.contact.slotName}
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder={dict.contact.slotNamePlaceholder}
+                    className="glass-input-luxury w-full px-4 py-2.5 rounded-xl text-xs outline-none text-slate-900 dark:text-white placeholder-slate-400"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-200 mb-1">
+                      {dict.contact.slotPhone}
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder={dict.contact.slotPhonePlaceholder}
+                      className="glass-input-luxury w-full px-4 py-2.5 rounded-xl text-xs outline-none text-slate-900 dark:text-white placeholder-slate-400"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-200 mb-1">
+                      {dict.contact.slotDate}
+                    </label>
+                    <input
+                      type="date"
+                      required
+                      value={formData.date}
+                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                      className="glass-input-luxury w-full px-4 py-2.5 rounded-xl text-xs outline-none text-slate-900 dark:text-white"
+                    />
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Hotline Numbers & Premium WhatsApp Card */}
-            <div className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-6 flex items-start gap-4 shadow-2xs hover:bg-surface transition-colors">
-              <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shrink-0 shadow-2xs">
-                <Phone className="size-5" />
-              </div>
-              <div className="w-full">
-                <h4 className="text-sm font-bold text-foreground">
-                  {dict.contact.phoneTitle}
-                </h4>
-                <div className="flex flex-wrap items-center gap-3 mt-1.5">
-                  <a
-                    href="tel:+8801910030040"
-                    className="text-xs font-semibold text-foreground hover:text-primary transition-colors hover:underline"
-                  >
-                    +880 1910-030040
-                  </a>
-                  <span className="text-border">|</span>
-                  <a
-                    href="tel:+8801910030093"
-                    className="text-xs font-semibold text-foreground hover:text-primary transition-colors hover:underline"
-                  >
-                    +880 1910-030093
-                  </a>
-                </div>
-                {/* WhatsApp Action Button with Standard Outline Theme */}
-                <div className="mt-3">
-                  <a
-                    href="https://wa.me/8801910030040"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-alt hover:bg-surface hover:border-primary text-foreground px-3.5 py-2 text-xs font-semibold transition-colors shadow-2xs"
-                  >
-                    <MessageCircle className="size-4 text-emerald-500 shrink-0" />
-                    <span>WhatsApp: +880 1910-030040</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Email & Hours Card */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-5 shadow-2xs hover:bg-surface transition-colors">
-                <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground mb-3 shadow-2xs">
-                  <Mail className="size-4" />
-                </div>
-                <h4 className="text-xs font-bold text-foreground">
-                  {dict.contact.emailTitle}
-                </h4>
-                <a
-                  href="mailto:islglobaleducation@gmail.com"
-                  className="text-xs text-foreground-secondary hover:text-primary transition-colors block mt-1 break-all"
-                >
-                  islglobaleducation@gmail.com
-                </a>
-              </div>
-
-              <div className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-5 shadow-2xs hover:bg-surface transition-colors">
-                <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground mb-3 shadow-2xs">
-                  <Clock className="size-4" />
-                </div>
-                <h4 className="text-xs font-bold text-foreground">
-                  {dict.contact.hoursTitle}
-                </h4>
-                <p className="text-xs text-foreground-secondary mt-1">
-                  {dict.contact.hoursDesc}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Form Card matching initial left height, freely expanding on error */}
-          <div
-            style={{ minHeight: minFormHeight ? `${minFormHeight}px` : undefined }}
-            className="rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-7 shadow-2xs flex flex-col justify-between relative overflow-hidden"
-          >
-            {/* Subtle Top 1.5px Horizon Radiant Beam */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-sm h-[1.5px] bg-gradient-to-r from-transparent via-primary/50 dark:via-[#F7DF1E]/40 to-transparent pointer-events-none" />
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-1">
-                {dict.contact.messageBoxTitle}
-              </h3>
-              <p className="text-xs text-foreground-secondary mb-6">
-                {dict.contact.inquirySubtitle}
-              </p>
-            </div>
-
-            {sent ? (
-              <div className="p-6 rounded-xl bg-surface border border-border text-center space-y-4 my-auto animate-in fade-in-50 duration-200">
-                <div className="flex size-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 mx-auto">
-                  <CheckCircle2 className="size-7" />
-                </div>
                 <div>
-                  <h4 className="text-base font-bold text-foreground">
-                    {dict.contact.msgSent}
-                  </h4>
-                  <p className="text-xs text-foreground-secondary mt-1 max-w-sm mx-auto">
-                    {dict.contact.msgSentDetail}
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full sm:w-auto"
-                    asChild
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-200 mb-1">
+                    {dict.contact.slotDest}
+                  </label>
+                  <select
+                    value={formData.country}
+                    onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                    className="glass-input-luxury w-full px-4 py-2.5 rounded-xl text-xs outline-none cursor-pointer text-slate-900 dark:text-white"
                   >
-                    <a
-                      href={getWhatsAppDirectLink()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MessageCircle className="size-4 mr-2 text-emerald-500" />
-                      <span>{dict.contact.openWhatsApp}</span>
-                    </a>
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={handleReset}
-                    className="w-full sm:w-auto"
-                  >
-                    {dict.contact.sendAnother}
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="flex-1 flex flex-col justify-between space-y-4" noValidate>
-                <div className="space-y-4">
-                  <FormField
-                    id="contact-name"
-                    label={dict.contact.msgName}
-                    required
-                    error={errors.name?.message}
-                  >
-                    <FormInput
-                      id="contact-name"
-                      type="text"
-                      placeholder={dict.contact.msgNamePlaceholder || "Lubna Rahman"}
-                      hasError={Boolean(errors.name)}
-                      {...register("name")}
-                    />
-                  </FormField>
-
-                  <FormField
-                    id="contact-phone"
-                    label={dict.contact.msgPhone}
-                    required
-                    error={errors.phone?.message}
-                  >
-                    <FormInput
-                      id="contact-phone"
-                      type="tel"
-                      placeholder={dict.contact.phonePlaceholder || "01710-000000"}
-                      hasError={Boolean(errors.phone)}
-                      {...register("phone")}
-                    />
-                  </FormField>
-
-                  <FormField
-                    id="contact-query"
-                    label={dict.contact.msgQuery}
-                    required
-                    error={errors.query?.message}
-                  >
-                    <FormTextarea
-                      id="contact-query"
-                      rows={4}
-                      placeholder={dict.contact.queryPlaceholder || "e.g., I want to study..."}
-                      hasError={Boolean(errors.query)}
-                      {...register("query")}
-                    />
-                  </FormField>
+                    <option value="Malaysia" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">Malaysia</option>
+                    <option value="UK" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">United Kingdom</option>
+                    <option value="Canada" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">Canada</option>
+                    <option value="Australia" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">Australia</option>
+                    <option value="Europe" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">Europe / Schengen</option>
+                    <option value="USA" className="bg-white dark:bg-navy-900 text-slate-900 dark:text-white">United States</option>
+                  </select>
                 </div>
 
-                <div className="pt-2 mt-auto">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="w-full"
-                  >
-                    <Send className="size-4 mr-2" />
-                    {isSubmitting ? dict.eligibility.submitting : dict.contact.msgSend}
-                  </Button>
-                </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs uppercase tracking-wider rounded-xl transition gold-button-glow flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
+                >
+                  <CalendarCheck className="w-4 h-4" />
+                  <span>{loading ? dict.contact.slotSubmitting : dict.contact.slotSubmit}</span>
+                </button>
               </form>
-            )}
-          </div>
+
+              <AnimatePresence>
+                {booked && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-4 p-3 bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-500 rounded-xl text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                    <span>{dict.contact.slotSuccess}</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

@@ -37,6 +37,19 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-destructive: var(--destructive);
 
+  --color-navy-950: #030813;
+  --color-navy-900: #061325;
+  --color-navy-850: #0A1D37;
+  --color-navy-800: #0F2B52;
+  --color-navy-700: #183D73;
+  --color-navy-600: #2563EB;
+
+  --color-gold-300: #FDE68A;
+  --color-gold-400: #F5BE47;
+  --color-gold-500: #E5A93C;
+  --color-gold-600: #C98A26;
+  --color-gold-700: #9E6714;
+
   --font-sans: var(--font-inter), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sans);
 
@@ -48,82 +61,79 @@
 }
 
 /* ==========================================================================
-   LIGHT THEME (PRIMARY YELLOW #F7DF1E)
+   LIGHT THEME (CLEAN EDITORIAL PORCELAIN & LUXURY GOLD)
    ========================================================================== */
 :root {
   --background: #FAF9FD;
   --surface: #FFFFFF;
-  --surface-alt: #F2F2FA;
+  --surface-alt: #F1F5F9;
   --card: #FFFFFF;
-  --card-foreground: #15162B;
+  --card-foreground: #0F172A;
   --popover: #FFFFFF;
-  --popover-foreground: #15162B;
-  --border: #E1E2F0;
-  --input: #E1E2F0;
+  --popover-foreground: #0F172A;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
 
-  --foreground: #15162B;
-  --foreground-secondary: #55577A;
-  --foreground-muted: #8A8CA8;
+  --foreground: #0F172A;
+  --foreground-secondary: #475569;
+  --foreground-muted: #64748B;
 
-  /* Primary Yellow: #F7DF1E (exact same as dark mode) */
-  --primary: #F7DF1E;
-  --primary-hover: #E5CE16;
-  --primary-soft: #FEF9C3;
-  --primary-foreground: #0F1020;
-  --on-primary: #0F1020;
+  /* Primary Amber Gold: #D97706 */
+  --primary: #D97706;
+  --primary-hover: #B45309;
+  --primary-soft: #FEF3C7;
+  --primary-foreground: #FFFFFF;
+  --on-primary: #FFFFFF;
 
   /* Secondary & Muted */
-  --secondary: #F2F2FA;
-  --secondary-foreground: #0F1020;
-  --muted: #F2F2FA;
-  --muted-foreground: #55577A;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #F8FAFC;
+  --muted-foreground: #64748B;
 
-  /* Accent: #F7DF1E */
-  --accent: #F7DF1E;
-  --accent-foreground: #0F1020;
+  /* Accent: Gold */
+  --accent: #D97706;
+  --accent-foreground: #FFFFFF;
 
-  --destructive: #E5242A;
-  --ring: #F7DF1E;
+  --destructive: #DC2626;
+  --ring: #D97706;
   --radius: 0.75rem;
 }
 
 /* ==========================================================================
-   DARK THEME
+   DARK THEME (DEEP SAPPHIRE & RADIANT GOLD)
    ========================================================================== */
 .dark {
-  --background: #0F1020;
-  --surface: #181A30;
-  --surface-alt: #131428;
-  --card: #181A30;
-  --card-foreground: #EEEFF8;
-  --popover: #181A30;
-  --popover-foreground: #EEEFF8;
-  --border: #2A2D4A;
-  --input: #2A2D4A;
+  --background: #030813;
+  --surface: #061325;
+  --surface-alt: #0A1D37;
+  --card: #0A1D37;
+  --card-foreground: #F8FAFC;
+  --popover: #061325;
+  --popover-foreground: #F8FAFC;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.14);
 
-  --foreground: #EEEFF8;
-  --foreground-secondary: #B3B5D1;
-  --foreground-muted: #7F82A3;
+  --foreground: #F8FAFC;
+  --foreground-secondary: #CBD5E1;
+  --foreground-muted: #94A3B8;
 
-  /* Primary in dark mode: JS Yellow #F7DF1E */
-  --primary: #F7DF1E;
-  --primary-hover: #E5CE16;
-  --primary-soft: #262412;
-  --primary-foreground: #0F1020;
-  --on-primary: #0F1020;
+  --primary: #F5BE47;
+  --primary-hover: #E5A93C;
+  --primary-soft: rgba(245, 190, 71, 0.18);
+  --primary-foreground: #030813;
+  --on-primary: #030813;
 
-  /* Secondary & Muted */
-  --secondary: #181A30;
-  --secondary-foreground: #EEEFF8;
-  --muted: #131428;
-  --muted-foreground: #7F82A3;
+  --secondary: #0A1D37;
+  --secondary-foreground: #F8FAFC;
+  --muted: #061325;
+  --muted-foreground: #94A3B8;
 
-  /* Gold Accent */
-  --accent: #D8B661;
-  --accent-foreground: #0F1020;
+  --accent: #F5BE47;
+  --accent-foreground: #030813;
 
-  --destructive: #F35369;
-  --ring: #F7DF1E;
+  --destructive: #F87171;
+  --ring: #F5BE47;
   --radius: 0.75rem;
 }
 
@@ -404,4 +414,284 @@ body {
 .butterfly-flying {
   animation: butterfly-takeoff 1.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
   pointer-events: none;
+}
+
+/* ==========================================================================
+   LUXURY PORTAL TOKENS & UTILITIES
+   ========================================================================== */
+.hero-cinematic-mask {
+  background: radial-gradient(circle at 75% 20%, rgba(217, 119, 6, 0.15) 0%, rgba(248, 250, 252, 0.7) 42%, rgba(248, 250, 252, 0.85) 90%),
+              linear-gradient(180deg, rgba(248, 250, 252, 0.6) 0%, rgba(248, 250, 252, 0.85) 85%, rgba(248, 250, 252, 0.95) 100%);
+}
+.dark .hero-cinematic-mask {
+  background: radial-gradient(circle at 75% 20%, rgba(229, 169, 60, 0.2) 0%, rgba(6, 19, 37, 0.75) 42%, rgba(3, 8, 19, 0.85) 85%),
+              linear-gradient(180deg, rgba(3, 8, 19, 0.55) 0%, rgba(3, 8, 19, 0.82) 80%, rgba(3, 8, 19, 0.95) 100%);
+}
+
+.glass-panel-luxury {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.95) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.dark .glass-panel-luxury {
+  background: linear-gradient(135deg, rgba(15, 43, 82, 0.45) 0%, rgba(7, 21, 43, 0.65) 100%);
+  border: 1px solid rgba(245, 190, 71, 0.18);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-input-luxury {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #0F172A;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+}
+.glass-input-luxury:focus {
+  border-color: #D97706;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
+}
+.dark .glass-input-luxury {
+  background: rgba(6, 19, 37, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+.dark .glass-input-luxury:focus {
+  border-color: #E5A93C;
+  background: rgba(10, 29, 55, 0.9);
+  box-shadow: 0 0 0 3px rgba(229, 169, 60, 0.25);
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #FDE68A 0%, #E5A93C 50%, #F5BE47 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-button-glow {
+  box-shadow: 0 8px 30px -4px rgba(229, 169, 60, 0.45);
+}
+.gold-button-glow:hover {
+  box-shadow: 0 12px 35px -2px rgba(245, 190, 71, 0.65);
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@media (min-width: 1024px) {
+  .roadmap-step::after {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #E5A93C 0%, rgba(229, 169, 60, 0.15) 100%);
+    z-index: 1;
+  }
+  .roadmap-step:last-child::after {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   PREMIUM POLISH — FLOATING PARTICLES
+   ========================================================================== */
+@keyframes particle-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  25% { transform: translate(40px, -60px) scale(1.2); opacity: 0.7; }
+  50% { transform: translate(-30px, -120px) scale(0.9); opacity: 0.5; }
+  75% { transform: translate(50px, -80px) scale(1.1); opacity: 0.3; }
+}
+
+@keyframes particle-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  33% { transform: translate(-50px, -90px) scale(1.15); opacity: 0.6; }
+  66% { transform: translate(40px, -60px) scale(0.85); opacity: 0.4; }
+}
+
+@keyframes particle-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50% { transform: translate(60px, -100px) scale(1.3); opacity: 0.2; }
+}
+
+.particle-1 { animation: particle-float-1 18s ease-in-out infinite; }
+.particle-2 { animation: particle-float-2 22s ease-in-out infinite 2s; }
+.particle-3 { animation: particle-float-3 26s ease-in-out infinite 4s; }
+
+/* ==========================================================================
+   ANIMATED GRADIENT BORDER (for premium cards)
+   ========================================================================== */
+@keyframes gradient-border-spin {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.premium-card-glow {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.premium-card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--angle), transparent 60%, rgba(229, 169, 60, 0.4) 80%, transparent 100%);
+  animation: gradient-border-spin 6s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.premium-card-glow:hover::before {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   PREMIUM SECTION DIVIDER — GOLD WAVE
+   ========================================================================== */
+.section-divider-gold {
+  position: relative;
+}
+.section-divider-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #E5A93C 30%, #F5BE47 50%, #E5A93C 70%, transparent 100%);
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   PREMIUM DEPTH SHADOWS
+   ========================================================================== */
+.shadow-luxury {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 10px 15px -3px rgba(0, 0, 0, 0.06),
+    0 30px 60px -10px rgba(0, 0, 0, 0.08);
+}
+.dark .shadow-luxury {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 30px 60px -10px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-luxury-hover {
+  box-shadow:
+    0 8px 20px -4px rgba(229, 169, 60, 0.15),
+    0 25px 50px -12px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(229, 169, 60, 0.08);
+}
+.dark .shadow-luxury-hover {
+  box-shadow:
+    0 8px 20px -4px rgba(229, 169, 60, 0.25),
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(245, 190, 71, 0.15);
+}
+
+/* ==========================================================================
+   PREMIUM GLASS CARD v2 (Frosted Editorial)
+   ========================================================================== */
+.glass-card-premium {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.97) 100%);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-premium:hover {
+  box-shadow: 0 30px 60px -15px rgba(229, 169, 60, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border-color: rgba(229, 169, 60, 0.35);
+}
+.dark .glass-card-premium {
+  background: linear-gradient(135deg, rgba(15, 43, 82, 0.5) 0%, rgba(6, 19, 37, 0.7) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.dark .glass-card-premium:hover {
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(245, 190, 71, 0.08);
+  border-color: rgba(245, 190, 71, 0.25);
+}
+
+/* ==========================================================================
+   GOLD SHIMMER TEXT (Animated)
+   ========================================================================== */
+@keyframes gold-shimmer-move {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer-animated {
+  background: linear-gradient(90deg, #C98A26 0%, #FDE68A 25%, #E5A93C 50%, #FDE68A 75%, #C98A26 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shimmer-move 4s linear infinite;
+}
+
+/* ==========================================================================
+   SECTION BACKGROUND TEXTURE (Clean editorial baseline)
+   ========================================================================== */
+.noise-overlay::after {
+  display: none;
+}
+
+/* ==========================================================================
+   PREMIUM BADGE GLOW PILL
+   ========================================================================== */
+.badge-glow {
+  position: relative;
+  overflow: hidden;
+}
+.badge-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 40%, rgba(245, 190, 71, 0.15) 50%, transparent 60%);
+  animation: badge-shine 3s ease-in-out infinite;
+}
+
+@keyframes badge-shine {
+  0%, 100% { transform: translateX(-100%) rotate(25deg); }
+  50% { transform: translateX(100%) rotate(25deg); }
+}
+
+/* ==========================================================================
+   IMAGE REVEAL ON HOVER (Cinematic zoom + filter)
+   ========================================================================== */
+.img-cinematic {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
+  filter: saturate(0.85) brightness(0.95);
+}
+.group:hover .img-cinematic {
+  transform: scale(1.08);
+  filter: saturate(1.1) brightness(1.02);
 }

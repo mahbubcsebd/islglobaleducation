@@ -29,11 +29,11 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${inter.variable} ${notoSansBengali.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans antialiased transition-colors duration-200">
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans antialiased selection:bg-gold-500 selection:text-navy-950 transition-colors duration-300">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem={false}
+          enableSystem
           disableTransitionOnChange={false}
         >
           <ChunkErrorHandler />

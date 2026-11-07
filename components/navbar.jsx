@@ -2,12 +2,11 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Menu, X, PhoneCall } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { LanguageSwitcher } from "@/components/language-switcher";
+import { ArrowRight, Menu, X, MessageCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { BrandLogo } from "@/components/brand-logo";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar({ lang, dict }) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -24,108 +23,122 @@ export function Navbar({ lang, dict }) {
   }, []);
 
   const navLinks = [
-    { label: dict.nav.destinations, href: `#destinations` },
-    { label: dict.nav.services, href: `#services` },
-    { label: dict.nav.whyUs, href: `#why-us` },
-    { label: dict.nav.process, href: `#process` },
-    { label: dict.nav.eligibility, href: `#eligibility` },
-    { label: dict.nav.faq, href: `#faq` },
-    { label: dict.nav.contact, href: `#contact` },
+    { label: dict.nav.destinations, href: "#destinations" },
+    { label: dict.nav.eligibility, href: "#eligibility" },
+    { label: dict.nav.calculator, href: "#calculator" },
+    { label: dict.nav.successWall, href: "#success-wall" },
+    { label: dict.nav.comparison, href: "#comparison" },
+    { label: dict.nav.roadmap, href: "#roadmap" },
+    { label: dict.nav.dhakaOffice, href: "#dhaka-office" },
   ];
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         isScrolled || mobileMenuOpen
-          ? "border-b border-border bg-background/95 dark:bg-[#0F1020]/90 backdrop-blur-xl shadow-md"
-          : "border-b border-border/70 bg-background/80 dark:bg-[#0F1020]/80 backdrop-blur-xl shadow-2xs"
+          ? "bg-white/95 dark:bg-navy-950/95 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/15 shadow-lg dark:shadow-xl"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 sm:h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo without any background or border */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        
+        {/* Adaptive Brand Logo */}
         <Link
           href={`/${lang}`}
-          className="group flex items-center transition-transform hover:scale-[1.02]"
+          className="flex items-center shrink-0 transition-transform hover:scale-105"
         >
           <BrandLogo
             priority
+            forceLight={false}
             className="h-9 sm:h-10 md:h-11 w-auto object-contain"
           />
         </Link>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+        {/* Desktop Navigation Menu */}
+        <nav className="hidden xl:flex items-center gap-3.5 2xl:gap-6 text-xs xl:text-[13px] font-semibold text-slate-700 dark:text-slate-200">
           {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="px-2.5 py-1.5 text-sm font-medium text-foreground-secondary hover:text-foreground rounded-md hover:bg-surface-alt transition-colors whitespace-nowrap"
+              className="hover:text-amber-600 dark:hover:text-gold-400 transition-colors py-1 whitespace-nowrap"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* Right side controls (Desktop) */}
-        <div className="hidden lg:flex items-center gap-2.5">
+        {/* Desktop Right Side Controls: Language, Theme & CTA */}
+        <div className="hidden xl:flex items-center gap-2.5 shrink-0">
           <LanguageSwitcher currentLang={lang} />
           <ThemeToggle />
-          <Button
-            size="sm"
-            asChild
+
+          <Link
+            href="#eligibility"
+            className="relative group overflow-hidden px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-500 via-gold-400 to-amber-500 text-navy-950 gold-button-glow transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-1.5 shrink-0 whitespace-nowrap shadow-md"
           >
-            <Link href="#eligibility">
-              <PhoneCall className="size-3.5 mr-1.5" />
-              {dict.nav.bookConsultation}
-            </Link>
-          </Button>
+            <span className="relative z-10">{dict.nav.bookConsultation}</span>
+            <ArrowRight className="w-3.5 h-3.5 relative z-10 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
-        {/* Mobile & Tablet controls + trigger (< lg) */}
-        <div className="flex lg:hidden items-center gap-2">
+        {/* Tablet & Mobile Controls Trigger */}
+        <div className="flex xl:hidden items-center gap-2">
           <LanguageSwitcher currentLang={lang} />
           <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="icon-sm"
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            className="p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition border border-slate-200 dark:border-white/10 cursor-pointer"
+            aria-label="Toggle Mobile Menu"
           >
-            {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </Button>
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
+
       </div>
 
-      {/* Mobile & Tablet Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-border bg-background px-4 sm:px-6 pt-2 pb-6 space-y-4 animate-in slide-in-from-top-2 duration-150">
-          <div className="flex flex-col space-y-1 pt-2">
+      {/* Mobile Drawer Menu with Framer Motion */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="xl:hidden border-t border-slate-200 dark:border-white/10 bg-white/98 dark:bg-navy-950/98 px-6 py-6 space-y-3.5 backdrop-blur-2xl overflow-hidden shadow-2xl"
+          >
             {navLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-sm font-medium text-foreground-secondary hover:text-foreground rounded-lg hover:bg-surface-alt transition-colors"
+                className="block py-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-amber-600 dark:hover:text-gold-300 transition-colors"
               >
                 {item.label}
               </Link>
             ))}
-          </div>
-          <div className="pt-3 border-t border-border">
-            <Button
-              size="default"
-              className="w-full justify-center"
-              asChild
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <Link href="#eligibility">
-                <PhoneCall className="size-4 mr-1.5" />
-                {dict.nav.bookConsultation}
+
+            <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-col gap-3">
+              <Link
+                href="#eligibility"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center py-3 rounded-xl bg-gradient-to-r from-gold-500 via-gold-400 to-amber-500 text-navy-950 font-bold text-xs uppercase tracking-wider gold-button-glow flex items-center justify-center gap-2"
+              >
+                <span>{dict.nav.bookConsultation}</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
-            </Button>
-          </div>
-        </div>
-      )}
+              <a
+                href="https://wa.me/8801910030040"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full text-center py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>{lang === "bn" ? "সরাসরি হোয়াটসঅ্যাপ করুন" : "WhatsApp Directly"}</span>
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

@@ -1,19 +1,6 @@
 import { cn } from 'cn';
 import { Sparkles } from 'lucide-react';
 
-/**
- * MarketingVideo Component
- *
- * Clean, lightweight, and modern YouTube video showcase component.
- * Directly renders a responsive YouTube iframe player using the provided videoId prop.
- *
- * @param {string} videoId - YouTube video ID (e.g. "LXb3EKWsInQ" or custom ISL Global video ID)
- * @param {string} [title] - Section heading
- * @param {string} [subtitle] - Section description
- * @param {string} [badge] - Category or status pill (e.g., "Video Guide", "ভিডিও গাইডেন্স")
- * @param {string} [className] - Additional wrapper class
- */
-
 export function MarketingVideo({
   videoId = 'LXb3EKWsInQ',
   title = 'Watch How We Guide Students to Top Global Universities',
@@ -29,22 +16,22 @@ export function MarketingVideo({
       )}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header with high contrast */}
         {(badge || title || subtitle) && (
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             {badge && (
-              <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
-                <Sparkles className="size-3.5" />
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-700 dark:text-gold-300 px-3.5 py-1 text-xs font-bold mb-3 shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 text-gold-500 dark:text-gold-400" />
                 <span>{badge}</span>
               </div>
             )}
             {title && (
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3 leading-tight">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-xs sm:text-sm text-foreground-secondary leading-relaxed max-w-xl mx-auto">
+              <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
                 {subtitle}
               </p>
             )}
@@ -54,20 +41,20 @@ export function MarketingVideo({
         {/* Video Player Frame with Sleek Border & Ambient Lighting */}
         <div className="relative mx-auto max-w-4xl">
           {/* Subtle Ambient Backlight Glow */}
-          <div className="pointer-events-none absolute -inset-2 bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.25)_0%,rgba(247,223,30,0.08)_45%,transparent_75%)] opacity-70 blur-2xl rounded-3xl" />
+          <div className="pointer-events-none absolute -inset-2 bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.35)_0%,rgba(247,223,30,0.12)_45%,transparent_75%)] opacity-70 blur-2xl rounded-3xl" />
 
           {/* 1px Horizon Top Accent Line */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-md h-[1.5px] bg-gradient-to-r from-transparent via-primary/50 dark:via-[#F7DF1E]/40 to-transparent z-20 pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-md h-[1.5px] bg-gradient-to-r from-transparent via-gold-400/60 to-transparent z-20 pointer-events-none" />
 
           {/* Direct Responsive YouTube Iframe Player */}
-          <div className="relative aspect-video w-full rounded-xl sm:rounded-2xl border border-border/80 dark:border-white/10 bg-black shadow-2xl overflow-hidden">
+          <div className="relative aspect-video w-full rounded-2xl border border-white/15 bg-black shadow-2xl overflow-hidden">
             <iframe
               src={`https://www.youtube.com/embed/${videoId}`}
               title={title || 'ISL Global Education Video'}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               loading="lazy"
-              className="w-full h-full border-0 rounded-xl sm:rounded-2xl"
+              className="w-full h-full border-0 rounded-2xl"
             />
           </div>
         </div>

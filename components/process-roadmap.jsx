@@ -1,11 +1,8 @@
+"use client";
+
 import * as React from "react";
-import {
-  Compass,
-  FileCheck,
-  Stamp,
-  Plane,
-  ArrowRight,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { Compass, FileCheck, Stamp, Plane } from "lucide-react";
 
 export function ProcessRoadmap({ dict }) {
   const steps = [
@@ -14,81 +11,88 @@ export function ProcessRoadmap({ dict }) {
       title: dict.process.step1.title,
       desc: dict.process.step1.desc,
       icon: Compass,
+      color: "from-gold-400 to-amber-600 text-navy-950",
     },
     {
       step: dict.process.step2.step,
       title: dict.process.step2.title,
       desc: dict.process.step2.desc,
       icon: FileCheck,
+      color: "from-gold-400 to-amber-600 text-navy-950",
     },
     {
       step: dict.process.step3.step,
       title: dict.process.step3.title,
       desc: dict.process.step3.desc,
       icon: Stamp,
+      color: "from-gold-400 to-amber-600 text-navy-950",
     },
     {
       step: dict.process.step4.step,
       title: dict.process.step4.title,
       desc: dict.process.step4.desc,
       icon: Plane,
+      color: "from-emerald-400 to-teal-500 text-navy-950",
     },
   ];
 
   return (
-    <section id="process" className="py-20 relative bg-transparent overflow-hidden">
-      {/* Subtle Process Roadmap Radial Atmosphere */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[950px] h-[380px] sm:h-[480px] bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12)_0%,rgba(247,223,30,0.12)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(44,58,136,0.22)_0%,rgba(247,223,30,0.08)_50%,transparent_75%)] blur-3xl -z-10" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="roadmap" className="py-24 bg-slate-50 dark:bg-navy-900 border-t border-slate-200 dark:border-white/10 relative overflow-hidden transition-colors noise-overlay section-divider-gold">
+      {/* Airport Departure / Flight Route Background Image with Mask */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80"
+          alt="International Flight Departure"
+          className="w-full h-full object-cover opacity-10 dark:opacity-15 mix-blend-luminosity scale-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/95 via-slate-50/80 to-slate-50/95 dark:from-navy-900/95 dark:via-navy-900/80 dark:to-navy-900/95"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
-            <Compass className="size-3.5" />
-            <span>{dict.process.badge}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-xs font-bold text-amber-700 dark:text-gold-400 uppercase tracking-widest bg-amber-500/10 dark:bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 dark:border-gold-500/30">
+            {dict.process.badge}
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-3">
             {dict.process.title}
           </h2>
-          <p className="text-foreground-secondary text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-2">
             {dict.process.subtitle}
           </p>
         </div>
 
         {/* 4 Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {steps.map((item, i) => {
             const IconComponent = item.icon;
             return (
-              <div
+              <motion.div
                 key={i}
-                className="group relative rounded-xl border border-border/80 bg-surface/85 dark:bg-surface/85 backdrop-blur-md p-6 transition-all duration-300 hover:border-primary hover:bg-surface hover:shadow-xl shadow-2xs flex flex-col justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.12 }}
+                className="roadmap-step relative flex flex-col items-center text-center group"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-2xl font-bold text-primary">
-                      {item.step}
-                    </span>
-                    <div className="flex size-10 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-2xs transition-transform duration-200 group-hover:scale-105">
-                      <IconComponent className="size-5" />
-                    </div>
-                  </div>
-
-                  <h3 className="text-base font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-foreground-secondary leading-relaxed">
-                    {item.desc}
-                  </p>
+                <div
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-xl font-black mb-6 shadow-xl z-10 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  {item.step}
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-[11px] font-semibold text-primary">
-                  <span>{dict.process.phase || "Phase"} {dict.process.phases?.[i] || i + 1}</span>
-                  <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
-                </div>
-              </div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-gold-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-w-xs">
+                  {item.desc}
+                </p>
+              </motion.div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

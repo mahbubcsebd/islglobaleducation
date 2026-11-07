@@ -109,14 +109,14 @@ export function EligibilityForm({ lang, dict }) {
               />
             </div>
 
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-gold-500 text-navy-950 px-3.5 py-1 text-xs font-bold shadow-2xs mb-3">
               <Sparkles className="size-3.5" />
               <span>{dict.eligibility.badge}</span>
             </div>
-            <h2 className="text-xl sm:text-3xl font-extrabold tracking-tight text-foreground mb-2.5">
+            <h2 className="text-xl sm:text-3xl font-extrabold tracking-tight text-white mb-2.5">
               {dict.eligibility.title}
             </h2>
-            <p className="text-xs sm:text-sm text-foreground-secondary leading-relaxed max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
               {dict.eligibility.subtitle}
             </p>
           </div>
@@ -127,10 +127,10 @@ export function EligibilityForm({ lang, dict }) {
                 <CheckCircle2 className="size-8" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-2">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   {dict.eligibility.successTitle}
                 </h3>
-                <p className="text-sm text-foreground-secondary leading-relaxed">
+                <p className="text-sm text-slate-300 leading-relaxed">
                   {dict.eligibility.successMsg}
                 </p>
               </div>
@@ -332,13 +332,13 @@ export function EligibilityForm({ lang, dict }) {
                   {isSubmitting ? dict.eligibility.submitting : dict.eligibility.submitBtn}
                 </Button>
 
-                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-foreground-secondary">
-                  <div className="flex items-center gap-1.5 rounded-md border border-border/70 bg-background/50 px-2.5 py-1 shadow-2xs">
-                    <Clock className="size-3.5 text-primary shrink-0" />
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-slate-300">
+                  <div className="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 shadow-2xs">
+                    <Clock className="size-3.5 text-gold-400 shrink-0" />
                     <span>{dict.eligibility.response2Hours || "Response in 2 Hours"}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 rounded-md border border-border/70 bg-background/50 px-2.5 py-1 shadow-2xs">
-                    <CheckCircle2 className="size-3.5 text-emerald-500 shrink-0" />
+                  <div className="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2.5 py-1 shadow-2xs">
+                    <CheckCircle2 className="size-3.5 text-emerald-400 shrink-0" />
                     <span>{dict.eligibility.freeConsultation || "100% Free Consultation"}</span>
                   </div>
                 </div>
